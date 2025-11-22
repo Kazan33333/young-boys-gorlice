@@ -111,7 +111,22 @@ document.addEventListener("DOMContentLoaded", function () {
             { date: "29.12.2024", team: "Young Boys Gorlice - Hanmart Gorlice", score: "2 - 5", scorers: "Kacper Wójtowicz, Przemysław Piecuch" },
             { date: "05.01.2025", team: "Silvestria - Young Boys Gorlice", score: "2 - 4", scorers: "Krzysztof Kazanowski, Filip Kucharkowski, Kacper Wójtowicz, Bartłomiej Knych" },
             { date: "05.01.2024", team: "Young Boys Gorlice - LKS Łużna", score: "2 - 4", scorers: "Kacper Wójtowicz, Kacper Szpyrka" },
-        ]
+        ],
+        "2025/26": [
+            { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "To be played", scorers: "" },
+            { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "To be played", scorers: "" },
+            { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "To be played", scorers: "" },
+            { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "To be played", scorers: "" },
+            { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "To be played", scorers: "" },
+            { date: "28.12.2025", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "To be played", scorers: "" },
+            { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "To be played", scorers: "" }
+]
+
     };
 
     const tableBody = document.getElementById("resultsTableBody");
@@ -168,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const defaultSeason = "2024/25";
+    const defaultSeason = "2025/26";
     seasonButton.textContent = defaultSeason;
     updateTable(defaultSeason);
 });
