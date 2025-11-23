@@ -113,18 +113,18 @@ document.addEventListener("DOMContentLoaded", function () {
             { date: "05.01.2024", team: "Young Boys Gorlice - LKS Łużna", score: "2 - 4", scorers: "Kacper Wójtowicz, Kacper Szpyrka" },
         ],
         "2025/26": [
-            { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "To be played", scorers: "" },
-            { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "To be played", scorers: "" },
-            { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "To be played", scorers: "" },
-            { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "To be played", scorers: "" },
-            { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "To be played", scorers: "" },
-            { date: "28.12.2025", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "To be played", scorers: "" },
-            { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "To be played", scorers: "" }
+            { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+            { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "", scorers: "" },
+            { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
+            { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "", scorers: "" },
+            { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "", scorers: "" },
+            { date: "28.12.2025", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "", scorers: "" }
         ]
     };
 
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const row = `<tr class="match-row" data-index="${index}">
                             <td>${match.date}</td>
                             <td>${highlightedTeam}</td>
-                            <td style="color: ${scoreColor};">${match.score}</td>
+                            <td style="color: ${scoreColor};">${match.score ? match.score : `<span data-i18n="table.toBePlayed">${translations[currentLang]["table.toBePlayed"]}</span>`}</td>
                          </tr>
                          <tr class="scorers-row" data-index="${index}" style="display: none;">
                             <td colspan="3">⚽ <span class="scorers-text">${match.scorers ? match.scorers : `<span data-i18n="table.noData">${translations[currentLang]["table.noData"]}</span>`}</span></td>

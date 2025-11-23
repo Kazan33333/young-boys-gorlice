@@ -10,7 +10,8 @@ const translations = {
         "table.noScorers": "No scorers",
         "table.team": "Team",
         "table.G": "G",
-        "table.noData": "No data"
+        "table.noData": "No data",
+        "table.toBePlayed": "To be played"
     },
     pl: {
         "navbar.history": "Historia",
@@ -22,7 +23,8 @@ const translations = {
         "table.score": "Wynik",
         "table.team": "Drużyna",
         "table.G": "B",
-        "table.noData": "Brak danych"
+        "table.noData": "Brak danych",
+        "table.toBePlayed": "Mecz do rozegrania"
     }
 };
 
