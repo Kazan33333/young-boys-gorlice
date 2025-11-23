@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
             { date: "05.01.2024", team: "Young Boys Gorlice - LKS Łużna", score: "2 - 4", scorers: "Kacper Wójtowicz, Kacper Szpyrka" },
         ],
         "2025/26": [
-            { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "", scorers: "" },
-            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+            { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "5 - 1", scorers: "Radosław Gucwa" },
+            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x2, Filip Kucharkowski" },
             { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
             { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "", scorers: "" },
             { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "", scorers: "" },
