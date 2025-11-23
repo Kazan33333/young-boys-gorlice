@@ -125,8 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
             { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "To be played", scorers: "" },
             { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "To be played", scorers: "" },
             { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "To be played", scorers: "" }
-]
-
+        ]
     };
 
     const tableBody = document.getElementById("resultsTableBody");
@@ -264,6 +263,15 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: 10, team: "LKS Kobylanka", matches: 11, points: 8, balance: "12-35" },
             { position: 11, team: "Grzmotomocni", matches: 11, points: 3, balance: "28-61" },
             { position: 12, team: "Ogień Sękowa", matches: 11, points: 0, balance: "4-82" },
+        ],
+        "2025/26": [
+            { position: 1, team: "Redlions", matches: 0, points: 0, balance: "0-0" },
+            { position: 2, team: "FC Melina", matches: 0, points: 0, balance: "0-0" },
+            { position: 3, team: "Mongoły", matches: 0, points: 0, balance: "0-0" },
+            { position: 4, team: "MK Marek Kiełtyka Ubezpieczenia Gorlice", matches: 0, points: 0, balance: "0-0" },
+            { position: 5, team: "Silvestria", matches: 0, points: 0, balance: "0-0" },
+            { position: 6, team: "Young Boys", matches: 0, points: 0, balance: "0-0" },
+            { position: 7, team: "Hanmart", matches: 0, points: 0, balance: "0-0" }
         ]
     };
 
@@ -275,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "2022/23": "images/silver-medal-svgrepo-com.svg",
         "2023/24": "images/fourth-place.svg",
         "2024/25": "images/bronze-medal-svgrepo-com.svg",
+        "2025/26": "images/pedestal-podium-svgrepo-com.svg",
     };
 
     function loadStandings(season) {
