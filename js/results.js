@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    loadStandings("2024/25");
-    updateMedal("2024/25");
-    updatePdfLink("2024/25");
+    loadStandings("2025/26");
+    updateMedal("2025/26");
+    updatePdfLink("2025/26");
 });
