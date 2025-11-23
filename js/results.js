@@ -114,14 +114,14 @@ document.addEventListener("DOMContentLoaded", function () {
         ],
         "2025/26": [
             { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "5 - 1", scorers: "Radosław Gucwa" },
-            { date: "23.11.2025", team: "Young Boys Gorlice - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x2, Filip Kucharkowski" },
+            { date: "23.11.2025", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x2, Filip Kucharkowski" },
             { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
             { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "", scorers: "" },
             { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "", scorers: "" },
             { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
             { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "", scorers: "" },
             { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "", scorers: "" },
-            { date: "28.12.2025", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Young Boys Gorlice", score: "", scorers: "" },
+            { date: "28.12.2025", team: "MK Ubezpieczenia Gorlice - Young Boys Gorlice", score: "", scorers: "" },
             { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "", scorers: "" },
             { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
             { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "", scorers: "" }
@@ -265,13 +265,13 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: 12, team: "Ogień Sękowa", matches: 11, points: 0, balance: "4-82" },
         ],
         "2025/26": [
-            { position: 1, team: "Redlions", matches: 0, points: 0, balance: "0-0" },
-            { position: 2, team: "FC Melina", matches: 0, points: 0, balance: "0-0" },
-            { position: 3, team: "Mongoły", matches: 0, points: 0, balance: "0-0" },
-            { position: 4, team: "MK Marek Kiełtyka Ubezpieczenia Gorlice", matches: 0, points: 0, balance: "0-0" },
-            { position: 5, team: "Silvestria", matches: 0, points: 0, balance: "0-0" },
-            { position: 6, team: "Young Boys", matches: 0, points: 0, balance: "0-0" },
-            { position: 7, team: "Hanmart", matches: 0, points: 0, balance: "0-0" }
+            { position: 1, team: "Hanmart", matches: 2, points: 6, balance: "8-4" },
+            { position: 2, team: "FC Melina", matches: 1, points: 3, balance: "4-1" },
+            { position: 3, team: "Mongoły", matches: 2, points: 3, balance: "7-5" },
+            { position: 4, team: "Silvestria", matches: 2, points: 3, balance: "6-7" },
+            { position: 5, team: "Young Boys Gorlice", matches: 2, points: 3, balance: "4-7" },
+            { position: 6, team: "MK Ubezpieczenia Gorlice", matches: 2, points: 0, balance: "5-7" },
+            { position: 7, team: "Redlions", matches: 1, points: 0, balance: "1-4" }
         ]
     };
 
