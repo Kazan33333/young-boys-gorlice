@@ -70,7 +70,7 @@ html {
 }
 
 .language-active {
-  color: gold;
+  color: gold !important;
 }
 
 .languages-text {
