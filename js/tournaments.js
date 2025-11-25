@@ -111,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const seasonMedals = {
-        "2025 - Turniej Futsal": "images/.svg",
-        "2021 - Turniej Małego Pola": "images/bronze-medal-svgrepo-com.svg",
-        "2019 - Turniej Małego Pola": "images/.svg",
+        "2025 - Turniej Futsal": "images/pedestal-podium.svg",
+        "2021 - Turniej Małego Pola": "images/bronze-medal.svg",
+        "2019 - Turniej Małego Pola": "images/pedestal-podium.svg",
     };
 
     function hideEmptyColumns() {
