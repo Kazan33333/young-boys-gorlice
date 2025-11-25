@@ -31,7 +31,8 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
-const languagePickEnElement = document.querySelector(".language-pick-2-en");
+
+const languagePickEnElement = document.querySelector(".language-pick-en");
 const languagePickPlElement = document.querySelector(".language-pick-pl");
 
 function changeLanguage(lang) {
@@ -45,16 +46,8 @@ function changeLanguage(lang) {
         }
     });
 
-    languagePickEnElement.classList.remove("language-pick-en", "language-pick-2-en");
-    languagePickPlElement.classList.remove("language-pick-pl", "language-pick-2-pl");
-
-    if (lang === "pl") {
-        languagePickEnElement.classList.add("language-pick-2-en");
-        languagePickPlElement.classList.add("language-pick-2-pl");
-    } else {
-        languagePickEnElement.classList.add("language-pick-en");
-        languagePickPlElement.classList.add("language-pick-pl");
-    }
+    languagePickEnElement.classList.toggle("language-active", lang === "en");
+    languagePickPlElement.classList.toggle("language-active", lang === "pl");
 }
 
 document.getElementById("language-collapsible").addEventListener("click", function() {
