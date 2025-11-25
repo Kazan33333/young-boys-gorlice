@@ -94,10 +94,29 @@ document.addEventListener("DOMContentLoaded", function() {
     function updatePdfLink(season) {
         let pdfFilename = "";
     
-        if (season === "2021/22") {
+        if (season === "2018/19") {
+            pdfFilename = "wyniki_2018-19.pdf";
+        }
+        else if (season === "2019/20") {
+            pdfFilename = "wyniki_2019-20.pdf";
+        }
+        else if (season === "2020/21") {
+            pdfFilename = "wyniki_2020-21.pdf";
+        }
+        else if (season === "2021/22") {
             pdfFilename = "wyniki_2021-22.pdf";
-        } else if (season === "2019 - Turniej Małego Pola") {
-            pdfFilename = "male-pole-2019.pdf";
+        }
+        else if (season === "2022/23") {
+            pdfFilename = "wyniki_2022-23.pdf";
+        }
+        else if (season === "2023/24") {
+            pdfFilename = "wyniki_2023-24.pdf";
+        }
+        else if (season === "2024/25") {
+            pdfFilename = "wyniki_2024-25.pdf";
+        }
+        else if (season === "2025/26") {
+            pdfFilename = "wyniki_2025-26.pdf";
         }
     
         const pdfUrl = `pdf/league/${pdfFilename}`;
