@@ -11,7 +11,8 @@ const translations = {
         "table.team": "Team",
         "table.G": "G",
         "table.noData": "No data",
-        "table.toBePlayed": "To be played"
+        "table.toBePlayed": "To be played",
+        "season": "Season"
     },
     pl: {
         "navbar.history": "Historia",
@@ -24,7 +25,8 @@ const translations = {
         "table.team": "Drużyna",
         "table.G": "B",
         "table.noData": "Brak danych",
-        "table.toBePlayed": "Mecz do rozegrania"
+        "table.toBePlayed": "Mecz do rozegrania",
+        "season": "Sezon"
     }
 };
 

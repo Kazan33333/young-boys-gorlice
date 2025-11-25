@@ -1,0 +1,19 @@
+main.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+    gap: 20px; /* odstęp między zdjęciami */
+    margin-top: 100px; /* opcjonalnie, żeby nie przykrywało navbar */
+}
+
+main img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px; /* opcjonalnie zaokrąglenie rogów */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+main img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
