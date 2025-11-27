@@ -110,6 +110,6 @@ th:nth-child(3) { width: 15%; }
   background-color: transparent;
 }
 
-.active-page {
+.nav-link.active-page {
     color: gold !important;
 }
