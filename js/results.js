@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const seasonData = standingsData[season];
 
         if (seasonData && seasonData.type === "multi") {
-            currentTableIndex = 0;
+            currentTableIndex = 1;
             renderMultiTable(seasonData.tables[currentTableIndex]);
             addNavigationButtons(seasonData.tables.length);
         } else if (Array.isArray(seasonData)) {
@@ -104,11 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function renderMultiTable(tableObj) {
         standingsTableBody.innerHTML = "";
 
-        const headerRow = `<tr>
-            <td colspan="5" style="text-align:center; font-weight:bold;">${tableObj.title}</td>
-        </tr>`;
-        standingsTableBody.insertAdjacentHTML('beforeend', headerRow);
-
         tableObj.rows.forEach(team => {
             const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
             const row = `<tr ${myTeam}>
@@ -125,16 +120,22 @@ document.addEventListener("DOMContentLoaded", function() {
     function addNavigationButtons(totalTables) {
         removeNavigationButtons();
 
-        const modalHeader = document.querySelector("#resultsModal .modal-header");
+        const modalBody = document.querySelector("#resultsModal .modal-body");
 
         const navDiv = document.createElement("div");
         navDiv.id = "modalNavButtons";
-        navDiv.style.position = "absolute";
-        navDiv.style.top = "50%";
-        navDiv.style.right = "2.5rem";
-        navDiv.style.transform = "translateY(-50%)";
         navDiv.style.display = "flex";
-        navDiv.style.gap = "5px";
+        navDiv.style.alignItems = "center";
+        navDiv.style.justifyContent = "space-between";
+        navDiv.style.marginBottom = "10px";
+
+        const infoText = document.createElement("div");
+        infoText.id = "tableInfoText";
+        infoText.style.flex = "1";
+        infoText.style.textAlign = "center";
+        infoText.style.fontWeight = "bold";
+        infoText.textContent =
+            standingsData[seasonTitle.textContent].tables[currentTableIndex].title;
 
         const prevBtn = document.createElement("button");
         prevBtn.className = "btn btn-dark btn-sm";
@@ -142,7 +143,10 @@ document.addEventListener("DOMContentLoaded", function() {
         prevBtn.addEventListener("click", () => {
             if (currentTableIndex > 0) {
                 currentTableIndex--;
-                renderMultiTable(standingsData[seasonTitle.textContent].tables[currentTableIndex]);
+                updateTableInfo();
+                renderMultiTable(
+                    standingsData[seasonTitle.textContent].tables[currentTableIndex]
+                );
             }
         });
 
@@ -152,15 +156,23 @@ document.addEventListener("DOMContentLoaded", function() {
         nextBtn.addEventListener("click", () => {
             if (currentTableIndex < totalTables - 1) {
                 currentTableIndex++;
-                renderMultiTable(standingsData[seasonTitle.textContent].tables[currentTableIndex]);
+                updateTableInfo();
+                renderMultiTable(
+                    standingsData[seasonTitle.textContent].tables[currentTableIndex]
+                );
             }
         });
 
+        function updateTableInfo() {
+            infoText.textContent =
+                standingsData[seasonTitle.textContent].tables[currentTableIndex].title;
+        }
+
         navDiv.appendChild(prevBtn);
+        navDiv.appendChild(infoText);
         navDiv.appendChild(nextBtn);
 
-        modalHeader.style.position = "relative";
-        modalHeader.appendChild(navDiv);
+        modalBody.prepend(navDiv);
     }
 
     function removeNavigationButtons() {
