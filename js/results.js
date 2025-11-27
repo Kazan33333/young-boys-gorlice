@@ -125,15 +125,19 @@ document.addEventListener("DOMContentLoaded", function() {
     function addNavigationButtons(totalTables) {
         removeNavigationButtons();
 
-        const modalBody = document.querySelector("#resultsModal .modal-body");
+        const modalHeader = document.querySelector("#resultsModal .modal-header");
+
         const navDiv = document.createElement("div");
         navDiv.id = "modalNavButtons";
+        navDiv.style.position = "absolute";
+        navDiv.style.top = "50%";
+        navDiv.style.right = "2.5rem";
+        navDiv.style.transform = "translateY(-50%)";
         navDiv.style.display = "flex";
-        navDiv.style.justifyContent = "space-between";
-        navDiv.style.marginBottom = "10px";
+        navDiv.style.gap = "5px";
 
         const prevBtn = document.createElement("button");
-        prevBtn.className = "btn btn-secondary btn-sm";
+        prevBtn.className = "btn btn-dark btn-sm";
         prevBtn.innerHTML = '<i class="bi bi-caret-left-fill"></i>';
         prevBtn.addEventListener("click", () => {
             if (currentTableIndex > 0) {
@@ -143,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const nextBtn = document.createElement("button");
-        nextBtn.className = "btn btn-secondary btn-sm";
+        nextBtn.className = "btn btn-dark btn-sm";
         nextBtn.innerHTML = '<i class="bi bi-caret-right-fill"></i>';
         nextBtn.addEventListener("click", () => {
             if (currentTableIndex < totalTables - 1) {
@@ -154,7 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         navDiv.appendChild(prevBtn);
         navDiv.appendChild(nextBtn);
-        modalBody.prepend(navDiv);
+
+        modalHeader.style.position = "relative";
+        modalHeader.appendChild(navDiv);
     }
 
     function removeNavigationButtons() {
