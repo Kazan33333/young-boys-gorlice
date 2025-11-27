@@ -39,6 +39,53 @@ export const standingsData = {
         { position: 9, team: "Eko-Par Wiklowski Racławice", matches: 8, points: 6, balance: "13-33" },
         { position: 10, team: "Biała Brunary", matches: 8, points: 4, balance: "22-43" }
     ],
+    "2021/22": {
+    type: "multi", 
+    tables: [
+        {
+            title: "Tabela przed podziałem",
+            rows: [
+                { position: 1, team: "Wysowa Zdrój", matches: 13, points: 37, balance: "53-15" },
+                { position: 2, team: "Hanmart Gorlice", matches: 13, points: 36, balance: "42-9" },
+                { position: 3, team: "Uganda Revesen", matches: 13, points: 30, balance: "41-26" },
+                { position: 4, team: "Young Boys Gorlice", matches: 13, points: 25, balance: "27-20" },
+                { position: 5, team: "Silvestria Gorlice", matches: 13, points: 24, balance: "28-17" },
+                { position: 6, team: "Rawian Glass Kwiatonowice", matches: 13, points: 21, balance: "27-25" },
+                { position: 7, team: "Olimpijczyk Racławice", matches: 13, points: 18, balance: "33-26" },
+                { position: 8, team: "LKS Bystra", matches: 13, points: 15, balance: "16-40" },
+                { position: 9, team: "LKS Łużna", matches: 13, points: 14, balance: "32-34" },
+                { position: 10, team: "Haller Gorlice", matches: 13, points: 13, balance: "28-33" },
+                { position: 11, team: "Lodownia Gorlice", matches: 13, points: 13, balance: "29-37" },
+                { position: 12, team: "Gór-Bet", matches: 13, points: 13, balance: "28-43" },
+                { position: 13, team: "LKS Szymbark", matches: 13, points: 5, balance: "11-39" },
+                { position: 14, team: "Panenka Gorlice", matches: 13, points: 4, balance: "17-48" }
+            ]
+        },
+        {
+            title: "I Liga (po podziale)",
+            rows: [
+                { position: 1, team: "Hanmart Gorlice", matches: 5, points: 15, balance: "28-3" },
+                { position: 2, team: "Uganda Revesen", matches: 5, points: 12, balance: "21-12" },
+                { position: 3, team: "Silvestria Gorlice", matches: 5, points: 12, balance: "14-8" },
+                { position: 4, team: "Young Boys Gorlice", matches: 6, points: 9, balance: "19-15" },
+                { position: 5, team: "Rawian Glass Kwiatonowice", matches: 5, points: 6, balance: "12-12" },
+                { position: 6, team: "Olimpijczyk Racławice", matches: 5, points: 0, balance: "3-22" },
+                { position: 7, team: "Wysowa Zdrój", matches: 5, points: 0, balance: "0-25" }
+            ]
+        },
+        {
+            title: "II Liga (po podziale)",
+            rows: [
+                { position: 1, team: "Haller Gorlice", matches: 5, points: 13, balance: "27-7" },
+                { position: 2, team: "LKS Łużna", matches: 5, points: 12, balance: "22-12" },
+                { position: 3, team: "LKS Szymbark", matches: 5, points: 10, balance: "21-7" },
+                { position: 4, team: "LKS Bystra", matches: 5, points: 7, balance: "13-20" },
+                { position: 5, team: "Gór-Bet", matches: 5, points: 3, balance: "5-15" },
+                { position: 6, team: "Lodownia Gorlice", matches: 6, points: 3, balance: "7-23" },
+                { position: 7, team: "Panenka Gorlice", matches: 5, points: 1, balance: "6-17" }
+            ]
+        }
+    ]},
     "2022/23": [
         { position: 1, team: "Hanmart Gorlice", matches: 14, points: 36, balance: "63-29" },
         { position: 2, team: "Young Boys Gorlice", matches: 14, points: 25, balance: "58-38" },

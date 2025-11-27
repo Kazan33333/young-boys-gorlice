@@ -63,15 +63,32 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    const standingsTableBody = document.getElementById("standingsTableBody");
+    const seasonTitle = document.getElementById("seasonTitle");
+    const medalIcon = document.getElementById("medalIcon");
+    const pdfLink = document.getElementById("pdfLink");
+
+    let currentTableIndex = 0;
+
     function loadStandings(season) {
-        const standingsTableBody = document.getElementById("standingsTableBody");
-        const seasonTitle = document.getElementById("seasonTitle");
-
-        seasonTitle.textContent = season;
         standingsTableBody.innerHTML = "";
+        seasonTitle.textContent = season;
 
-        const standings = standingsData[season] || [];
-        standings.forEach(team => {
+        const seasonData = standingsData[season];
+
+        if (seasonData && seasonData.type === "multi") {
+            currentTableIndex = 0;
+            renderMultiTable(seasonData.tables[currentTableIndex]);
+            addNavigationButtons(seasonData.tables.length);
+        } else if (Array.isArray(seasonData)) {
+            renderSingleTable(seasonData);
+            removeNavigationButtons();
+        }
+    }
+
+    function renderSingleTable(table) {
+        standingsTableBody.innerHTML = "";
+        table.forEach(team => {
             const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
             const row = `<tr ${myTeam}>
                 <td>${team.position}</td>
@@ -84,47 +101,80 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    function renderMultiTable(tableObj) {
+        standingsTableBody.innerHTML = "";
+
+        const headerRow = `<tr>
+            <td colspan="5" style="text-align:center; font-weight:bold;">${tableObj.title}</td>
+        </tr>`;
+        standingsTableBody.insertAdjacentHTML('beforeend', headerRow);
+
+        tableObj.rows.forEach(team => {
+            const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
+            const row = `<tr ${myTeam}>
+                <td>${team.position}</td>
+                <td>${team.team}</td>
+                <td>${team.matches}</td>
+                <td>${team.points}</td>
+                <td>${team.balance}</td>
+            </tr>`;
+            standingsTableBody.insertAdjacentHTML('beforeend', row);
+        });
+    }
+
+    function addNavigationButtons(totalTables) {
+        removeNavigationButtons();
+
+        const modalBody = document.querySelector("#resultsModal .modal-body");
+        const navDiv = document.createElement("div");
+        navDiv.id = "modalNavButtons";
+        navDiv.style.display = "flex";
+        navDiv.style.justifyContent = "space-between";
+        navDiv.style.marginBottom = "10px";
+
+        const prevBtn = document.createElement("button");
+        prevBtn.className = "btn btn-secondary btn-sm";
+        prevBtn.innerHTML = '<i class="bi bi-caret-left-fill"></i>';
+        prevBtn.addEventListener("click", () => {
+            if (currentTableIndex > 0) {
+                currentTableIndex--;
+                renderMultiTable(standingsData[seasonTitle.textContent].tables[currentTableIndex]);
+            }
+        });
+
+        const nextBtn = document.createElement("button");
+        nextBtn.className = "btn btn-secondary btn-sm";
+        nextBtn.innerHTML = '<i class="bi bi-caret-right-fill"></i>';
+        nextBtn.addEventListener("click", () => {
+            if (currentTableIndex < totalTables - 1) {
+                currentTableIndex++;
+                renderMultiTable(standingsData[seasonTitle.textContent].tables[currentTableIndex]);
+            }
+        });
+
+        navDiv.appendChild(prevBtn);
+        navDiv.appendChild(nextBtn);
+        modalBody.prepend(navDiv);
+    }
+
+    function removeNavigationButtons() {
+        const existingNav = document.getElementById("modalNavButtons");
+        if (existingNav) existingNav.remove();
+    }
+
     function updateMedal(season) {
-        const medalIcon = document.getElementById("medalIcon");
         if (seasonMedals[season]) {
             medalIcon.src = seasonMedals[season];
         }
     }
 
     function updatePdfLink(season) {
-        let pdfFilename = "";
-    
-        if (season === "2018/19") {
-            pdfFilename = "wyniki_2018-19.pdf";
-        }
-        else if (season === "2019/20") {
-            pdfFilename = "wyniki_2019-20.pdf";
-        }
-        else if (season === "2020/21") {
-            pdfFilename = "wyniki_2020-21.pdf";
-        }
-        else if (season === "2021/22") {
-            pdfFilename = "wyniki_2021-22.pdf";
-        }
-        else if (season === "2022/23") {
-            pdfFilename = "wyniki_2022-23.pdf";
-        }
-        else if (season === "2023/24") {
-            pdfFilename = "wyniki_2023-24.pdf";
-        }
-        else if (season === "2024/25") {
-            pdfFilename = "wyniki_2024-25.pdf";
-        }
-        else if (season === "2025/26") {
-            pdfFilename = "wyniki_2025-26.pdf";
-        }
-    
-        const pdfUrl = `pdf/league/${pdfFilename}`;
-        document.getElementById("pdfLink").href = pdfUrl;
+        const pdfFilename = `wyniki_${season.replace("/", "-")}.pdf`;
+        pdfLink.href = `pdf/league/${pdfFilename}`;
     }
 
-    document.getElementById("medalIcon").addEventListener("click", function() {
-        let modal = new bootstrap.Modal(document.getElementById("resultsModal"));
+    medalIcon.addEventListener("click", () => {
+        const modal = new bootstrap.Modal(document.getElementById("resultsModal"));
         modal.show();
     });
 
