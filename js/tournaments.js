@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
             { date: "12.01.2025", team: "Young Boys Gorlice - LKS Kobylanka", score: "5 - 0" },
             { date: "12.01.2025", team: "Young Boys Gorlice - Rawian Glass", score: "1 - 1" }
         ],
+        "2025 - Turniej Małego Pola": [
+            { date: "29.06.2025", team: "Young Boys Gorlice - Mongoły", score: "0 - 2" },
+            { date: "29.06.2025", team: "Batalion Ropica - Young Boys Gorlice", score: "0 - 3" },
+            { date: "29.06.2025", team: "FC Po Nalewce - Young Boys Gorlice", score: "0 - 0" },
+            { date: "29.06.2025", team: "Young Boys Gorlice - FC Górki", score: "4 - 0" },
+            { date: "29.06.2025", team: "Welder Kobylanka - Young Boys Gorlice", score: "3 - 0" },
+            { date: "29.06.2025", team: "Young Boys Gorlice - Ogień Sękowa", score: "0 - 1" }
+        ]
     };
 
     const tableBody = document.getElementById("resultsTableBody");
@@ -64,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const defaultSeason = "2025 - Turniej Futsal";
+    const defaultSeason = "2025 - Turniej Małego Pola";
     seasonButton.textContent = defaultSeason;
     updateTable(defaultSeason);
 });
@@ -108,12 +116,32 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: "", team: "LKS Kobylanka" },
             { position: "", team: "Ogień Sękowa" },
         ],
+        "2025 - Turniej Małego Pola": [
+            { position: 1, team: "Przełęcz Dukla" },
+            { position: 2, team: "FC Haller Gorlice" },
+            { position: 3, team: "Welder Kobylanka" },
+            { position: 4, team: "Mongoły" },
+            { position: 5, team: "Ogień Sękowa" },
+            { position: "", team: "Przełęcz Magurska" },
+            { position: "", team: "Welder Junior" },
+            { position: "", team: "FC Bloxham" },
+            { position: 9, team: "Young Boys Gorlice" },
+            { position: "", team: "FC Górki" },
+            { position: "", team: "Sękowskie Armaty" },
+            { position: "", team: "Redlions" },
+            { position: 13, team: "Batalion Ropica Górna" },
+            { position: "", team: "FC Libusza United" },
+            { position: "", team: "FC Po Nalewce" },
+            { position: "", team: "Truchcik Libusza" },
+            { position: "", team: "Wysowa" }
+        ]
     };
 
     const seasonMedals = {
-        "2025 - Turniej Futsal": "images/pedestal-podium.svg",
-        "2021 - Turniej Małego Pola": "images/bronze-medal.svg",
         "2019 - Turniej Małego Pola": "images/pedestal-podium.svg",
+        "2021 - Turniej Małego Pola": "images/bronze-medal.svg",
+        "2025 - Turniej Futsal": "images/pedestal-podium.svg",
+        "2025 - Turniej Małego Pola": "images/pedestal-podium.svg",
     };
 
     function hideEmptyColumns() {
@@ -198,16 +226,19 @@ document.addEventListener("DOMContentLoaded", function() {
     function updatePdfLink(season) {
         let pdfFilename = "";
 
-        if (season === "2025 - Turniej Futsal") {
-            pdfFilename = "turniej_futsal_2025.pdf";
+        if (season === "2019 - Turniej Małego Pola") {
+            pdfFilename = "male-pole-2019.pdf";
         }
         else if (season === "2021 - Turniej Małego Pola") {
             pdfFilename = "turniejmalegopola2021.pdf";
         }
-        else if (season === "2019 - Turniej Małego Pola") {
-            pdfFilename = "male-pole-2019.pdf";
+        else if (season === "2025 - Turniej Futsal") {
+            pdfFilename = "turniej_futsal_2025.pdf";
         }
-    
+        else if (season === "2025 - Turniej Małego Pola") {
+            pdfFilename = "male-pole-2025.pdf";
+        }
+
         const pdfUrl = `pdf/tournaments/${pdfFilename}`;
         document.getElementById("pdfLink").href = pdfUrl;
     }
@@ -226,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    loadStandings("2025 - Turniej Futsal");
-    updateMedal("2025 - Turniej Futsal");
-    updatePdfLink("2025 - Turniej Futsal")
+    loadStandings("2025 - Turniej Małego Pola");
+    updateMedal("2025 - Turniej Małego Pola");
+    updatePdfLink("2025 - Turniej Małego Pola")
 });
