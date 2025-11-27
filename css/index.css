@@ -109,3 +109,7 @@ th:nth-child(3) { width: 15%; }
 #pdfLink:hover {
   background-color: transparent;
 }
+
+.active-page {
+    color: gold !important;
+}
