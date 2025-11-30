@@ -102,6 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
     input.parentElement.style.position = "relative";
     input.parentElement.appendChild(suggestionBox);
 
+    function showSuggestionsOnFocus() {
+        const query = input.value.trim();
+        if (query === "") {
+            suggestionBox.innerHTML = "";
+            allTeams.forEach(team => {
+                const item = document.createElement("div");
+                item.textContent = team;
+                item.style.padding = "6px 10px";
+                item.style.cursor = "pointer";
+
+                item.addEventListener("click", () => {
+                    showSearchModal(team);
+                    input.value = "";
+                    suggestionBox.style.display = "none";
+                });
+
+                item.addEventListener("mouseover", () => {
+                    [...suggestionBox.children].forEach(n => n.style.background = "");
+                    item.style.background = "#52575C";
+                });
+
+                suggestionBox.appendChild(item);
+            });
+            suggestionBox.style.display = "block";
+            currentFocus = -1;
+            updateSuggestionBoxPosition();
+        } else {
+            updateSuggestions(query);
+        }
+    }
+
     function updateSuggestionBoxPosition() {
         const rect = input.getBoundingClientRect();
         const parentRect = input.parentElement.getBoundingClientRect();
@@ -164,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             item.addEventListener("mouseover", () => {
                 [...suggestionBox.children].forEach(n => n.style.background = "");
-                item.style.background = "#333";
+                item.style.background = "#52575C";
             });
 
             suggestionBox.appendChild(item);
@@ -201,14 +232,14 @@ document.addEventListener("DOMContentLoaded", () => {
             currentFocus++;
             if (currentFocus >= items.length) currentFocus = 0;
             items.forEach(el => el.style.background = "");
-            items[currentFocus].style.background = "#333";
+            items[currentFocus].style.background = "#52575C";
         }
 
         else if (e.key === "ArrowUp") {
             currentFocus--;
             if (currentFocus < 0) currentFocus = items.length - 1;
             items.forEach(el => el.style.background = "");
-            items[currentFocus].style.background = "#333";
+            items[currentFocus].style.background = "#52575C";
         }
 
         else if (e.key === "Enter") {
@@ -242,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         searchBox.classList.add("expanded");
         input.focus();
+        showSuggestionsOnFocus();
     });
 
     input.addEventListener("blur", () => {
@@ -266,6 +298,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.addEventListener("focus", () => {
         updateSuggestionBoxPosition();
+        setTimeout(() => {
+            showSuggestionsOnFocus();
+        }, 400);
     });
 
     if (searchIcon) {
@@ -276,7 +311,10 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
         e.preventDefault();
         searchBox.classList.add("expanded");
-        input.focus();
+        setTimeout(() => {
+            input.focus();
+            showSuggestionsOnFocus();
+        }, 400);
     }
 
     if (e.key === "Escape") {
