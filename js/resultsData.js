@@ -34,7 +34,7 @@ export const resultsData = {
     ],
     "2020/21": [
         { date: "28.11.2020", team: "LKS Łużna - Young Boys Gorlice", score: "6 - 2" },
-        { date: "05.12.2020", team: "GÓR BET Konstrukcje Betonowe - Young Boys Gorlice", score: "1 - 5" },
+        { date: "05.12.2020", team: "Gór-Bet - Young Boys Gorlice", score: "1 - 5" },
         { date: "13.12.2020", team: "Young Boys Gorlice - BIAŁA Brunary", score: "4 - 2" },
         { date: "13.12.2020", team: "Young Boys Gorlice - TEAM Biecz", score: "8 - 3" },
         { date: "19.12.2020", team: "RANCZO Stróżówka - Young Boys Gorlice", score: "3 - 1" },
@@ -54,7 +54,7 @@ export const resultsData = {
         { date: "15.01.2022", team: "LKS Łużna - Young Boys Gorlice", score: "1 - 1", scorers: "Kacper Wójtowicz" },
         { date: "23.01.2022", team: "Rawian Glass - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz x2, Piotr Rokosz" },
         { date: "23.01.2022", team: "Young Boys Gorlice - Uganda Ravesen", score: "3 - 6", scorers: "Kacper Wójtowicz 2, Filip Kucharkowski" },
-        { date: "05.02.2022", team: "Hanmart Gorlice- Young Boys Gorlice", score: "2 - 1", scorers: "Piotr Rokosz" },
+        { date: "05.02.2022", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "Piotr Rokosz" },
         { date: "12.02.2022", team: "Young Boys Gorlice - Wysowa Zdrój", score: "1 - 3", scorers: "Jakub Wierzba" },
         { date: "20.02.2022", team: "Rawian Glass - Young Boys Gorlice", score: "1 - 3", scorers: "Krzysztof Kazanowski x2, Jakub Wierzba" },
         { date: "20.02.2022", team: "Young Boys Gorlice - Silvestria", score: "1 - 2", scorers: "Filip Kucharkowski" },
