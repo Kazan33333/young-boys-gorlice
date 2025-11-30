@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("searchInput");
     const searchIcon = document.querySelector(".search-icon");
 
-    // --- AUTOCOMPLETE BOX ---
     const suggestionBox = document.createElement("div");
     suggestionBox.className = "search-suggestions bg-dark text-light";
     suggestionBox.style.position = "absolute";
@@ -98,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     suggestionBox.style.border = "1px solid #555";
     suggestionBox.style.display = "none";
     suggestionBox.style.maxHeight = "200px";
+    suggestionBox.style.width = "220px";
     suggestionBox.style.overflowY = "auto";
     suggestionBox.style.borderRadius = "0 0 4px 4px";
     suggestionBox.style.boxShadow = "0 4px 6px rgba(0,0,0,0.2)";
@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentFocus = -1;
 
-    // --- WYCIĄGANIE NAZW DRUŻYN ---
     function getAllTeams() {
         const set = new Set();
 
@@ -175,7 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ENTER + strzałki + standardowe pisanie
     input.addEventListener("keyup", (e) => {
         const query = input.value.trim();
         const items = suggestionBox.querySelectorAll("div");
@@ -208,12 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // zamykanie listy po blur
     input.addEventListener("blur", () => {
         setTimeout(() => { suggestionBox.style.display = "none"; }, 150);
     });
 
-    // kliknięcie ikony = wyszukiwanie
     if (searchIcon) {
         searchIcon.addEventListener("click", performSearch);
     }
