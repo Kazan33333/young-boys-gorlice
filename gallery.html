@@ -12,6 +12,7 @@
     <script defer src="js/i18n.js"></script>
     <script defer src="js/activePage.js"></script>
     <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/search.js"></script>
 </head>
 <body style="background-color: black; color: white;">
 
@@ -27,7 +28,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item search-wrapper">
                         <div class="search-box">
-                            <input type="text" class="search-input" placeholder="Szukaj...">
+                            <input id="searchInput" type="text" class="search-input" placeholder="Szukaj rywala" autocomplete="off">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </li>
@@ -84,6 +85,32 @@
         </p> -->
     </div>
 </footer>
+
+<div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchResultsLabel">
+                    Wyniki wyszukiwania: <span id="searchedTeamName"></span>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <table class="table table-dark table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.date"></th>
+                            <th data-i18n="table.match"></th>
+                            <th data-i18n="table.score"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
