@@ -156,12 +156,8 @@ th:nth-child(3) { width: 15%; }
 }
 
 .search-box:hover .search-input {
-    width: 200px;
+    width: 220px;
     opacity: 1;
-}
-
-.search-box:hover .search-icon {
-    color: white;
 }
 
 @media (max-width: 767px) {

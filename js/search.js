@@ -81,18 +81,42 @@ function showSearchModal(teamName) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const searchBox = document.querySelector(".search-box");
+    const searchInput = document.querySelector(".search-input");
+
+    if (searchBox && searchInput) {
+        searchBox.addEventListener("mouseenter", () => {
+            searchInput.focus();
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("searchInput");
+    const searchIcon = document.querySelector(".search-icon");
+
+    function performSearch() {
+        const query = input.value.trim();
+        if (query.length > 1) {
+            showSearchModal(query);
+            input.value = "";
+        }
+    }
 
     if (input) {
         input.addEventListener("keyup", (e) => {
             if (e.key === "Enter") {
-                const query = e.target.value.trim();
-                if (query.length > 1) {
-                    showSearchModal(query);
-                }
+                performSearch();
             }
         });
     }
+
+    if (searchIcon) {
+        searchIcon.addEventListener("click", () => {
+            performSearch();
+        });
+    }
 });
+
 
 export { searchMatches, showSearchModal };
