@@ -253,37 +253,26 @@ document.addEventListener("DOMContentLoaded", () => {
         searchIcon.addEventListener("click", performSearch);
     }
 
-    document.addEventListener("keydown", (e) => {
-        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+document.addEventListener("keydown", (e) => {
+    // Jeśli jesteśmy w polu input lub textarea, / nie robi nic
+    if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        searchBox.classList.add("expanded");
+        input.focus();
+    }
 
-        if (e.key === "/") {
-            e.preventDefault();
-            input.focus();
+    if (e.key === "Escape") {
+        suggestionBox.style.display = "none";
 
-            searchBox.classList.add("expanded");
-        }
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-
-            const query = input.value.trim();
-
-            if (query.length > 0) {
-                suggestionBox.style.display = "none";
-                input.blur();
-                return;
-            }
-
+        if (input.value.trim().length > 0) {
             input.blur();
-            suggestionBox.style.display = "none";
-
-            if (window.innerWidth >= 768) {
-                input.style.width = "0px";
-                input.style.opacity = "0";
-            }
+        } else {
+            input.blur();
+            searchBox.classList.remove("expanded");
         }
-    });
+    }
+});
+
 
 });
 
