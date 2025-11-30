@@ -225,6 +225,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    document.addEventListener("click", (e) => {
+        if (!searchBox.contains(e.target)) {
+            if (input.value.trim() !== "") {
+                suggestionBox.style.display = "none";
+            } else {
+                searchBox.classList.remove("expanded");
+                suggestionBox.style.display = "none";
+            }
+        }
+    });
+
+    searchBox.addEventListener("click", () => {
+        if (input.value.trim() !== "") {
+            suggestionBox.style.display = suggestionBox.children.length > 0 ? "block" : "none";
+        }
+        searchBox.classList.add("expanded");
+        input.focus();
+    });
+
     input.addEventListener("blur", () => {
         setTimeout(() => {
             if (input.value.trim() === "") {
@@ -254,7 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 document.addEventListener("keydown", (e) => {
-    // Jeśli jesteśmy w polu input lub textarea, / nie robi nic
     if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
         e.preventDefault();
         searchBox.classList.add("expanded");
