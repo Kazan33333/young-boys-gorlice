@@ -114,7 +114,7 @@ export const resultsData = {
     "2025/26": [
         { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "5 - 1", scorers: "Radosław Gucwa" },
         { date: "23.11.2025", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x3" },
-        { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
+        { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "2 - 3", scorers: "Filip Kucharkowski, Radosław Gucwa, Michał Nowak" },
         { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart Gorlice", score: "", scorers: "" },
         { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "", scorers: "" },
         { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
