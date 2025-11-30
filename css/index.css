@@ -116,7 +116,7 @@ th:nth-child(3) { width: 15%; }
 }
 
 .search-wrapper {
-    position: flex;
+    display: flex;
     align-items: center;
 }
 
@@ -155,7 +155,9 @@ th:nth-child(3) { width: 15%; }
   color: #757575;
 }
 
-.search-box:hover .search-input {
+.search-box:hover .search-input,
+.search-input:focus,
+.search-box.expanded .search-input {
     width: 220px;
     opacity: 1;
 }

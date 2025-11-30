@@ -86,21 +86,30 @@ function showSearchModal(teamName) {
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("searchInput");
     const searchIcon = document.querySelector(".search-icon");
-
+    const searchBox = input ? input.parentElement : null;
+    
     const suggestionBox = document.createElement("div");
     suggestionBox.className = "search-suggestions bg-dark text-light";
     suggestionBox.style.position = "absolute";
-    suggestionBox.style.top = "100%";
-    suggestionBox.style.left = "0";
-    suggestionBox.style.width = "100%";
-    suggestionBox.style.zIndex = "999";
-    suggestionBox.style.border = "1px solid #555";
     suggestionBox.style.display = "none";
+    suggestionBox.style.zIndex = "999";
     suggestionBox.style.maxHeight = "200px";
-    suggestionBox.style.width = "220px";
     suggestionBox.style.overflowY = "auto";
     suggestionBox.style.borderRadius = "0 0 4px 4px";
+    suggestionBox.style.border = "1px solid #1C1F23";
     suggestionBox.style.boxShadow = "0 4px 6px rgba(0,0,0,0.2)";
+
+    input.parentElement.style.position = "relative";
+    input.parentElement.appendChild(suggestionBox);
+
+    function updateSuggestionBoxPosition() {
+        const rect = input.getBoundingClientRect();
+        const parentRect = input.parentElement.getBoundingClientRect();
+
+        suggestionBox.style.width = rect.width + "px";
+        suggestionBox.style.left = (rect.left - parentRect.left) + "px";
+        suggestionBox.style.top = input.offsetHeight + "px";
+    }
 
     input.parentElement.appendChild(suggestionBox);
 
@@ -163,6 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         suggestionBox.style.display = filtered.length > 0 ? "block" : "none";
         currentFocus = -1;
+        updateSuggestionBoxPosition();
     }
 
     function performSearch() {
@@ -171,7 +181,16 @@ document.addEventListener("DOMContentLoaded", () => {
             showSearchModal(query);
             input.value = "";
             suggestionBox.style.display = "none";
+            searchBox.classList.remove("expanded");
         }
+    }
+
+    if (searchIcon) {
+        searchIcon.addEventListener("click", (e) => {
+            e.preventDefault();
+            input.focus();
+            performSearch();
+        });
     }
 
     input.addEventListener("keyup", (e) => {
@@ -207,12 +226,65 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     input.addEventListener("blur", () => {
-        setTimeout(() => { suggestionBox.style.display = "none"; }, 150);
+        setTimeout(() => {
+            if (input.value.trim() === "") {
+                suggestionBox.style.display = "none";
+                searchBox.classList.remove("expanded");
+            }
+        }, 150);
+    });
+
+    input.addEventListener("input", () => {
+        updateSuggestionBoxPosition();
+        if (input.value.trim() !== "") {
+            searchBox.classList.add("expanded");
+            if (suggestionBox.children.length > 0) suggestionBox.style.display = "block";
+        } else {
+            searchBox.classList.remove("expanded");
+            suggestionBox.style.display = "none";
+        }
+    });
+
+    input.addEventListener("focus", () => {
+        updateSuggestionBoxPosition();
     });
 
     if (searchIcon) {
         searchIcon.addEventListener("click", performSearch);
     }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+        if (e.key === "/") {
+            e.preventDefault();
+            input.focus();
+
+            searchBox.classList.add("expanded");
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+
+            const query = input.value.trim();
+
+            if (query.length > 0) {
+                suggestionBox.style.display = "none";
+                input.blur();
+                return;
+            }
+
+            input.blur();
+            suggestionBox.style.display = "none";
+
+            if (window.innerWidth >= 768) {
+                input.style.width = "0px";
+                input.style.opacity = "0";
+            }
+        }
+    });
+
 });
 
 export { searchMatches, showSearchModal };
