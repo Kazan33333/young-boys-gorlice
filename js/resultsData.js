@@ -39,7 +39,7 @@ export const resultsData = {
         { date: "13.12.2020", team: "Young Boys Gorlice - TEAM Biecz", score: "8 - 3" },
         { date: "19.12.2020", team: "RANCZO Stróżówka - Young Boys Gorlice", score: "3 - 1" },
         { date: "19.12.2020", team: "EKO-PAR Wiklowski Racławice - Young Boys Gorlice", score: "5 - 1" },
-        { date: "27.12.2020", team: "Young Boys Gorlice - HANMART Gorlice", score: "2 - 3" },
+        { date: "27.12.2020", team: "Young Boys Gorlice - Hanmart Gorlice", score: "2 - 3" },
         { date: "27.12.2020", team: "COCO JAMBO - Young Boys Gorlice", score: "8 - 1" }
     ],
     "2021/22": [
@@ -115,13 +115,13 @@ export const resultsData = {
         { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "5 - 1", scorers: "Radosław Gucwa" },
         { date: "23.11.2025", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x3" },
         { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
-        { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart", score: "", scorers: "" },
+        { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart Gorlice", score: "", scorers: "" },
         { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "", scorers: "" },
         { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
         { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "", scorers: "" },
         { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "", scorers: "" },
         { date: "28.12.2025", team: "MK Ubezpieczenia Gorlice - Young Boys Gorlice", score: "", scorers: "" },
-        { date: "04.01.2026", team: "Hanmart - Young Boys Gorlice", score: "", scorers: "" },
+        { date: "04.01.2026", team: "Hanmart Gorlice - Young Boys Gorlice", score: "", scorers: "" },
         { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
         { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "", scorers: "" }
     ]
