@@ -88,7 +88,7 @@ export const resultsData = {
         { date: "23.12.2023", team: "Hanmart Gorlice - Young Boys Gorlice", score: "7 - 2", scorers: "Kacper Wójtowicz, Tomasz Mituś" },
         { date: "23.12.2023", team: "Grzmotomocni - Young Boys Gorlice", score: "3 - 1", scorers: "Kacper Wójtowicz" },
         { date: "23.12.2023", team: "LKS Łużna - Young Boys Gorlice", score: "11 - 0", scorers: "n/a" },
-        { date: "07.01.2024", team: "GKS Glinik Junior - Young Boys Gorlice", score: "3 - 2", scorers: "Kacper Szpyrka x2" },
+        { date: "07.01.2024", team: "Glinik Junior - Young Boys Gorlice", score: "3 - 2", scorers: "Kacper Szpyrka x2" },
         { date: "13.01.2024", team: "Ogień Sękowa - Young Boys Gorlice", score: "3 - 5", scorers: "Krzysztof Kazanowski x2, Tomasz Mituś x2, Piotr Kukuła" },
         { date: "13.01.2024", team: "Young Boys Gorlice - Hanmart Gorlice", score: "4 - 12", scorers: "Tomasz Mituś x3, Filip Kucharkowski" },
         { date: "21.01.2024", team: "Silvestria - Young Boys Gorlice", score: "4 - 3", scorers: "Jakub Paszyński x2, Tomasz Abram" },
