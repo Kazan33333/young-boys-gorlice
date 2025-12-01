@@ -1,13 +1,13 @@
 export const resultsData = {
     "2018/19": [
-        { date: "25.11.2018", team: "Kwiatonowice - Young Boys Gorlice", score: "2 - 0" },
+        { date: "25.11.2018", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "2 - 0" },
         { date: "25.11.2018", team: "Haller Gorlice - Young Boys Gorlice", score: "2 - 1" },
         { date: "01.12.2018", team: "Young Boys Gorlice - Stemik Klęczany", score: "0 - 1" },
         { date: "08.12.2018", team: "Podhalanin Biecz - Young Boys Gorlice", score: "5 - 2" },
         { date: "08.12.2018", team: "Young Boys Gorlice - LKS Nafta Kryg", score: "1 - 2" },
         { date: "23.12.2018", team: "Ogień Sękowa - Young Boys Gorlice", score: "1 - 1" },
         { date: "05.01.2019", team: "Young Boys Gorlice - AL-KAM Gorlice", score: "1 - 11" },
-        { date: "12.01.2019", team: "Young Boys Gorlice - Kwiatonowice", score: "2 - 2" },
+        { date: "12.01.2019", team: "Young Boys Gorlice - LKS Kwiatonowice", score: "2 - 2" },
         { date: "12.01.2019", team: "Young Boys Gorlice - Haller Gorlice", score: "3 - 3" },
         { date: "19.01.2019", team: "Stemik Klęczany - Young Boys Gorlice", score: "3 - 5" },
         { date: "26.01.2019", team: "Young Boys Gorlice - Podhalanin Biecz", score: "4 - 2" },

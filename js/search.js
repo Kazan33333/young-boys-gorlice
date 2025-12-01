@@ -1,6 +1,8 @@
 import { resultsData } from "./resultsData.js";
 import { tournamentResultsData } from "./tournamentsData.js";
 
+let chartInstance = null;
+
 function searchMatches(teamName) {
     const search = teamName.toLowerCase();
     const matches = [];
@@ -32,6 +34,67 @@ function searchMatches(teamName) {
     });
 
     return matches;
+}
+
+function generateChart(localTeamName, localResults) {
+    let wins = 0, draws = 0, losses = 0;
+
+    localResults.forEach(r => {
+        const parts = r.match.split(" - ").map(s => s.trim());
+        const scores = (r.score || "").split(" - ").map(s => Number(s.trim()));
+
+        if (parts.length < 2 || scores.length < 2 || Number.isNaN(scores[0]) || Number.isNaN(scores[1])) {
+            return;
+        }
+
+        const [teamA, teamB] = parts;
+        const [scoreA, scoreB] = scores;
+
+        const isYBG_A = (teamA === "Young Boys Gorlice");
+        const our = isYBG_A ? scoreA : scoreB;
+        const opp = isYBG_A ? scoreB : scoreA;
+
+        if (our > opp) wins++;
+        else if (our < opp) losses++;
+        else draws++;
+    });
+
+    const ctx = document.getElementById("resultsChart");
+    if (!ctx) {
+        console.warn("Brak elementu #resultsChart — wykres pominięty");
+        return;
+    }
+
+    if (chartInstance) chartInstance.destroy();
+
+    chartInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: ["Wygrane", "Remisy", "Porażki"],
+            datasets: [{
+                data: [wins, draws, losses],
+                backgroundColor: [
+                    "rgba(0,255,0,0.8)",
+                    "rgba(255,215,0,0.8)",
+                    "rgba(255,0,0,0.8)"
+                ],
+                borderColor: [
+                    "rgba(0,255,0,1)",
+                    "rgba(255,215,0,1)",
+                    "rgba(255,0,0,1)"
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: { color: "white" }
+                }
+            },
+            maintainAspectRatio: false
+        }
+    });
 }
 
 function showSearchModal(teamName, results) {
@@ -103,69 +166,6 @@ function showSearchModal(teamName, results) {
     });
 
     modal.show();
-
-    let chartInstance = null;
-
-    function generateChart(localTeamName, localResults) {
-        let wins = 0, draws = 0, losses = 0;
-
-        localResults.forEach(r => {
-            const parts = r.match.split(" - ").map(s => s.trim());
-            const scores = (r.score || "").split(" - ").map(s => Number(s.trim()));
-
-            if (parts.length < 2 || scores.length < 2 || Number.isNaN(scores[0]) || Number.isNaN(scores[1])) {
-                return;
-            }
-
-            const [teamA, teamB] = parts;
-            const [scoreA, scoreB] = scores;
-
-            const isYBG_A = (teamA === "Young Boys Gorlice");
-            const our = isYBG_A ? scoreA : scoreB;
-            const opp = isYBG_A ? scoreB : scoreA;
-
-            if (our > opp) wins++;
-            else if (our < opp) losses++;
-            else draws++;
-        });
-
-        const ctx = document.getElementById("resultsChart");
-        if (!ctx) {
-            console.warn("Brak elementu #resultsChart — wykres pominięty");
-            return;
-        }
-
-        if (chartInstance) chartInstance.destroy();
-
-        chartInstance = new Chart(ctx, {
-            type: "pie",
-            data: {
-                labels: ["Wygrane", "Remisy", "Porażki"],
-                datasets: [{
-                    data: [wins, draws, losses],
-                    backgroundColor: [
-                        "rgba(0,255,0,0.8)",
-                        "rgba(200,200,0,0.8)",
-                        "rgba(255,0,0,0.8)"
-                    ],
-                    borderColor: [
-                        "rgba(0,205,0,1)",
-                        "rgba(150,150,0,1)",
-                        "rgba(205,0,0,1)"
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        labels: { color: "white" }
-                    }
-                },
-                maintainAspectRatio: false
-            }
-        });
-    }
 
     if (chartContainer) chartContainer.style.display = "none";
     if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
