@@ -83,7 +83,7 @@ function generateChart(localTeamName, localResults) {
                     "rgba(190,160,0,1)",
                     "rgba(190,0,0,1)"
                 ],
-                borderWidth: 4
+                borderWidth: 3
             }]
         },
         options: {
