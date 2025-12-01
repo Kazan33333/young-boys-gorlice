@@ -79,11 +79,11 @@ function generateChart(localTeamName, localResults) {
                     "rgba(255,0,0,0.8)"
                 ],
                 borderColor: [
-                    "rgba(0,255,0,1)",
-                    "rgba(255,215,0,1)",
-                    "rgba(255,0,0,1)"
+                    "rgba(0,190,0,1)",
+                    "rgba(190,160,0,1)",
+                    "rgba(190,0,0,1)"
                 ],
-                borderWidth: 1
+                borderWidth: 4
             }]
         },
         options: {
