@@ -34,54 +34,160 @@ function searchMatches(teamName) {
     return matches;
 }
 
-function showSearchModal(teamName) {
-    const results = searchMatches(teamName);
-    const tbody = document.getElementById("searchResultsBody");
+function showSearchModal(teamName, results) {
+    if (!results) {
+        results = searchMatches(teamName);
+    }
 
-    document.getElementById("searchedTeamName").textContent = teamName;
-    tbody.innerHTML = "";
+    const modalElement = document.getElementById("searchResultsModal");
+    if (!modalElement) {
+        console.error("Brak elementu #searchResultsModal w DOM");
+        return;
+    }
+    const modal = new bootstrap.Modal(modalElement);
 
-    if (results.length === 0) {
-        tbody.innerHTML = `
+    const tableBody = document.getElementById("searchResultsBody");
+    const chartContainer = document.getElementById("chartContainer");
+    const toggleBtn = document.getElementById("toggleChartBtn");
+    const modalTitle = document.getElementById("searchResultsLabel");
+
+    if (!tableBody || !modalTitle) {
+        console.error("Brak wymaganych elementów modala (searchResultsBody lub searchResultsLabel)");
+        return;
+    }
+
+    modalTitle.textContent = `${teamName}`;
+    tableBody.innerHTML = "";
+
+    if (!results || results.length === 0) {
+        tableBody.innerHTML = `
             <tr>
                 <td colspan="3" class="text-center text-secondary">
                     Brak meczów z tą drużyną
                 </td>
             </tr>`;
+        if (chartContainer) chartContainer.style.display = "none";
+        if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
+        if (toggleBtn) toggleBtn.textContent = "Pokaż wykres";
+
+        modal.show();
         return;
     }
 
-    results.forEach(r => {
-        const highlightedTeam = r.match.replace(
-            "Young Boys Gorlice",
-            "<span style='color: gold;'>Young Boys Gorlice</span>"
-        );
+    results.forEach((r) => {
+        const highlighted = r.match.replace(/(Young Boys Gorlice)/g, '<span style="color: gold;">$1</span>');
 
-        const scores = r.score.split(" - ").map(Number);
-        const teams = r.match.split(" - ");
-
-        const ourTeamIndex = teams.indexOf("Young Boys Gorlice");
+        let scoreHtml = r.score ?? "";
         let scoreColor = "inherit";
-
-        if (ourTeamIndex !== -1) {
-            const our = scores[ourTeamIndex];
-            const opp = scores[1 - ourTeamIndex];
-
-            if (our > opp) scoreColor = "chartreuse";
-            else if (our < opp) scoreColor = "red";
+        try {
+            const scores = (r.score || "").split(" - ").map(s => Number(s.trim()));
+            const teams = r.match.split(" - ").map(t => t.trim());
+            const ourIndex = teams.indexOf("Young Boys Gorlice");
+            if (!Number.isNaN(scores[0]) && !Number.isNaN(scores[1]) && ourIndex !== -1) {
+                const our = scores[ourIndex];
+                const opp = scores[1 - ourIndex];
+                if (our > opp) scoreColor = "chartreuse";
+                else if (our < opp) scoreColor = "red";
+            }
+        } catch (err) {
+            scoreColor = "inherit";
         }
 
-        tbody.innerHTML += `
-            <tr>
-                <td>${r.date}</td>
-                <td>${highlightedTeam}</td>
-                <td style="color: ${scoreColor};">${r.score}</td>
-            </tr>`;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${r.date ?? ""}</td>
+            <td>${highlighted}</td>
+            <td style="color: ${scoreColor};">${scoreHtml}</td>
+        `;
+        tableBody.appendChild(row);
     });
 
-    const modal = new bootstrap.Modal(document.getElementById("searchResultsModal"));
     modal.show();
+
+    let chartInstance = null;
+
+    function generateChart(localTeamName, localResults) {
+        let wins = 0, draws = 0, losses = 0;
+
+        localResults.forEach(r => {
+            const parts = r.match.split(" - ").map(s => s.trim());
+            const scores = (r.score || "").split(" - ").map(s => Number(s.trim()));
+
+            if (parts.length < 2 || scores.length < 2 || Number.isNaN(scores[0]) || Number.isNaN(scores[1])) {
+                return;
+            }
+
+            const [teamA, teamB] = parts;
+            const [scoreA, scoreB] = scores;
+
+            const isYBG_A = (teamA === "Young Boys Gorlice");
+            const our = isYBG_A ? scoreA : scoreB;
+            const opp = isYBG_A ? scoreB : scoreA;
+
+            if (our > opp) wins++;
+            else if (our < opp) losses++;
+            else draws++;
+        });
+
+        const ctx = document.getElementById("resultsChart");
+        if (!ctx) {
+            console.warn("Brak elementu #resultsChart — wykres pominięty");
+            return;
+        }
+
+        if (chartInstance) chartInstance.destroy();
+
+        chartInstance = new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: ["Wygrane", "Remisy", "Porażki"],
+                datasets: [{
+                    data: [wins, draws, losses],
+                    backgroundColor: [
+                        "rgba(0,255,0,0.6)",
+                        "rgba(200,200,0,0.6)",
+                        "rgba(255,0,0,0.6)"
+                    ],
+                    borderColor: [
+                        "rgba(0,255,0,1)",
+                        "rgba(200,200,0,1)",
+                        "rgba(255,0,0,1)"
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: { color: "white" }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    }
+
+    if (chartContainer) chartContainer.style.display = "none";
+    if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
+    if (toggleBtn) toggleBtn.textContent = "Pokaż wykres";
+
+    if (toggleBtn) {
+        toggleBtn.onclick = () => {
+            const isChartHidden = chartContainer && chartContainer.style.display === "none";
+            if (isChartHidden) {
+                generateChart(teamName, results);
+                chartContainer.style.display = "block";
+                if (tableBody.parentElement) tableBody.parentElement.style.display = "none";
+                toggleBtn.textContent = "Pokaż tabelę";
+            } else {
+                if (chartContainer) chartContainer.style.display = "none";
+                if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
+                toggleBtn.textContent = "Pokaż wykres";
+            }
+        };
+    }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("searchInput");
@@ -101,6 +207,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.parentElement.style.position = "relative";
     input.parentElement.appendChild(suggestionBox);
+
+    (function preloadChartJS() {
+        const dummyCanvas = document.createElement("canvas");
+        dummyCanvas.style.display = "none";
+        document.body.appendChild(dummyCanvas);
+
+        try {
+            const ctx = dummyCanvas.getContext("2d");
+
+            let preloadChart = new Chart(ctx, {
+                type: "pie",
+                data: {
+                    labels: ["A", "B"],
+                    datasets: [{
+                        data: [1, 1]
+                    }]
+                }
+            });
+
+            preloadChart.destroy();
+        } catch (err) {
+            console.warn("Preload Chart.js failed:", err);
+        }
+
+        dummyCanvas.remove();
+    })();
+
 
     function showSuggestionsOnFocus() {
         const query = input.value.trim();
