@@ -144,14 +144,14 @@ function showSearchModal(teamName, results) {
                 datasets: [{
                     data: [wins, draws, losses],
                     backgroundColor: [
-                        "rgba(0,255,0,0.6)",
-                        "rgba(200,200,0,0.6)",
-                        "rgba(255,0,0,0.6)"
-                    ],
-                    borderColor: [
                         "rgba(0,255,0,1)",
                         "rgba(200,200,0,1)",
                         "rgba(255,0,0,1)"
+                    ],
+                    borderColor: [
+                        "rgba(0,205,0,1)",
+                        "rgba(150,150,0,1)",
+                        "rgba(205,0,0,1)"
                     ],
                     borderWidth: 1
                 }]
