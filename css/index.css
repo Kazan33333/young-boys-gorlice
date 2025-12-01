@@ -175,7 +175,7 @@ th:nth-child(3) { width: 15%; }
   }
 
   .search-input {
-      width: calc(100% - 7px) !important;
+      width: calc(100vw - 42px) !important;
       opacity: 1;
       right: auto;
       transition: none;
