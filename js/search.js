@@ -92,7 +92,8 @@ function generateChart(localTeamName, localResults) {
                     labels: { color: "white" }
                 }
             },
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            animation: { duration: 0 }
         }
     });
 }
@@ -188,7 +189,6 @@ function showSearchModal(teamName, results) {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("searchInput");
     const searchIcon = document.querySelector(".search-icon");
@@ -245,11 +245,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.style.padding = "6px 10px";
                 item.style.cursor = "pointer";
 
-                item.addEventListener("click", () => {
+                const selectTeam = (e) => {
+                    e.preventDefault();
                     showSearchModal(team);
                     input.value = "";
                     suggestionBox.style.display = "none";
-                });
+                };
+
+                item.addEventListener("pointerdown", selectTeam);
+                item.addEventListener("click", selectTeam);
 
                 item.addEventListener("mouseover", () => {
                     [...suggestionBox.children].forEach(n => n.style.background = "");
