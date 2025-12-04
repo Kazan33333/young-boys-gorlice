@@ -36,7 +36,7 @@ const translations = {
         "table.noData": "Brak danych",
         "table.toBePlayed": "Mecz do rozegrania",
         "season": "Sezon",
-        "fixturesInfo": "Terminarz wszystkich meczów obecnego sezonu oraz wyniki z odbytych meczów",
+        "fixturesInfo": "Terminarz wszystkich meczów obecnego sezonu oraz wyniki z odbytych meczów.",
         "historyInfo": "Historia klubu, osiągnięcia, stare zdjęcia i ciekawostki.",
         "resultsInfo": "Szczegółowe wyniki Young Boys Gorlice z poszczególnych sezonów, tabele ligowe i statystyki.",
         "tournamentsInfo": "Informacje o turniejach, w których klub brał udział.",

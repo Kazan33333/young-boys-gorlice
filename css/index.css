@@ -5,6 +5,14 @@ a.navbar-brand {
   font-weight: 600;
   padding-left: 9px;
   padding-right: 7px;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transition: 
+    color 0.3s ease,
+    transform 0.3s ease,
+    text-shadow 0.3s ease,
+    border-top 0.3s ease,
+    border-left 0.3s ease;
 }
 
 a.navbar-brand:hover {
@@ -14,11 +22,6 @@ a.navbar-brand:hover {
   text-shadow: 2px 0px rgb(17, 17, 17);
   border-top: 1px solid gold;
   border-left: 1px solid gold;
-}
-
-a.navbar-brand {
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
 }
 
 a:hover {
