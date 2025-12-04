@@ -231,3 +231,9 @@ th:nth-child(3) { width: 15%; }
 .round-body table {
   margin-bottom: 0;
 }
+
+.round-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-in-out;
+}

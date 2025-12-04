@@ -41,7 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const body = document.createElement("div");
             body.classList.add("round-body");
-            body.style.display = isOpen ? "block" : "none";
+
+            if (isOpen) {
+                body.classList.add("open");
+                requestAnimationFrame(() => {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                });
+            }
 
             const table = document.createElement("table");
             table.className = "table table-dark table-striped table-hover";
@@ -95,10 +101,21 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(roundDiv);
 
             header.addEventListener("click", () => {
+                const isOpen = body.classList.contains("open");
                 const arrow = header.querySelector(".round-arrow");
-                const isCurrentlyOpen = body.style.display === "block";
-                body.style.display = isCurrentlyOpen ? "none" : "block";
-                arrow.textContent = isCurrentlyOpen ? "▸" : "▾";
+
+                if (isOpen) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                    requestAnimationFrame(() => {
+                        body.style.maxHeight = "0";
+                        body.classList.remove("open");
+                        arrow.textContent = "▸";
+                    });
+                } else {
+                    body.classList.add("open");
+                    body.style.maxHeight = body.scrollHeight + "px";
+                    arrow.textContent = "▾";
+                }
             });
         });
     }
