@@ -208,11 +208,6 @@ th:nth-child(3) { width: 15%; }
     transform: scale(1.02);
 }
 
-.card {
-    border: 1px solid gold;
-    border-radius: 5px;
-}
-
 .round-header {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
