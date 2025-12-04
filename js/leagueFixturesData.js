@@ -28,10 +28,10 @@ export const leagueFixturesData = {
         { "date": "14.12.2025 16:00", "team": "Silvestria - Mongoły", "score": "", "scorers": "" },
         { "date": "14.12.2025 16:30", "team": "Hanmart Gorlice - Redlions", "score": "", "scorers": "" },
 
-        { "date": "28.12.2025 14:00", "team": "MK Ubezpieczenia - FC Melina", "score": "", "scorers": "" },
+        { "date": "28.12.2025 14:00", "team": "MK Ubezpieczenia Gorlice - FC Melina", "score": "", "scorers": "" },
         { "date": "28.12.2025 14:30", "team": "Young Boys Gorlice - Silvestria", "score": "", "scorers": "" },
         { "date": "28.12.2025 15:00", "team": "Mongoły - Hanmart Gorlice", "score": "", "scorers": "" },
-        { "date": "28.12.2025 15:30", "team": "MK Ubezpieczenia - Young Boys Gorlice", "score": "", "scorers": "" },
+        { "date": "28.12.2025 15:30", "team": "MK Ubezpieczenia Gorlice - Young Boys Gorlice", "score": "", "scorers": "" },
         { "date": "28.12.2025 16:00", "team": "Silvestria - Hanmart Gorlice", "score": "", "scorers": "" },
         { "date": "28.12.2025 16:30", "team": "Redlions - Mongoły", "score": "", "scorers": "" },
 
