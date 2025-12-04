@@ -202,7 +202,19 @@ th:nth-child(3) { width: 15%; }
     color: gold;
     border-left: 3px solid gold;
     background-color: #1c1f23;
-    transform: scale(1.02);
+    transform: scale(1.01);
+}
+
+.menu-label {
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-desc {
+  font-weight: normal;
+  border: none !important;
 }
 
 .round-header {
