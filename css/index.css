@@ -227,3 +227,7 @@ th:nth-child(3) { width: 15%; }
     color: chartreuse;
     cursor: pointer;
 }
+
+.round-body table {
+  margin-bottom: 0;
+}

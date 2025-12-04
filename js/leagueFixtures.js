@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             header.classList.add("round-header");
             header.style.cursor = "pointer";
             header.style.background = "#212529";
-            header.style.padding = "5px 10px";
+            header.style.padding = "10px 10px";
             header.innerHTML = `Kolejka ${roundIndex + 1} - ${date} <span class="round-arrow" style="float:right;">${isOpen ? "▾" : "▸"}</span>`;
             roundDiv.appendChild(header);
 
