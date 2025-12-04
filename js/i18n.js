@@ -14,7 +14,8 @@ const translations = {
         "table.G": "G",
         "table.noData": "No data",
         "table.toBePlayed": "To be played",
-        "season": "Season"
+        "season": "Season",
+        "fixturesInfo": "Detailed scores of Young Boys Gorlice's games throughout the seasons, league tables and stats."
     },
     pl: {
         "navbar.fixtures": "Terminarz",
@@ -30,7 +31,8 @@ const translations = {
         "table.G": "B",
         "table.noData": "Brak danych",
         "table.toBePlayed": "Mecz do rozegrania",
-        "season": "Sezon"
+        "season": "Sezon",
+        "fixturesInfo": "Szczegółowe wyniki Young Boys Gorlice z poszczególnych sezonów, tabele ligowe i statystyki."
     }
 };
 
