@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Young Boys Gorlice</title>
-    <meta name="description" content="Strona o Young Boys Gorlice">
+    <title>Fixtures</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="js/i18n.js"></script>
+    <script defer src="js/activePage.js"></script>
+    <script type="module" src="js/leagueFixtures.js"></script>
     <script type="module" src="js/search.js"></script>
 </head>
 <body style="background-color: black; color: white;">
@@ -18,7 +19,7 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-gradient box-shadow mb-1 fixed-top">
         <div class="container">
-            <a class="navbar-brand" style="color:gold;" href="index.html">Young Boys Gorlice</a>
+            <a class="navbar-brand" style="color:gold" href="index.html">Young Boys Gorlice</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" onclick="style.fill='#a0a2a3';">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,13 +38,13 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="history.html" data-i18n="navbar.history"></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="loginLink">
                         <a class="nav-link text-light" href="results.html" data-i18n="navbar.results"></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="loginLink">
                         <a class="nav-link text-light" href="tournaments.html" data-i18n="navbar.tournaments"></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="loginLink">
                         <a class="nav-link text-light" href="gallery.html" data-i18n="navbar.gallery"></a>
                     </li>
                     <a class="nav-link text-light" id="language-collapsible">
@@ -70,11 +71,35 @@
 </header>
 
 <main class="container flex-grow-1">
-    <img src="images/photos/Terminarz_25-26.png" style="max-width: 99%; height: auto; 
-        display: block; margin: 0 auto;">
+    <img src="images/pedestal-podium.svg" id="medalIcon" alt="Medal" 
+        style="width: 110px; cursor: pointer; float: right;">
+    <a id="pdfLink" href="#" target="_blank" style="float: right; margin-right: 1%;">
+        <img src="images/icons8-pdf-transparent.svg" 
+                style="width: 60px; cursor: pointer; user-select: none;">
+    </a>
+    <h1>Terminarz meczów</h1>
+    <p>Tutaj znajdziesz terminarz wszystkich meczów ligi futsal w sezonie 2025/26.</p>
+
+    <div class="dropdown mb-4" data-bs-theme="dark">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="fixturesSeasonDropdown" data-bs-toggle="dropdown">
+            Wybierz sezon
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonDropdown">
+            <li><a class="dropdown-item" href="javascript:void(0)">2018/19</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2019/20</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2020/21</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2021/22</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2022/23</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2023/24</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2024/25</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">2025/26</a></li>
+        </ul>
+    </div>
+
+    <div id="fixturesContainer"></div>
 </main>
 
-<footer class="bg-dark bg-gradient text-light text-center py-3 mt-5"  style="width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
+<footer class="bg-dark bg-gradient text-light text-center py-3 mt-5" style="width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
     <div class="container">
         <p class="mb-1">Copyright © 2025 Krzysztof Kazanowski</p>
         <!-- <p class="mb-0">
@@ -84,6 +109,31 @@
         </p> -->
     </div>
 </footer>
+
+<div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultsModalLabel">Tabela końcowa <span id="seasonTitle">2025/26</span></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-sm table-hover table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10% !important;">#</th>
+                            <th style="width: 50% !important;" data-i18n="table.team"></th>
+                            <th style="width: 11% !important;">M</th>
+                            <th style="width: 11% !important;">P</th>
+                            <th style="width: 18% !important;" data-i18n="table.G"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="standingsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -97,7 +147,7 @@
 
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h5 class="m-0">H2H</h5>
+                    <h5 class="m-0">Wyniki</h5>
                     <button id="toggleChartBtn" class="btn btn-sm btn-outline-light">
                         Pokaż wykres
                     </button>

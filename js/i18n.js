@@ -1,9 +1,11 @@
 const translations = {
     en: {
+        "navbar.fixtures": "Fixtures",
         "navbar.history": "History",
         "navbar.results": "Results",
         "navbar.tournaments": "Tournaments",
         "navbar.gallery": "Gallery",
+        "table.hour": "Hour",
         "table.date": "Date",
         "table.match": "Match",
         "table.score": "Score",
@@ -15,10 +17,12 @@ const translations = {
         "season": "Season"
     },
     pl: {
+        "navbar.fixtures": "Terminarz",
         "navbar.history": "Historia",
         "navbar.results": "Wyniki",
         "navbar.tournaments": "Turnieje",
         "navbar.gallery": "Galeria",
+        "table.hour": "Godzina",
         "table.date": "Data",
         "table.match": "Mecz",
         "table.score": "Wynik",
