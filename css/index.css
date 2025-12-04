@@ -212,3 +212,18 @@ th:nth-child(3) { width: 15%; }
     border: 1px solid gold;
     border-radius: 5px;
 }
+
+.round-header {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.round:hover {
+    background-color: rgba(255, 215, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.round-header:hover {
+    background-color: #1c1f23 !important;
+    color: chartreuse;
+    cursor: pointer;
+}
