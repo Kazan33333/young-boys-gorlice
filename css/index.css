@@ -65,9 +65,6 @@ html {
   fill: gold !important;
 }
 
-/* .translation-icon:hover {
-  color: gold;
-} */
 
 .language-pick-pl:hover {
   color: chartreuse;
@@ -165,7 +162,7 @@ th:nth-child(3) { width: 15%; }
     opacity: 1;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .navbar-nav .nav-link {
     padding-left: 7px !important;
     padding-right: 7px !important;
