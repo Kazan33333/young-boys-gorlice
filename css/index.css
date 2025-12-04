@@ -186,3 +186,26 @@ th:nth-child(3) { width: 15%; }
     padding-left: 7px;
   }
 }
+
+.menu-link {
+    background-color: #212529;
+    color: white;
+    border-left: 3px solid transparent;
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+    color: gold;
+    border-left: 3px solid gold;
+    background-color: #1c1f23;
+    transform: scale(1.02);
+}
+
+.card {
+    border: 1px solid gold;
+    border-radius: 5px;
+}
