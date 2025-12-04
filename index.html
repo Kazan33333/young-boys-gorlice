@@ -69,10 +69,86 @@
     </nav>
 </header>
 
-<main class="container flex-grow-1">
-    <img src="images/photos/Terminarz_25-26.png" style="max-width: 99%; height: auto; 
-        display: block; margin: 0 auto;">
+<main class="container flex-grow-1 mt-4 mb-5">
+  <div class="row g-3">
+    <!-- Terminarz i Wyniki -->
+    <div class="col-md-4">
+      <a href="fixtures.html" class="menu-link d-block p-3">Terminarz i Wyniki</a>
+    </div>
+    <div class="col-md-8">
+      <div class="card bg-dark text-light p-3">
+        Przeglądaj wszystkie mecze sezonu, terminarz i wyniki.
+      </div>
+    </div>
+
+    <!-- Historia -->
+    <div class="col-md-4">
+      <a href="history.html" class="menu-link d-block p-3">Historia</a>
+    </div>
+    <div class="col-md-8">
+      <div class="card bg-dark text-light p-3">
+        Historia klubu, osiągnięcia, stare zdjęcia i ciekawostki.
+      </div>
+    </div>
+
+    <!-- Wyniki -->
+    <div class="col-md-4">
+      <a href="results.html" class="menu-link d-block p-3">Wyniki</a>
+    </div>
+    <div class="col-md-8">
+      <div class="card bg-dark text-light p-3">
+        Szczegółowe wyniki sezonów, tabele ligowe i statystyki.
+      </div>
+    </div>
+
+    <!-- Turnieje -->
+    <div class="col-md-4">
+      <a href="tournaments.html" class="menu-link d-block p-3">Turnieje</a>
+    </div>
+    <div class="col-md-8">
+      <div class="card bg-dark text-light p-3">
+        Informacje o turniejach, w których klub brał udział.
+      </div>
+    </div>
+
+    <!-- Galeria -->
+    <div class="col-md-4">
+      <a href="gallery.html" class="menu-link d-block p-3">Galeria</a>
+    </div>
+    <div class="col-md-8">
+      <div class="card bg-dark text-light p-3">
+        Galeria zdjęć z meczów, treningów i wydarzeń klubowych.
+      </div>
+    </div>
+  </div>
 </main>
+
+<style>
+/* Linki menu w stylu navbar-brand */
+.menu-link {
+    background-color: #212529;
+    color: white;
+    border-left: 3px solid transparent;
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+    color: gold;
+    border-left: 3px solid gold;
+    background-color: #1c1f23;
+    transform: scale(1.02);
+}
+
+.card {
+    border: 1px solid gold;
+    border-radius: 5px;
+}
+</style>
+
 
 <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5"  style="width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
     <div class="container">
