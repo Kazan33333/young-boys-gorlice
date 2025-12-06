@@ -19,7 +19,9 @@ const translations = {
         "historyInfo": "Club's history, achievements, old photos and fun facts.",
         "resultsInfo": "Detailed scores of Young Boys Gorlice's games throughout the seasons, league tables and stats.",
         "tournamentsInfo": "Info about tournaments the club participated in.",
-        "galleryInfo": "Team's exquisite photo gallery."
+        "galleryInfo": "Team's exquisite photo gallery.",
+        "search": "Search",
+        "searchInfo": "A search engine for finding an opponent the team has played against."
     },
     pl: {
         "navbar.fixtures": "Terminarz",
@@ -40,7 +42,9 @@ const translations = {
         "historyInfo": "Historia klubu, osiągnięcia, stare zdjęcia i ciekawostki.",
         "resultsInfo": "Szczegółowe wyniki Young Boys Gorlice z poszczególnych sezonów, tabele ligowe i statystyki.",
         "tournamentsInfo": "Informacje o turniejach, w których klub brał udział.",
-        "galleryInfo": "Kunsztowna galeria zdjęć drużyny."
+        "galleryInfo": "Kunsztowna galeria zdjęć drużyny.",
+        "search": "Wyszukiwanie",
+        "searchInfo": "Wyszukiwarka do znajdowania przeciwników, z którymi mierzyła się drużyna."
     }
 };
 
