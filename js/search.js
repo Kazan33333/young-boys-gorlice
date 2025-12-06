@@ -208,6 +208,21 @@ document.addEventListener("DOMContentLoaded", () => {
     input.parentElement.style.position = "relative";
     input.parentElement.appendChild(suggestionBox);
 
+    const searchMenuLink = document.querySelector('[data-i18n="search"]').closest("a");
+
+    if (searchMenuLink) {
+        searchMenuLink.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            searchBox.classList.add("expanded");
+            input.focus();
+
+            if (typeof showSuggestionsOnFocus === "function") {
+                showSuggestionsOnFocus();
+            }
+        });
+    }
+
     (function preloadChartJS() {
         const dummyCanvas = document.createElement("canvas");
         dummyCanvas.style.display = "none";
