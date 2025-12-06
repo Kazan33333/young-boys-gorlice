@@ -209,16 +209,27 @@ document.addEventListener("DOMContentLoaded", () => {
     input.parentElement.appendChild(suggestionBox);
 
     const searchMenuLink = document.querySelector('[data-i18n="search"]').closest("a");
+    const navbarToggler = document.querySelector(".navbar-toggler");
 
     if (searchMenuLink) {
         searchMenuLink.addEventListener("click", (e) => {
             e.preventDefault();
 
-            searchBox.classList.add("expanded");
-            input.focus();
+            const isMobile = window.innerWidth < 992;
 
-            if (typeof showSuggestionsOnFocus === "function") {
-                showSuggestionsOnFocus();
+            if (isMobile && navbarToggler) {
+                navbarToggler.click();
+
+                const navbarCollapse = document.getElementById("navbarNav");
+                navbarCollapse.addEventListener("shown.bs.collapse", () => {
+                    searchBox.classList.add("expanded");
+                    input.focus();
+                    if (typeof showSuggestionsOnFocus === "function") showSuggestionsOnFocus();
+                }, { once: true });
+            } else {
+                searchBox.classList.add("expanded");
+                input.focus();
+                if (typeof showSuggestionsOnFocus === "function") showSuggestionsOnFocus();
             }
         });
     }
