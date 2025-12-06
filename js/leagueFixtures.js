@@ -91,8 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 tbody.appendChild(trScorers);
 
                 trMatch.addEventListener("click", () => {
-                    trScorers.style.display = trScorers.style.display === "none" ? "table-row" : "none";
+                    const isHidden = trScorers.style.display === "none";
+
+                    trScorers.style.display = isHidden ? "table-row" : "none";
+
+                    const body = trMatch.closest(".round-body");
+                    if (body) {
+                        requestAnimationFrame(() => {
+                            body.style.maxHeight = body.scrollHeight + "px";
+                        });
+                    }
                 });
+
             });
 
             table.appendChild(tbody);
