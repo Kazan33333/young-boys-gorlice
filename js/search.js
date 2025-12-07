@@ -288,6 +288,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.addEventListener("mouseover", () => {
                     [...suggestionBox.children].forEach(n => n.style.background = "");
                     item.style.background = "rgba(157, 157, 157, 0.3)";
+                    item.style.color = "chartreuse";
+                });
+
+                item.addEventListener("mouseout", () => {
+                    [...suggestionBox.children].forEach(n => n.style.background = "");
+                    item.style.color = "white";
                 });
 
                 suggestionBox.appendChild(item);
