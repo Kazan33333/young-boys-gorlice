@@ -163,7 +163,7 @@ th:nth-child(3) { width: 15%; }
 .search-box:hover .search-input,
 .search-input:focus,
 .search-box.expanded .search-input {
-    width: 220px;
+    width: 230px;
     opacity: 1;
 }
 
