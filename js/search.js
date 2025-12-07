@@ -279,29 +279,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     suggestionBox.style.display = "none";
                 };
 
-                let isDragging = false;
-                let startY = 0;
+                item.addEventListener("click", selectTeam);
 
-                item.addEventListener("touchstart", (e) => {
-                    isDragging = false;
-                    startY = e.touches[0].clientY;
-                }, { passive: true });
-
-                item.addEventListener("touchmove", (e) => {
-                    const diff = Math.abs(e.touches[0].clientY - startY);
-                    if (diff > 10) {
-                        isDragging = true;
-                    }
-                }, { passive: true });
-
-                item.addEventListener("pointerdown", (e) => {
-                    if (isDragging) return;
-                    selectTeam(e);
-                });
-
-                item.addEventListener("click", (e) => {
-                    if (!isDragging) selectTeam(e);
-                });
+                if (window.matchMedia("(pointer:fine)").matches) {
+                    item.addEventListener("pointerdown", selectTeam);
+                }
 
                 item.addEventListener("mouseover", () => {
                     [...suggestionBox.children].forEach(n => n.style.background = "");
