@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 item.addEventListener("mouseover", () => {
                     [...suggestionBox.children].forEach(n => n.style.background = "");
-                    item.style.background = "#52575C";
+                    item.style.background = "rgba(157, 157, 157, 0.3)";
                 });
 
                 suggestionBox.appendChild(item);
