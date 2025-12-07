@@ -279,7 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     suggestionBox.style.display = "none";
                 };
 
-                item.addEventListener("pointerdown", selectTeam);
                 item.addEventListener("click", selectTeam);
 
                 item.addEventListener("mouseover", () => {
