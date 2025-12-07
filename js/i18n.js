@@ -48,7 +48,10 @@ const translations = {
     }
 };
 
-let currentLang = localStorage.getItem("lang") || "en";
+let storedLang = localStorage.getItem("lang");
+let browserLang = navigator.language.slice(0, 2);
+let currentLang = storedLang || (browserLang === "pl" ? "pl" : "en");
+
 
 const languagePickEnElement = document.querySelector(".language-pick-en");
 const languagePickPlElement = document.querySelector(".language-pick-pl");
