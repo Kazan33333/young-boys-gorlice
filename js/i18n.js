@@ -15,13 +15,16 @@ const translations = {
         "table.noData": "No data",
         "table.toBePlayed": "To be played",
         "season": "Season",
+        "search": "Search",
         "fixturesInfo": "Current season's futsal league's fixtures and scores of finished games.",
         "historyInfo": "Club's history, achievements, old photos and fun facts.",
         "resultsInfo": "Detailed scores of Young Boys Gorlice's games throughout the seasons, league tables and stats.",
         "tournamentsInfo": "Info about tournaments the club participated in.",
         "galleryInfo": "Team's exquisite photo gallery.",
-        "search": "Search",
-        "searchInfo": "A search engine for finding an opponent the team has played against."
+        "searchInfo": "A search engine for finding an opponent the team has played against.",
+        "fixturesDesc": "Here you can find current season's futsal league's fixtures and scores of finished games.",
+
+        "tournamentsDesc": "Here you can find info about tournaments the club participated in.",
     },
     pl: {
         "navbar.fixtures": "Terminarz",
@@ -38,13 +41,16 @@ const translations = {
         "table.noData": "Brak danych",
         "table.toBePlayed": "Mecz do rozegrania",
         "season": "Sezon",
+        "search": "Wyszukiwanie",
         "fixturesInfo": "Terminarz wszystkich meczów obecnego sezonu ligi futsal oraz wyniki z odbytych meczów.",
         "historyInfo": "Historia klubu, osiągnięcia, stare zdjęcia i ciekawostki.",
         "resultsInfo": "Szczegółowe wyniki Young Boys Gorlice z poszczególnych sezonów, tabele ligowe i statystyki.",
         "tournamentsInfo": "Informacje o turniejach, w których klub brał udział.",
         "galleryInfo": "Kunsztowna galeria zdjęć drużyny.",
-        "search": "Wyszukiwanie",
-        "searchInfo": "Wyszukiwarka do znajdowania przeciwników, z którymi mierzyła się drużyna."
+        "searchInfo": "Wyszukiwarka do znajdowania przeciwników, z którymi mierzyła się drużyna.",
+        "fixturesDesc": "Tutaj znajdziesz terminarz wszystkich meczów obecnego sezonu ligi futsal oraz wyniki z odbytych meczów.",
+
+        "tournamentsDesc": "Tutaj znajdziesz informacje o turniejach, w których klub brał udział.",
     }
 };
 
