@@ -208,7 +208,8 @@ document.addEventListener("DOMContentLoaded", () => {
     input.parentElement.style.position = "relative";
     input.parentElement.appendChild(suggestionBox);
 
-    const searchMenuLink = document.querySelector('[data-i18n="search"]').closest("a");
+    const searchElement = document.querySelector('[data-i18n="search"]');
+    const searchMenuLink = searchElement ? searchElement.closest("a") : null;
     const navbarToggler = document.querySelector(".navbar-toggler");
 
     if (searchMenuLink) {
