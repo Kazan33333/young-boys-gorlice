@@ -264,10 +264,6 @@ th:nth-child(3) { width: 15%; }
 }
 
 @media (max-width: 576px) {
-    #chartContainer {
-        padding: 20px;
-    }
-
     #resultsChart {
         height: 420px !important;
         width: 100% !important;

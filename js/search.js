@@ -93,7 +93,15 @@ function generateChart(localTeamName, localResults) {
                 }
             },
             maintainAspectRatio: false,
-            animation: { duration: 0 }
+            animation: { duration: 0 },
+            layout: {
+                padding: {
+                    top: 5,
+                    bottom: 40,
+                    left: 20,
+                    right: 20
+                }
+            }
         },
         plugins: [{
             id: "outsideLabels",
