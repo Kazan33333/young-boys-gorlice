@@ -132,7 +132,7 @@ function showSearchModal(teamName, results) {
             </tr>`;
         if (chartContainer) chartContainer.style.display = "none";
         if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-        if (toggleBtn) toggleBtn.textContent = "Pokaż wykres";
+        if (toggleBtn) toggleBtn.setAttribute("data-i18n", "chart");
 
         modal.show();
         return;
@@ -170,7 +170,7 @@ function showSearchModal(teamName, results) {
 
     if (chartContainer) chartContainer.style.display = "none";
     if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-    if (toggleBtn) toggleBtn.textContent = "Pokaż wykres";
+    if (toggleBtn) toggleBtn.setAttribute("data-i18n", "chart");
 
     if (toggleBtn) {
         toggleBtn.onclick = () => {
@@ -179,12 +179,13 @@ function showSearchModal(teamName, results) {
                 generateChart(teamName, results);
                 chartContainer.style.display = "block";
                 if (tableBody.parentElement) tableBody.parentElement.style.display = "none";
-                toggleBtn.textContent = "Pokaż tabelę";
+                toggleBtn.setAttribute("data-i18n", "table");
             } else {
                 if (chartContainer) chartContainer.style.display = "none";
                 if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-                toggleBtn.textContent = "Pokaż wykres";
+                toggleBtn.setAttribute("data-i18n", "chart");
             }
+            changeLanguage(currentLang);
         };
     }
 }
