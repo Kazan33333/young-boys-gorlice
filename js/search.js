@@ -94,7 +94,41 @@ function generateChart(localTeamName, localResults) {
             },
             maintainAspectRatio: false,
             animation: { duration: 0 }
-        }
+        },
+        plugins: [{
+            id: "outsideLabels",
+            afterDraw(chart) {
+                const { ctx, chartArea } = chart;
+                const meta = chart.getDatasetMeta(0);
+
+                ctx.save();
+                ctx.fillStyle = "white";
+                ctx.font = "semibold 16px Arial";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+
+                meta.data.forEach((segment, i) => {
+                    const value = chart.data.datasets[0].data[i];
+                    if (value <= 0) return;
+
+                    const { x, y } = segment.tooltipPosition();
+
+                    const cx = (chartArea.right + chartArea.left) / 2;
+                    const cy = (chartArea.bottom + chartArea.top) / 2;
+
+                    const vx = x - cx;
+                    const vy = y - cy;
+
+                    const factor = 2.3;
+                    const nx = cx + vx * factor;
+                    const ny = cy + vy * factor;
+
+                    ctx.fillText(value, nx, ny);
+                });
+
+                ctx.restore();
+            }
+        }]
     });
 }
 
