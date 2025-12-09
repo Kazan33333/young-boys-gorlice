@@ -98,8 +98,8 @@ function generateChart(localTeamName, localResults) {
                 padding: {
                     top: 5,
                     bottom: 40,
-                    left: 20,
-                    right: 20
+                    left: 30,
+                    right: 30
                 }
             }
         },
