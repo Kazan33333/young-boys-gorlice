@@ -103,7 +103,7 @@ function generateChart(localTeamName, localResults) {
 
                 ctx.save();
                 ctx.fillStyle = "white";
-                ctx.font = "semibold 16px Arial";
+                ctx.font = "16px Arial";
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
 

@@ -167,7 +167,7 @@ th:nth-child(3) { width: 15%; }
     opacity: 1;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   .navbar-nav .nav-link {
     padding-left: 7px !important;
     padding-right: 7px !important;
@@ -261,4 +261,15 @@ th:nth-child(3) { width: 15%; }
     overflow: hidden;
     max-height: 0;
     transition: max-height 1s ease-in-out;
+}
+
+@media (max-width: 576px) {
+    #chartContainer {
+        padding: 20px;
+    }
+
+    #resultsChart {
+        height: 420px !important;
+        width: 100% !important;
+    }
 }
