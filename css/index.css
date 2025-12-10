@@ -321,6 +321,7 @@ th:nth-child(3) { width: 15%; }
 @media (max-width: 576px) {
   .tooltip {
     top: -110px;
+    right: -7px;
   }
 }
 
