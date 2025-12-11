@@ -14,12 +14,12 @@ export const leagueFixturesData = {
         { date: "30.11.2025 18:00", team: "FC Melina - Hanmart Gorlice", score: "2 - 5", scorers: "P. Kukla, J. Kuzio - D. Drąg 2, D. Rybak 2, K. Dąbrowski" },
         { date: "30.11.2025 18:30", team: "Silvestria - Young Boys Gorlice", score: "2 - 3", scorers: "J. Roman, J. Hajduk - F. Kucharkowski, M. Nowak, R. Gucwa" },
 
-        { date: "07.12.2025 14:00", team: "Young Boys Gorlice - Hanmart Gorlice", score: "0 - 4", scorers: "" },
-        { date: "07.12.2025 14:30", team: "FC Melina - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
-        { date: "07.12.2025 15:00", team: "Redlions - Young Boys Gorlice", score: "1 - 5", scorers: "" },
-        { date: "07.12.2025 15:30", team: "Silvestria - FC Melina", score: "", scorers: "" },
-        { date: "07.12.2025 16:00", team: "Mongoły - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
-        { date: "07.12.2025 16:30", team: "Silvestria - Redlions", score: "", scorers: "" },
+        { date: "07.12.2025 14:00", team: "Young Boys Gorlice - Hanmart Gorlice", score: "0 - 4", scorers: "M. Firlit 2, D. Rybak, W. Pyznar" },
+        { date: "07.12.2025 14:30", team: "FC Melina - MK Ubezpieczenia Gorlice", score: "3 - 4", scorers: "P. Kukla, S. Dziuban, K. Piotrowski - D. Nosal 3, A. Sroka" },
+        { date: "07.12.2025 15:00", team: "Redlions - Young Boys Gorlice", score: "1 - 5", scorers: "H. Czech, R. Gucwa 4, D. Głowacki" },
+        { date: "07.12.2025 15:30", team: "Silvestria - FC Melina", score: "0 - 4", scorers: "P. Kukla, S. Dziuban, J. Pater, S. Buś" },
+        { date: "07.12.2025 16:00", team: "Mongoły - MK Ubezpieczenia Gorlice", score: "3 - 1", scorers: "P. Padoł, M. Grzybek - M. Fugiel" },
+        { date: "07.12.2025 16:30", team: "Silvestria - Redlions", score: "2 - 4", scorers: "J. Roman, J. Hajduk - P. Alibożek 3, H. Czech" },
 
         { date: "14.12.2025 14:00", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
         { date: "14.12.2025 14:30", team: "Silvestria - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
