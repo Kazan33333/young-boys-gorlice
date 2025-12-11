@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             header.style.cursor = "pointer";
             header.style.background = "#212529";
             header.style.padding = "10px 10px";
-            header.innerHTML = `Kolejka ${roundIndex + 1} - ${date} <span class="round-arrow" style="float:right;">${isOpen ? "▾" : "▸"}</span>`;
+            header.innerHTML = `<span data-i18n="round">${translations[currentLang]["round"]}</span> ${roundIndex + 1} - ${date} <span class="round-arrow" style="float:right;">${isOpen ? "▾" : "▸"}</span>`;
             roundDiv.appendChild(header);
 
             const body = document.createElement("div");
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const thead = document.createElement("thead");
             thead.innerHTML = `
                 <tr>
-                    <th>${translations[currentLang]["table.hour"]}</th>
-                    <th>${translations[currentLang]["table.match"]}</th>
-                    <th>${translations[currentLang]["table.score"]}</th>
+                    <th data-i18n="table.hour">${translations[currentLang]["table.hour"]}</th>
+                    <th data-i18n="table.match">${translations[currentLang]["table.match"]}</th>
+                    <th data-i18n="table.score">${translations[currentLang]["table.score"]}</th>
                 </tr>
             `;
             table.appendChild(thead);
