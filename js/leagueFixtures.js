@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const roundDates = Object.keys(rounds);
         roundDates.forEach((date, roundIndex) => {
-            const isOpen = roundIndex === 2;
+            const isOpen = roundIndex === 3;
 
             const roundDiv = document.createElement("div");
             roundDiv.classList.add("round");

@@ -16,170 +16,174 @@
 </head>
 <body style="background-color: black; color: white;">
 
-<header>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-gradient box-shadow mb-1 fixed-top">
-        <div class="container">
-            <a class="navbar-brand" style="color:gold" href="./">Young Boys Gorlice</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" onclick="style.fill='#a0a2a3';">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item search-wrapper">
-                        <div class="search-box">
-                            <input id="searchInput" type="text" class="search-input" placeholder="Szukaj drużyny" autocomplete="off">
-                            <i class="bi bi-search search-icon"></i>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="fixtures.html" data-i18n="navbar.fixtures"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="history.html" data-i18n="navbar.history"></a>
-                    </li>
-                    <li class="nav-item" id="loginLink">
-                        <a class="nav-link text-light" href="results.html" data-i18n="navbar.results"></a>
-                    </li>
-                    <li class="nav-item" id="loginLink">
-                        <a class="nav-link text-light" href="tournaments.html" data-i18n="navbar.tournaments"></a>
-                    </li>
-                    <li class="nav-item" id="loginLink">
-                        <a class="nav-link text-light" href="gallery.html" data-i18n="navbar.gallery"></a>
-                    </li>
-                    <a class="nav-link text-light" id="language-collapsible">
-                        <svg class="translation-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden; scale: 1.1; transform: translateY(-2px);"
-                            viewBox="0 0 1024 1024" width="120%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M549.12 643.2l-108.373333-107.093333 1.28-1.28c74.24-82.773333 127.146667-177.92
-                                158.293333-278.613334H725.333333V170.666667H426.666667V85.333333h-85.333334v85.333334H42.666667v84.906666h476.586666A673.834667
-                                673.834667 0 0 1 384 484.266667a672.853333 672.853333 0 0 1-98.56-142.933334h-85.333333c31.146667 69.546667 73.813333 135.253333
-                                127.146666 194.56L110.293333 750.293333 170.666667 810.666667l213.333333-213.333334 132.693333 132.693334
-                                32.426667-86.826667zM789.333333 426.666667h-85.333333l-192 512h85.333333l48-128h202.666667L896
-                                938.666667h85.333333l-192-512z m-112 298.666666L746.666667 540.373333 816 725.333333h-138.666667z"/>
-                        </svg>
-                        <span id="language-switch">
-                            <div class="languages-text">
-                                <span class="language-pick language-pick-en">ENG</span>
-                                <span class="language-pick language-pick-pl"><br>POL</span>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-gradient box-shadow mb-1 fixed-top">
+            <div class="container">
+                <a class="navbar-brand" style="color:gold" href="./">Young Boys Gorlice</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" onclick="style.fill='#a0a2a3';">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item search-wrapper">
+                            <div class="search-box">
+                                <input id="searchInput" type="text" class="search-input" placeholder="Szukaj drużyny" autocomplete="off">
+                                <i class="bi bi-search search-icon"></i>
                             </div>
-                        </span>
-                    </a>
-                </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="fixtures.html" data-i18n="navbar.fixtures"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="history.html" data-i18n="navbar.history"></a>
+                        </li>
+                        <li class="nav-item" id="loginLink">
+                            <a class="nav-link text-light" href="results.html" data-i18n="navbar.results"></a>
+                        </li>
+                        <li class="nav-item" id="loginLink">
+                            <a class="nav-link text-light" href="tournaments.html" data-i18n="navbar.tournaments"></a>
+                        </li>
+                        <li class="nav-item" id="loginLink">
+                            <a class="nav-link text-light" href="gallery.html" data-i18n="navbar.gallery"></a>
+                        </li>
+                        <a class="nav-link text-light" id="language-collapsible">
+                            <svg class="translation-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden; scale: 1.1; transform: translateY(-2px);"
+                                viewBox="0 0 1024 1024" width="120%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M549.12 643.2l-108.373333-107.093333 1.28-1.28c74.24-82.773333 127.146667-177.92
+                                    158.293333-278.613334H725.333333V170.666667H426.666667V85.333333h-85.333334v85.333334H42.666667v84.906666h476.586666A673.834667
+                                    673.834667 0 0 1 384 484.266667a672.853333 672.853333 0 0 1-98.56-142.933334h-85.333333c31.146667 69.546667 73.813333 135.253333
+                                    127.146666 194.56L110.293333 750.293333 170.666667 810.666667l213.333333-213.333334 132.693333 132.693334
+                                    32.426667-86.826667zM789.333333 426.666667h-85.333333l-192 512h85.333333l48-128h202.666667L896
+                                    938.666667h85.333333l-192-512z m-112 298.666666L746.666667 540.373333 816 725.333333h-138.666667z"/>
+                            </svg>
+                            <span id="language-switch">
+                                <div class="languages-text">
+                                    <span class="language-pick language-pick-en">ENG</span>
+                                    <span class="language-pick language-pick-pl"><br>POL</span>
+                                </div>
+                            </span>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container flex-grow-1">
+        <img src="images/pedestal-podium.svg" id="medalIcon" alt="Medal" 
+            style="width: 110px; cursor: pointer; float: right;">
+        <a id="pdfLink" href="#" target="_blank" style="float: right; margin-right: 1%;">
+            <img src="images/icons8-pdf-transparent.svg" 
+                    style="width: 60px; cursor: pointer; user-select: none;">
+        </a>
+        <h1>Wyniki meczów</h1>
+        <p>Tutaj znajdziesz wyniki wszystkich meczów Young Boys Gorlice.</p>
+
+        <div class="dropdown mb-4" data-bs-theme="dark">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="seasonDropdown" data-bs-toggle="dropdown">
+                Wybierz sezon
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonDropdown">
+                <li><a class="dropdown-item" href="javascript:void(0)">2018/19</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2019/20</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2020/21</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2021/22</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2022/23</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2023/24</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2024/25</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2025/26</a></li>
+            </ul>
+        </div>
+
+        <table class="table table-hover table-dark table-striped">
+            <thead>
+                <tr>
+                    <th data-i18n="table.date"></th>
+                    <th data-i18n="table.match"></th>
+                    <th data-i18n="table.score"></th>
+                </tr>
+            </thead>
+            <tbody id="resultsTableBody"></tbody>
+        </table>
+    </main>
+
+    <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5"  style="padding: 5px !important; width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
+        <div class="container d-flex justify-content-center align-items-center">
+            <p class="mb-1 flex-grow-1 text-center" style="padding-left: 40px;">Copyright © 2025 Krzysztof Kazanowski</p>
+            <button class="button ms-auto" style="scale: calc(0.75);">
+                <svg fill="white" height="1.5em" class="svgIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
+                <span class="tooltip" data-i18n="footerInfo"></span>
+            </button>
+            <!-- <p class="mb-0">
+                <a href="https://www.facebook.com" class="text-light mx-2">Facebook</a> |
+                <a href="https://www.instagram.com" class="text-light mx-2">Instagram</a> |
+                <a href="https://www.twitter.com" class="text-light mx-2">Twitter</a>
+            </p> -->
+        </div>
+    </footer>
+
+    <div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultsModalLabel">Tabela końcowa <span id="seasonTitle">2025/26</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-sm table-hover table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 10% !important;">#</th>
+                                <th style="width: 50% !important;" data-i18n="table.team"></th>
+                                <th style="width: 11% !important;">M</th>
+                                <th style="width: 11% !important;">P</th>
+                                <th style="width: 18% !important;" data-i18n="table.G"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="standingsTableBody"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-
-<main class="container flex-grow-1">
-    <img src="images/pedestal-podium.svg" id="medalIcon" alt="Medal" 
-        style="width: 110px; cursor: pointer; float: right;">
-    <a id="pdfLink" href="#" target="_blank" style="float: right; margin-right: 1%;">
-        <img src="images/icons8-pdf-transparent.svg" 
-                style="width: 60px; cursor: pointer; user-select: none;">
-    </a>
-    <h1>Wyniki meczów</h1>
-    <p>Tutaj znajdziesz wyniki wszystkich meczów Young Boys Gorlice.</p>
-
-    <div class="dropdown mb-4" data-bs-theme="dark">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="seasonDropdown" data-bs-toggle="dropdown">
-            Wybierz sezon
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonDropdown">
-            <li><a class="dropdown-item" href="javascript:void(0)">2018/19</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2019/20</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2020/21</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2021/22</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2022/23</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2023/24</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2024/25</a></li>
-            <li><a class="dropdown-item" href="javascript:void(0)">2025/26</a></li>
-        </ul>
     </div>
 
-    <table class="table table-hover table-dark table-striped">
-        <thead>
-            <tr>
-                <th data-i18n="table.date"></th>
-                <th data-i18n="table.match"></th>
-                <th data-i18n="table.score"></th>
-            </tr>
-        </thead>
-        <tbody id="resultsTableBody"></tbody>
-    </table>
-</main>
-
-<footer class="bg-dark bg-gradient text-light text-center py-3 mt-5" style="width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
-    <div class="container">
-        <p class="mb-1">Copyright © 2025 Krzysztof Kazanowski</p>
-        <!-- <p class="mb-0">
-            <a href="https://www.facebook.com" class="text-light mx-2">Facebook</a> |
-            <a href="https://www.instagram.com" class="text-light mx-2">Instagram</a> |
-            <a href="https://www.twitter.com" class="text-light mx-2">Twitter</a>
-        </p> -->
-    </div>
-</footer>
-
-<div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-light">
-            <div class="modal-header">
-                <h5 class="modal-title" id="resultsModalLabel">Tabela końcowa <span id="seasonTitle">2025/26</span></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <table class="table table-sm table-hover table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th style="width: 10% !important;">#</th>
-                            <th style="width: 50% !important;" data-i18n="table.team"></th>
-                            <th style="width: 11% !important;">M</th>
-                            <th style="width: 11% !important;">P</th>
-                            <th style="width: 18% !important;" data-i18n="table.G"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="standingsTableBody"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-light">
-            <div class="modal-header">
-                <h5 class="modal-title" id="searchResultsLabel">
-                    Wyniki wyszukiwania: <span id="searchedTeamName"></span>
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h5 class="m-0">H2H</h5>
-                    <button id="toggleChartBtn" class="btn btn-sm btn-outline-light">
-                        Pokaż wykres
-                    </button>
+    <div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchResultsLabel">
+                        Wyniki wyszukiwania: <span id="searchedTeamName"></span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div id="chartContainer" style="display:none;">
-                    <canvas id="resultsChart"></canvas>
-                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="m-0">H2H</h5>
+                        <button id="toggleChartBtn" class="btn btn-sm btn-outline-light">
+                            Pokaż wykres
+                        </button>
+                    </div>
 
-                <table class="table table-dark table-striped table-hover table-sm">
-                    <thead>
-                        <tr>
-                            <th data-i18n="table.date"></th>
-                            <th data-i18n="table.match"></th>
-                            <th data-i18n="table.score"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="searchResultsBody"></tbody>
-                </table>
+                    <div id="chartContainer" style="display:none;">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+
+                    <table class="table table-dark table-striped table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table.date"></th>
+                                <th data-i18n="table.match"></th>
+                                <th data-i18n="table.score"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="searchResultsBody"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
 </html>
