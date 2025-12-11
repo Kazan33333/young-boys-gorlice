@@ -523,28 +523,27 @@ document.addEventListener("DOMContentLoaded", () => {
         searchIcon.addEventListener("click", performSearch);
     }
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
-        e.preventDefault();
-        searchBox.classList.add("expanded");
-        setTimeout(() => {
-            input.focus();
-            showSuggestionsOnFocus();
-        }, 400);
-    }
-
-    if (e.key === "Escape") {
-        suggestionBox.style.display = "none";
-
-        if (input.value.trim().length > 0) {
-            input.blur();
-        } else {
-            input.blur();
-            searchBox.classList.remove("expanded");
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+            e.preventDefault();
+            searchBox.classList.add("expanded");
+            setTimeout(() => {
+                input.focus();
+                showSuggestionsOnFocus();
+            }, 400);
         }
-    }
-});
 
+        if (e.key === "Escape") {
+            suggestionBox.style.display = "none";
+
+            if (input.value.trim().length > 0) {
+                input.blur();
+            } else {
+                input.blur();
+                searchBox.classList.remove("expanded");
+            }
+        }
+    });
 
 });
 
