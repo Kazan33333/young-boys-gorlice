@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return [...set];
     }
 
-    const allTeams = getAllTeams();
+    const allTeams = getAllTeams().sort((a, b) => a.localeCompare(b));
 
     function updateSuggestions(query) {
         suggestionBox.innerHTML = "";
