@@ -1,13 +1,15 @@
 a.navbar-brand {
   font-family: Pricedown Bl;
+  font-size: 26px;
   letter-spacing: 0.4px;
   color: gold !important;
   white-space: normal;
   text-align: center;
   word-break: break-all;
-  font-weight: 600;
   padding-left: 9px;
   padding-right: 7px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border-top: 1px solid transparent;
   border-left: 1px solid transparent;
   transition: 

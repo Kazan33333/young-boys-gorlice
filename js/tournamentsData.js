@@ -7,7 +7,7 @@ export const tournamentResultsData = {
         { date: "06.07.2021", team: "Haller Gorlice - Young Boys Gorlice", score: "1 - 1" }
     ],
     "2021 - Turniej Małego Pola": [
-        { date: "12.07.2021", team: "Young Boys Gorlice - Wysowa", score: "2 - 2" },
+        { date: "12.07.2021", team: "Young Boys Gorlice - Wysowa-Zdrój", score: "2 - 2" },
         { date: "12.07.2021", team: "Iskra Tarnów - Young Boys Gorlice", score: "2 - 3" },
         { date: "12.07.2021", team: "Young Boys Gorlice - Ogień Sękowa", score: "3 - 4" },
         { date: "12.07.2021", team: "Gór-Bet - Young Boys Gorlice", score: "2 - 5" },
