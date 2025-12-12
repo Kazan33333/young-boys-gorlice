@@ -1,4 +1,7 @@
 a.navbar-brand {
+  font-family: Pricedown Bl;
+  letter-spacing: 0.4px;
+  color: gold !important;
   white-space: normal;
   text-align: center;
   word-break: break-all;
