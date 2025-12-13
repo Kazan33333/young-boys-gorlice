@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="js/i18n.js"></script>
+    <script defer src="js/logoAnimation.js"></script>
     <script type="module" src="js/search.js"></script>
 </head>
 <body style="background-color: black; color: white;">
@@ -72,6 +73,9 @@
     </header>
 
     <main class="container flex-grow-1">
+        <img src="images/ybg-logo.svg" id="logo-brand" alt="YBG logo">
+        <h1 data-i18n="navbar.history"></h1>
+        <p data-i18n="historyDesc"></p>
         <div class="row g-3">
             <div class="col-12">
                 <a href="javascript:void(0)" class="menu-link d-flex text-decoration-none">
