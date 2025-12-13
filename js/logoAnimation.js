@@ -8,8 +8,8 @@ let raf = null;
 const MAX_SPEED = 3.5;
 const ACCEL = 0.12;
 const FRICTION = 0.9;
-const SPRING = 0.03;
-const DAMPING = 0.92;
+const SPRING = 0.004;
+const DAMPING = 0.98;
 
 function animate() {
   if (hovering) {
