@@ -27,7 +27,7 @@ const translations = {
         "galleryInfo": "Team's exquisite photo gallery.",
         "searchInfo": "A search engine for finding an opponent the team has played against.",
         "fixturesDesc": "Here you can find current season's futsal league's fixtures and scores of finished games.",
-
+        "historyDesc": "",
         "tournamentsDesc": "Here you can find info about tournaments the club participated in.",
     },
     pl: {
@@ -57,7 +57,7 @@ const translations = {
         "galleryInfo": "Kunsztowna galeria zdjęć drużyny.",
         "searchInfo": "Wyszukiwarka do znajdowania przeciwników, z którymi mierzyła się drużyna.",
         "fixturesDesc": "Tutaj znajdziesz terminarz wszystkich meczów obecnego sezonu ligi futsal oraz wyniki z odbytych meczów.",
-
+        "historyDesc": "Young Boys Gorlice to klub piłkarski założony w drugiej połowie lat 10. XXI wieku.",
         "tournamentsDesc": "Tutaj znajdziesz informacje o turniejach, w których klub brał udział.",
     }
 };
