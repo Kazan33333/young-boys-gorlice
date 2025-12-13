@@ -34,32 +34,6 @@ a.navbar-brand:hover {
   color: chartreuse !important;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-#logo-brand:hover {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  /* inne właściwości Twojego logo */
-  position: relative;
-
-  /* animacja */
-  animation: spin 1s linear infinite; /* czas w sekundach, liniowa, nieskończona */
-}
-
-.login-icon {
-  fill: none !important;
-  stroke: white !important;
-}
-
-.logout-icon {
-  fill: white;
-}
-
 html {
   font-size: 14px;
 }
