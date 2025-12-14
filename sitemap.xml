@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://youngboysgorlice.pl/</loc>
-		<priority>1.0</priority>
+		<priority>1.00</priority>
 		<changefreq>weekly</changefreq>
 		<lastmod>2025-12-10</lastmod>
+	</url>
+	<url>
+		<loc>https://youngboysgorlice.pl/results.html</loc>
+		<priority>0.75</priority>
+		<changefreq>weekly</changefreq>
+		<lastmod>2025-12-11</lastmod>
 	</url>
 	<url>
 		<loc>https://youngboysgorlice.pl/fixtures.html</loc>
@@ -15,12 +21,6 @@
 	<url>
 		<loc>https://youngboysgorlice.pl/history.html</loc>
 		<priority>0.25</priority>
-		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
-	</url>
-	<url>
-		<loc>https://youngboysgorlice.pl/results.html</loc>
-		<priority>0.75</priority>
 		<changefreq>weekly</changefreq>
 		<lastmod>2025-12-11</lastmod>
 	</url>
