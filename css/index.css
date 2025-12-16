@@ -342,3 +342,11 @@ th:nth-child(3) { width: 15%; }
   background-position: right;
   transition-duration: 1s;
 }
+
+.counter-tooltip {
+  position: absolute;
+  top: -110px;
+  text-align: left;
+  width: 130px;
+  line-height: 1.7 !important;
+}
