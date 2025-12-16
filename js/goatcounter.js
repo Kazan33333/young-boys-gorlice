@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const path = encodeURIComponent(location.pathname);
 
-    const url = `https://kazan33333.goatcounter.com/counter/${path}.json`;
+    const url = `https://kazan33333.goatcounter.com/counter/TOTAL.json`;
 
     fetch(url)
         .then(res => res.json())
