@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (nav) nav.remove();
     }
 
-    pdfLink.href = `pdf/league/wyniki_2025-26.pdf`;
+    pdfLink.href = `https://youngboysgorlice.pl/pdf/league/wyniki_2025-26.pdf`;
     medalIcon.src = seasonMedals[SEASON];
 
     medalIcon.addEventListener("click", () => {

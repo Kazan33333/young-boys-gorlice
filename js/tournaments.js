@@ -210,9 +210,14 @@ document.addEventListener("DOMContentLoaded", function() {
             pdfFilename = "male-pole-2025.pdf";
         }
 
-        const pdfUrl = `pdf/tournaments/${pdfFilename}`;
+        if (!pdfFilename) return;
+
+        const BASE_URL = "https://youngboysgorlice.pl";
+        const pdfUrl = `${BASE_URL}/pdf/tournaments/${pdfFilename}`;
+
         document.getElementById("pdfLink").href = pdfUrl;
     }
+
 
     document.getElementById("medalIcon").addEventListener("click", function() {
         let modal = new bootstrap.Modal(document.getElementById("resultsModal"));
