@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 a.navbar-brand {
   font-family: Pricedown Bl;
   font-size: 26px;
