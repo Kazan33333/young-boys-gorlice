@@ -27,7 +27,7 @@ a.navbar-brand {
 a.navbar-brand:hover {
   background-color: transparent;
   color: gold !important;
-  transform: scale(1.03) perspective(1px);
+  transform: scale(1.03);
   text-shadow: 2px 0px black;
   border-top: 1px solid gold;
   border-left: 1px solid gold;
