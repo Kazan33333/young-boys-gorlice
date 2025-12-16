@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updatePdfLink(season) {
         const pdfFilename = `wyniki_${season.replace("/", "-")}.pdf`;
-        pdfLink.href = `https://youngboysgorlice.pl/pdf/league/${pdfFilename}`;
+        pdfLink.href = `pdf/league/${pdfFilename}`;
     }
 
     medalIcon.addEventListener("click", () => {
