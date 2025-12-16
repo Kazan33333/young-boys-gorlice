@@ -1,7 +1,10 @@
-(function() {
-    var s = document.createElement("script");
-    s.setAttribute("data-goatcounter", "https://twojanazwa.goatcounter.com/count");
-    s.async = true;
-    s.src = "//gc.zgo.at/count.js";
-    document.head.appendChild(s);
-})();
+document.addEventListener("DOMContentLoaded", () => {
+    const pageViewsElem = document.getElementById("pageViews");
+    if (!pageViewsElem || !window.gc) return;
+
+    gc.count().then(data => {
+        pageViewsElem.textContent = data.count;
+    }).catch(err => {
+        console.error("Błąd licznika GoatCounter:", err);
+    });
+});
