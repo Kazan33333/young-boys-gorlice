@@ -10,30 +10,30 @@
 		<loc>https://youngboysgorlice.pl/results.html</loc>
 		<priority>0.75</priority>
 		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
-	</url>
-	<url>
-		<loc>https://youngboysgorlice.pl/fixtures.html</loc>
-		<priority>0.25</priority>
-		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
-	</url>
-	<url>
-		<loc>https://youngboysgorlice.pl/history.html</loc>
-		<priority>0.25</priority>
-		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
-	</url>
-	<url>
-		<loc>https://youngboysgorlice.pl/tournaments.html</loc>
-		<priority>0.25</priority>
-		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
+		<lastmod>2025-12-16</lastmod>
 	</url>
 	<url>
 		<loc>https://youngboysgorlice.pl/gallery.html</loc>
 		<priority>0.25</priority>
 		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-11</lastmod>
+		<lastmod>2025-12-16</lastmod>
+	</url>
+	<url>
+		<loc>https://youngboysgorlice.pl/tournaments.html</loc>
+		<priority>0.25</priority>
+		<changefreq>weekly</changefreq>
+		<lastmod>2025-12-16</lastmod>
+	</url>
+	<url>
+		<loc>https://youngboysgorlice.pl/history.html</loc>
+		<priority>0.25</priority>
+		<changefreq>weekly</changefreq>
+		<lastmod>2025-12-16</lastmod>
+	</url>
+	<url>
+		<loc>https://youngboysgorlice.pl/fixtures.html</loc>
+		<priority>0.25</priority>
+		<changefreq>weekly</changefreq>
+		<lastmod>2025-12-16</lastmod>
 	</url>
 </urlset>
