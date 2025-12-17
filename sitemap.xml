@@ -13,13 +13,7 @@
 		<lastmod>2025-12-17</lastmod>
 	</url>
 	<url>
-		<loc>https://youngboysgorlice.pl/fixtures.html</loc>
-		<priority>0.25</priority>
-		<changefreq>weekly</changefreq>
-		<lastmod>2025-12-17</lastmod>
-	</url>
-	<url>
-		<loc>https://youngboysgorlice.pl/history.html</loc>
+		<loc>https://youngboysgorlice.pl/gallery.html</loc>
 		<priority>0.25</priority>
 		<changefreq>weekly</changefreq>
 		<lastmod>2025-12-17</lastmod>
@@ -31,7 +25,13 @@
 		<lastmod>2025-12-17</lastmod>
 	</url>
 	<url>
-		<loc>https://youngboysgorlice.pl/gallery.html</loc>
+		<loc>https://youngboysgorlice.pl/history.html</loc>
+		<priority>0.25</priority>
+		<changefreq>weekly</changefreq>
+		<lastmod>2025-12-17</lastmod>
+	</url>
+	<url>
+		<loc>https://youngboysgorlice.pl/fixtures.html</loc>
 		<priority>0.25</priority>
 		<changefreq>weekly</changefreq>
 		<lastmod>2025-12-17</lastmod>
