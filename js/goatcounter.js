@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`${base}/TOTAL.json?start=${today}&end=${today}`)
         .then(r => r.json())
         .then(d => todayEl.textContent = d.count)
-        .catch(() => todayEl.textContent = "–");
+        .catch(() => todayEl.textContent = "-");
 
     fetch(`${base}/TOTAL.json`)
         .then(r => r.json())
         .then(d => totalEl.textContent = d.count)
-        .catch(() => totalEl.textContent = "–");
+        .catch(() => totalEl.textContent = "-");
 });
