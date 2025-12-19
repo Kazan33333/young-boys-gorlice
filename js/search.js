@@ -14,6 +14,7 @@ function searchMatches(teamName) {
                     date: g.date,
                     match: g.team,
                     score: g.score,
+                    scorers: g.scorers,
                     source: season
                 });
             }
