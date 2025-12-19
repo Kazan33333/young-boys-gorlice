@@ -219,26 +219,80 @@ function showSearchModal(teamName, results) {
     });
 
     function generateStats() {
-        let wins = 0, draws = 0, losses = 0;
+        let matches = 0;
+        let goalsFor = 0;
+
+        const scorersMap = {};
 
         results.forEach(r => {
-            const scores = r.score?.split(" - ").map(Number);
+            if (!r.score) return;
+
+            const scores = r.score.split(" - ").map(Number);
             const teams = r.match.split(" - ");
             const idx = teams.indexOf("Young Boys Gorlice");
 
-            if (idx === -1 || scores.length !== 2) return;
+            if (idx === -1 || scores.some(isNaN)) return;
 
-            if (scores[idx] > scores[1 - idx]) wins++;
-            else if (scores[idx] < scores[1 - idx]) losses++;
-            else draws++;
+            matches++;
+            goalsFor += scores[idx];
+
+            /* ===== STRZELCY ===== */
+            if (!r.scorers) return;
+
+            const raw = r.scorers.toLowerCase();
+            if (raw.includes("w/o") || raw.includes("n/a")) return;
+
+            r.scorers.split(",").forEach(entry => {
+                entry = entry.trim();
+
+                if (!entry || entry.includes("sam")) return;
+
+                // np. "Kacper Wójtowicz x3" albo "Kacper Szpyrka 4"
+                const match = entry.match(/(.+?)(?:\s*x?\s*(\d+))?$/i);
+                if (!match) return;
+
+                const name = match[1].trim();
+                const goals = match[2] ? parseInt(match[2], 10) : 1;
+
+                scorersMap[name] = (scorersMap[name] || 0) + goals;
+            });
         });
 
+        const avgGoals = matches > 0 ? (goalsFor / matches).toFixed(2) : "0.00";
+
+        const topScorers = Object.entries(scorersMap)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3);
+
+        /* ===== RENDER ===== */
+
         statsContainer.innerHTML = `
-            <ul class="list-group list-group-flush text-light">
-                <li class="list-group-item bg-dark">Mecze: ${results.length}</li>
-                <li class="list-group-item bg-dark text-success">Wygrane: ${wins}</li>
-                <li class="list-group-item bg-dark text-warning">Remisy: ${draws}</li>
-                <li class="list-group-item bg-dark text-danger">Porażki: ${losses}</li>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">${matches}</div>
+                    <div class="stat-label">Mecze</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${goalsFor}</div>
+                    <div class="stat-label">Strzelone bramki</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${avgGoals}</div>
+                    <div class="stat-label">Śr. bramek / mecz</div>
+                </div>
+            </div>
+
+            <h6 class="mb-2">TOP 3 STRZELCÓW YBG</h6>
+            <ul class="list-group top-scorers">
+                ${topScorers.length === 0
+                    ? `<li class="list-group-item bg-dark text-secondary">Brak danych</li>`
+                    : topScorers.map(
+                        ([name, goals], i) => `
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>${i + 1}. ${name}</span>
+                                <strong>${goals}</strong>
+                            </li>`
+                    ).join("")}
             </ul>
         `;
     }
@@ -272,7 +326,7 @@ function showSearchModal(teamName, results) {
         statsContainer.style.display = "block";
         generateStats();
     };
-    
+
     setActiveTab(tabTable);
     tableWrapper.style.display = "table";
     chartContainer.style.display = "none";

@@ -356,3 +356,41 @@ th:nth-child(3) { width: 15%; }
     border-color: gold !important;
     color: black !important;
 }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: #1c1f23;
+    border-left: 4px solid gold;
+    padding: 14px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: gold;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.top-scorers li {
+    background-color: #1c1f23;
+    border: none;
+    color: white;
+}
+
+.top-scorers strong {
+    color: gold;
+}
+
