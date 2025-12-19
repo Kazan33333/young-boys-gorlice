@@ -171,7 +171,7 @@
             <div class="modal-content bg-dark text-light">
                 <div class="modal-header">
                     <h5 class="modal-title" id="searchResultsLabel">
-                        Wyniki wyszukiwania: <span id="searchedTeamName"></span>
+                        <span id="searchedTeamName"></span>
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -179,13 +179,19 @@
                 <div class="modal-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h5 class="m-0">H2H</h5>
-                        <button id="toggleChartBtn" class="btn btn-sm btn-outline-light">
-                            Pokaż wykres
-                        </button>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button id="tabTable" class="btn btn-outline-light active-tab" data-i18n="table"></button>
+                            <button id="tabChart" class="btn btn-outline-light" data-i18n="chart"></button>
+                            <button id="tabStats" class="btn btn-outline-light" data-i18n="stats"></button>
+                        </div>
                     </div>
 
                     <div id="chartContainer" style="display:none;">
                         <canvas id="resultsChart"></canvas>
+                    </div>
+
+                    <div id="statsContainer" style="display:none;" class="mt-3">
+                        <div id="statsContent"></div>
                     </div>
 
                     <table class="table table-dark table-striped table-hover table-sm">
@@ -202,6 +208,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
