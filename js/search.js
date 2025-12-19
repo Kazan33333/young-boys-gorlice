@@ -221,11 +221,12 @@ function showSearchModal(teamName, results) {
     function generateStats() {
         let matches = 0;
         let goalsFor = 0;
+        let goalsAgainst = 0;
 
         const scorersMap = {};
 
         results.forEach(r => {
-            if (!r.score) return;
+            if (!r.score || r.score.trim() === "") return;
 
             const scores = r.score.split(" - ").map(Number);
             const teams = r.match.split(" - ");
@@ -235,8 +236,8 @@ function showSearchModal(teamName, results) {
 
             matches++;
             goalsFor += scores[idx];
+            goalsAgainst += scores[1 - idx];
 
-            /* ===== STRZELCY ===== */
             if (!r.scorers) return;
 
             const raw = r.scorers.toLowerCase();
@@ -244,10 +245,8 @@ function showSearchModal(teamName, results) {
 
             r.scorers.split(",").forEach(entry => {
                 entry = entry.trim();
-
                 if (!entry || entry.includes("sam")) return;
 
-                // np. "Kacper Wójtowicz x3" albo "Kacper Szpyrka 4"
                 const match = entry.match(/(.+?)(?:\s*x?\s*(\d+))?$/i);
                 if (!match) return;
 
@@ -258,13 +257,16 @@ function showSearchModal(teamName, results) {
             });
         });
 
-        const avgGoals = matches > 0 ? (goalsFor / matches).toFixed(2) : "0.00";
+        const goalDiff = goalsFor - goalsAgainst;
+        const diffLabel = `${goalDiff > 0 ? '+' : ''}${goalDiff}`;
+
+        let diffColor = "gold";
+        if (goalDiff > 0) diffColor = "chartreuse";
+        else if (goalDiff < 0) diffColor = "red";
 
         const topScorers = Object.entries(scorersMap)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3);
-
-        /* ===== RENDER ===== */
 
         statsContainer.innerHTML = `
             <div class="stats-grid">
@@ -272,13 +274,22 @@ function showSearchModal(teamName, results) {
                     <div class="stat-value">${matches}</div>
                     <div class="stat-label">Mecze</div>
                 </div>
+
                 <div class="stat-card">
                     <div class="stat-value">${goalsFor}</div>
                     <div class="stat-label">Strzelone bramki</div>
                 </div>
+
                 <div class="stat-card">
-                    <div class="stat-value">${avgGoals}</div>
-                    <div class="stat-label">Śr. bramek / mecz</div>
+                    <div class="stat-value">${goalsAgainst}</div>
+                    <div class="stat-label">Stracone bramki</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" style="color: ${diffColor};">
+                        ${diffLabel}
+                    </div>
+                    <div class="stat-label">Bilans bramkowy</div>
                 </div>
             </div>
 
