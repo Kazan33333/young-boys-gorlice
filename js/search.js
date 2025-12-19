@@ -260,10 +260,6 @@ function showSearchModal(teamName, results) {
         const goalDiff = goalsFor - goalsAgainst;
         const diffLabel = `${goalDiff > 0 ? '+' : ''}${goalDiff}`;
 
-        // let diffColor = "gold";
-        // if (goalDiff > 0) diffColor = "chartreuse";
-        // else if (goalDiff < 0) diffColor = "red";
-
         const topScorers = Object.entries(scorersMap)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3);
