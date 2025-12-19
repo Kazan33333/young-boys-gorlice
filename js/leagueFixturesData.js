@@ -21,12 +21,12 @@ export const leagueFixturesData = {
         { date: "07.12.2025 16:00", team: "Mongoły - MK Ubezpieczenia Gorlice", score: "3 - 1", scorers: "P. Padoł, M. Grzybek - M. Fugiel" },
         { date: "07.12.2025 16:30", team: "Silvestria - Redlions", score: "2 - 4", scorers: "J. Roman, J. Hajduk - P. Alibożek 3, H. Czech" },
 
-        { date: "14.12.2025 14:00", team: "Young Boys Gorlice - FC Melina", score: "", scorers: "" },
-        { date: "14.12.2025 14:30", team: "Silvestria - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
-        { date: "14.12.2025 15:00", team: "Young Boys Gorlice - Mongoły", score: "", scorers: "" },
-        { date: "14.12.2025 15:30", team: "FC Melina - Redlions", score: "", scorers: "" },
-        { date: "14.12.2025 16:00", team: "Silvestria - Mongoły", score: "", scorers: "" },
-        { date: "14.12.2025 16:30", team: "Hanmart Gorlice - Redlions", score: "", scorers: "" },
+        { date: "14.12.2025 14:00", team: "Young Boys Gorlice - FC Melina", score: "0 - 1", scorers: "Ł. Gambal" },
+        { date: "14.12.2025 14:30", team: "Silvestria - MK Ubezpieczenia Gorlice", score: "0 - 2", scorers: "D. Nosal 2" },
+        { date: "14.12.2025 15:00", team: "Young Boys Gorlice - Mongoły", score: "3 - 2", scorers: "K. Kazanowski, R. Gucwa, K. Szpyrka - P. Padoł, K. Moskal" },
+        { date: "14.12.2025 15:30", team: "FC Melina - Redlions", score: "5 - 2", scorers: "S. Dziuban 3, Ł. Gambal, P. Kukla - P. Alibożek 2" },
+        { date: "14.12.2025 16:00", team: "Silvestria - Mongoły", score: "1 - 1", scorers: "J. Roman - D. Sitek" },
+        { date: "14.12.2025 16:30", team: "Hanmart Gorlice - Redlions", score: "5 - 1", scorers: "K. Grela, K. Dąbrowski, A. Juszczak, D. Rybak, S. Honkowicz - M. Ślawski" },
 
         { date: "28.12.2025 14:00", team: "MK Ubezpieczenia Gorlice - FC Melina", score: "", scorers: "" },
         { date: "28.12.2025 14:30", team: "Young Boys Gorlice - Silvestria", score: "", scorers: "" },
