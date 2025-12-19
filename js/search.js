@@ -147,22 +147,30 @@ function showSearchModal(teamName, results) {
 
     const modalElement = document.getElementById("searchResultsModal");
     if (!modalElement) {
-        console.error("Brak elementu #searchResultsModal w DOM");
+        console.error("Brak elementu #searchResultsModal");
         return;
     }
+
     const modal = new bootstrap.Modal(modalElement);
 
     const tableBody = document.getElementById("searchResultsBody");
-    const chartContainer = document.getElementById("chartContainer");
-    const toggleBtn = document.getElementById("toggleChartBtn");
     const modalTitle = document.getElementById("searchResultsLabel");
 
-    if (!tableBody || !modalTitle) {
-        console.error("Brak wymaganych elementów modala (searchResultsBody lub searchResultsLabel)");
+    const tabTable = document.getElementById("tabTable");
+    const tabChart = document.getElementById("tabChart");
+    const tabStats = document.getElementById("tabStats");
+
+    const chartContainer = document.getElementById("chartContainer");
+    const statsContainer = document.getElementById("statsContainer");
+
+    const tableWrapper = tableBody.parentElement;
+
+    if (!tableBody || !modalTitle || !tabTable || !tabChart || !tabStats) {
+        console.error("Brak wymaganych elementów modala");
         return;
     }
 
-    modalTitle.textContent = `${teamName}`;
+    modalTitle.textContent = teamName;
     tableBody.innerHTML = "";
 
     if (!results || results.length === 0) {
@@ -171,65 +179,106 @@ function showSearchModal(teamName, results) {
                 <td colspan="3" class="text-center text-secondary">
                     Brak meczów z tą drużyną
                 </td>
-            </tr>`;
-        if (chartContainer) chartContainer.style.display = "none";
-        if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-        if (toggleBtn) toggleBtn.setAttribute("data-i18n", "chart");
+            </tr>
+        `;
+
+        setActiveTab(tabTable);
+        tableWrapper.style.display = "table";
+        chartContainer.style.display = "none";
+        statsContainer.style.display = "none";
 
         modal.show();
         return;
     }
 
-    results.forEach((r) => {
-        const highlighted = r.match.replace(/(Young Boys Gorlice)/g, '<span style="color: gold;">$1</span>');
+    results.forEach(r => {
+        const highlighted = r.match.replace(
+            /(Young Boys Gorlice)/g,
+            '<span style="color: gold;">$1</span>'
+        );
 
-        let scoreHtml = r.score ?? "";
         let scoreColor = "inherit";
         try {
-            const scores = (r.score || "").split(" - ").map(s => Number(s.trim()));
-            const teams = r.match.split(" - ").map(t => t.trim());
-            const ourIndex = teams.indexOf("Young Boys Gorlice");
-            if (!Number.isNaN(scores[0]) && !Number.isNaN(scores[1]) && ourIndex !== -1) {
-                const our = scores[ourIndex];
-                const opp = scores[1 - ourIndex];
-                if (our > opp) scoreColor = "chartreuse";
-                else if (our < opp) scoreColor = "red";
+            const scores = r.score?.split(" - ").map(Number);
+            const teams = r.match.split(" - ");
+            const idx = teams.indexOf("Young Boys Gorlice");
+
+            if (idx !== -1 && scores.length === 2) {
+                if (scores[idx] > scores[1 - idx]) scoreColor = "chartreuse";
+                else if (scores[idx] < scores[1 - idx]) scoreColor = "red";
             }
-        } catch (err) {
-            scoreColor = "inherit";
-        }
+        } catch {}
 
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${r.date ?? ""}</td>
             <td>${highlighted}</td>
-            <td style="color: ${scoreColor};">${scoreHtml}</td>
+            <td style="color:${scoreColor}">${r.score ?? ""}</td>
         `;
         tableBody.appendChild(row);
     });
 
-    modal.show();
+    function generateStats() {
+        let wins = 0, draws = 0, losses = 0;
 
-    if (chartContainer) chartContainer.style.display = "none";
-    if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-    if (toggleBtn) toggleBtn.setAttribute("data-i18n", "chart");
+        results.forEach(r => {
+            const scores = r.score?.split(" - ").map(Number);
+            const teams = r.match.split(" - ");
+            const idx = teams.indexOf("Young Boys Gorlice");
 
-    if (toggleBtn) {
-        toggleBtn.onclick = () => {
-            const isChartHidden = chartContainer && chartContainer.style.display === "none";
-            if (isChartHidden) {
-                generateChart(teamName, results);
-                chartContainer.style.display = "block";
-                if (tableBody.parentElement) tableBody.parentElement.style.display = "none";
-                toggleBtn.setAttribute("data-i18n", "table");
-            } else {
-                if (chartContainer) chartContainer.style.display = "none";
-                if (tableBody.parentElement) tableBody.parentElement.style.display = "table";
-                toggleBtn.setAttribute("data-i18n", "chart");
-            }
-            changeLanguage(currentLang);
-        };
+            if (idx === -1 || scores.length !== 2) return;
+
+            if (scores[idx] > scores[1 - idx]) wins++;
+            else if (scores[idx] < scores[1 - idx]) losses++;
+            else draws++;
+        });
+
+        statsContainer.innerHTML = `
+            <ul class="list-group list-group-flush text-light">
+                <li class="list-group-item bg-dark">Mecze: ${results.length}</li>
+                <li class="list-group-item bg-dark text-success">Wygrane: ${wins}</li>
+                <li class="list-group-item bg-dark text-warning">Remisy: ${draws}</li>
+                <li class="list-group-item bg-dark text-danger">Porażki: ${losses}</li>
+            </ul>
+        `;
     }
+
+    function setActiveTab(activeBtn) {
+        [tabTable, tabChart, tabStats].forEach(btn =>
+            btn.classList.remove("active-tab")
+        );
+        activeBtn.classList.add("active-tab");
+    }
+
+    tabTable.onclick = () => {
+        setActiveTab(tabTable);
+        tableWrapper.style.display = "table";
+        chartContainer.style.display = "none";
+        statsContainer.style.display = "none";
+    };
+
+    tabChart.onclick = () => {
+        setActiveTab(tabChart);
+        generateChart(teamName, results);
+        tableWrapper.style.display = "none";
+        chartContainer.style.display = "block";
+        statsContainer.style.display = "none";
+    };
+
+    tabStats.onclick = () => {
+        setActiveTab(tabStats);
+        tableWrapper.style.display = "none";
+        chartContainer.style.display = "none";
+        statsContainer.style.display = "block";
+        generateStats();
+    };
+    
+    setActiveTab(tabTable);
+    tableWrapper.style.display = "table";
+    chartContainer.style.display = "none";
+    statsContainer.style.display = "none";
+
+    modal.show();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -544,7 +593,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-
 });
+
+function setActiveTab(activeBtn) {
+    [tabTable, tabChart, tabStats].forEach(btn =>
+        btn.classList.remove("active-tab")
+    );
+    activeBtn.classList.add("active-tab");
+}
 
 export { searchMatches, showSearchModal };

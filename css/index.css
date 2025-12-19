@@ -350,3 +350,9 @@ th:nth-child(3) { width: 15%; }
   width: 130px;
   line-height: 1.7 !important;
 }
+
+.active-tab {
+    background: gold !important;
+    border-color: gold !important;
+    color: black !important;
+}
