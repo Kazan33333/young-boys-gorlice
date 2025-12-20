@@ -49,7 +49,7 @@ export const resultsData = {
         { date: "04.12.2021", team: "Gór-Bet - Young Boys Gorlice", score: "1 - 0", scorers: "n/a" },
         { date: "04.12.2021", team: "Silvestria - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz, Jakub Wierzba, sam." },
         { date: "11.12.2021", team: "LKS Szymbark - Young Boys Gorlice", score: "1 - 2", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz" },
-        { date: "09.01.2022", team: "Young Boys Gorlice - Lodownia", score: "2 - 1", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz" },
+        { date: "09.01.2022", team: "Young Boys Gorlice - Lodownia Gorlice", score: "2 - 1", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz" },
         { date: "15.01.2022", team: "Young Boys Gorlice - LKS Bystra", score: "2 - 0", scorers: "Kacper Szpyrka, sam." },
         { date: "15.01.2022", team: "LKS Łużna - Young Boys Gorlice", score: "1 - 1", scorers: "Kacper Wójtowicz" },
         { date: "23.01.2022", team: "Rawian Glass - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz x2, Piotr Rokosz" },

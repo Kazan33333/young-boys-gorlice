@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: 5, team: "Ogień Sękowa" },
             { position: 6, team: "Young Boys Gorlice" },
             { position: 7, team: "Nafta Kryg" },
-            { position: 8, team: "Unicar Iskra Tarnów" },
+            { position: 8, team: "Iskra Tarnów" },
             { position: 9, team: "Stróże" },
             { position: 10, team: "Haller Gorlice" },
             { position: 11, team: "LKS Łużna" },

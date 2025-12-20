@@ -2,7 +2,7 @@ export const tournamentResultsData = {
     "2019 - Turniej Małego Pola": [
         { date: "06.07.2021", team: "Solidarność Glinik Gorlice - Young Boys Gorlice", score: "6 - 0" },
         { date: "06.07.2021", team: "Young Boys Gorlice - Wojnarowa", score: "0 - 1" },
-        { date: "06.07.2021", team: "Unicar Iskra Tarnów - Young Boys Gorlice", score: "1 - 1" },
+        { date: "06.07.2021", team: "Iskra Tarnów - Young Boys Gorlice", score: "1 - 1" },
         { date: "06.07.2021", team: "Young Boys Gorlice - Stróże", score: "4 - 0" },
         { date: "06.07.2021", team: "Haller Gorlice - Young Boys Gorlice", score: "1 - 1" }
     ],
