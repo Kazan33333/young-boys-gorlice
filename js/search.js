@@ -269,24 +269,24 @@ function showSearchModal(teamName, results) {
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-value">${matches}</div>
-                    <div class="stat-label">Mecze</div>
+                    <div class="stat-label" data-i18n="matches"></div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-value">${goalsFor}</div>
-                    <div class="stat-label">Strzelone bramki</div>
+                    <div class="stat-label" data-i18n="goalsScored"></div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-value">${goalsAgainst}</div>
-                    <div class="stat-label">Stracone bramki</div>
+                    <div class="stat-label" data-i18n="goalsConceded"></div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-value">
                         ${diffLabel}
                     </div>
-                    <div class="stat-label">Bilans bramkowy</div>
+                    <div class="stat-label" data-i18n="goalBalance"></div>
                 </div>
             </div>
 
@@ -303,6 +303,8 @@ function showSearchModal(teamName, results) {
                     ).join("")}
             </ul>
         `;
+
+        changeLanguage(currentLang);
     }
 
     function setActiveTab(activeBtn) {
