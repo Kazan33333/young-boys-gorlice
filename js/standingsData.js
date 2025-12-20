@@ -89,7 +89,7 @@ export const standingsData = {
     "2022/23": [
         { position: 1, team: "Hanmart Gorlice", matches: 14, points: 36, balance: "63-29" },
         { position: 2, team: "Young Boys Gorlice", matches: 14, points: 25, balance: "58-38" },
-        { position: 3, team: "Glinik Junior", matches: 14, points: 24, balance: "51-50" },
+        { position: 3, team: "Glinik Junior", matches: 14, points: 24, balance: "51-40" },
         { position: 4, team: "Smakołysze", matches: 14, points: 24, balance: "46-44" },
         { position: 5, team: "FC Czysta", matches: 14, points: 18, balance: "46-53" },
         { position: 6, team: "Silvestria Gorlice", matches: 14, points: 14, balance: "45-41" },
