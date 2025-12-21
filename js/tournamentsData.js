@@ -11,7 +11,7 @@ export const tournamentResultsData = {
         { date: "12.07.2021", team: "Iskra Tarnów - Young Boys Gorlice", score: "2 - 3" },
         { date: "12.07.2021", team: "Young Boys Gorlice - Ogień Sękowa", score: "3 - 4" },
         { date: "12.07.2021", team: "Gór-Bet - Young Boys Gorlice", score: "2 - 5" },
-        { date: "12.07.2021", team: "Young Boys Gorlice - Solidarność Glinik", score: "2 - 5" },
+        { date: "12.07.2021", team: "Young Boys Gorlice - Solidarność Glinik Gorlice", score: "2 - 5" },
         { date: "12.07.2021", team: "LKS Łużna - Young Boys Gorlice", score: "2 - 5" }
     ],
     "2025 - Turniej Futsal": [
