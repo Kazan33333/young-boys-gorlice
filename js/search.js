@@ -146,6 +146,17 @@ function showSearchModal(teamName, results) {
         results = searchMatches(teamName);
     }
 
+    results.sort((a, b) => {
+        if (!a.date || !b.date) return 0;
+
+        const parseDate = (d) => {
+            const [day, month, year] = d.split(".").map(Number);
+            return new Date(year, month - 1, day);
+        };
+
+        return parseDate(a.date) - parseDate(b.date);
+    });
+
     const modalElement = document.getElementById("searchResultsModal");
     if (!modalElement) {
         console.error("Brak elementu #searchResultsModal");
