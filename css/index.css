@@ -351,10 +351,31 @@ th:nth-child(3) { width: 15%; }
   line-height: 1.7 !important;
 }
 
+#tabTable,
+#tabChart,
+#tabStats {
+  border: 1px solid gold !important;
+  color: white;
+  background: transparent;
+}
+
 .active-tab {
-    background: gold !important;
-    border-color: gold !important;
-    color: black !important;
+  background: gold !important;
+  border-color: gold !important;
+  color: black !important;
+}
+
+#tabTable:hover,
+#tabChart:hover,
+#tabStats:hover {
+  color: gold;
+}
+
+#tabTable,
+#tabChart,
+#tabStats {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .stats-grid {
