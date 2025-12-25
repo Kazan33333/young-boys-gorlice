@@ -117,6 +117,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    function t(key) {
+        return translations[currentLang]?.[key] || key;
+    }
+
+    function updateTableInfo() {
+        const infoText = document.getElementById("tableInfoText");
+        if (!infoText) return;
+
+        const season = seasonTitle.textContent;
+        const table = standingsData[season]?.tables?.[currentTableIndex];
+
+        if (table?.titleKey) {
+            infoText.textContent = t(table.titleKey);
+        }
+    }
+
     function addNavigationButtons(totalTables) {
         removeNavigationButtons();
 
@@ -134,8 +150,10 @@ document.addEventListener("DOMContentLoaded", function() {
         infoText.style.flex = "1";
         infoText.style.textAlign = "center";
         infoText.style.fontWeight = "bold";
-        infoText.textContent =
-            standingsData[seasonTitle.textContent].tables[currentTableIndex].title;
+        
+        const table = standingsData[seasonTitle.textContent].tables[currentTableIndex];
+
+        infoText.textContent = t(table.titleKey);
 
         const prevBtn = document.createElement("button");
         prevBtn.className = "btn btn-dark btn-sm";
@@ -163,11 +181,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        function updateTableInfo() {
-            infoText.textContent =
-                standingsData[seasonTitle.textContent].tables[currentTableIndex].title;
-        }
-
         navDiv.appendChild(prevBtn);
         navDiv.appendChild(infoText);
         navDiv.appendChild(nextBtn);
@@ -191,8 +204,15 @@ document.addEventListener("DOMContentLoaded", function() {
         pdfLink.href = `pdf/league/${pdfFilename}`;
     }
 
+    const resultsModalEl = document.getElementById("resultsModal");
+
+    resultsModalEl.addEventListener("shown.bs.modal", () => {
+        updateTableInfo();
+    });
+
     medalIcon.addEventListener("click", () => {
-        const modal = new bootstrap.Modal(document.getElementById("resultsModal"));
+        updateTableInfo();
+        const modal = new bootstrap.Modal(resultsModalEl);
         modal.show();
     });
 

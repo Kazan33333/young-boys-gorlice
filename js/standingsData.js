@@ -43,7 +43,7 @@ export const standingsData = {
     type: "multi", 
     tables: [
         {
-            title: "Tabela przed podziałem",
+            titleKey: "tableBeforeDivision",
             rows: [
                 { position: 1, team: "Wysowa Zdrój", matches: 13, points: 37, balance: "53-15" },
                 { position: 2, team: "Hanmart Gorlice", matches: 13, points: 36, balance: "42-9" },
@@ -62,7 +62,7 @@ export const standingsData = {
             ]
         },
         {
-            title: "I Liga (po podziale)",
+            titleKey: "1stDivision",
             rows: [
                 { position: 1, team: "Hanmart Gorlice", matches: 5, points: 15, balance: "28-3" },
                 { position: 2, team: "Uganda Revesen", matches: 5, points: 12, balance: "21-12" },
@@ -74,7 +74,7 @@ export const standingsData = {
             ]
         },
         {
-            title: "II Liga (po podziale)",
+            titleKey: "2ndDivision",
             rows: [
                 { position: 1, team: "Haller Gorlice", matches: 5, points: 13, balance: "27-7" },
                 { position: 2, team: "LKS Łużna", matches: 5, points: 12, balance: "22-12" },
