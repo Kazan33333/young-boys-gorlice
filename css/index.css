@@ -103,6 +103,10 @@ html {
   scale: calc(1.4)
 }
 
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
 main {
   margin-top: 75px;
   margin-bottom: 90px;
@@ -171,8 +175,8 @@ th:nth-child(3) { width: 15%; }
 .search-box:hover .search-input,
 .search-input:focus,
 .search-box.expanded .search-input {
-    width: 240px;
-    opacity: 1;
+  width: 240px;
+  opacity: 1;
 }
 
 @media (max-width: 576px) {
@@ -188,11 +192,11 @@ th:nth-child(3) { width: 15%; }
   }
 
   .search-input {
-      width: calc(100vw - 42px) !important;
-      opacity: 1;
-      right: auto;
-      transition: none;
-      padding-left: 30px;
+    width: calc(100vw - 42px) !important;
+    opacity: 1;
+    right: auto;
+    transition: none;
+    padding-left: 30px;
   }
 
   .search-icon {
@@ -201,44 +205,44 @@ th:nth-child(3) { width: 15%; }
 }
 
 .menu-link {
-    background-color: #212529;
-    color: white;
-    border-left: 3px solid transparent;
-    display: block;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+  background-color: #212529;
+  color: white;
+  border-left: 3px solid transparent;
+  display: block;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .menu-link:hover,
 .menu-link:focus {
-    color: gold;
-    border-left: 3px solid gold;
-    background-color: #1c1f23;
-    color: inherit;
-    transform: scale(1.01);
+  color: gold;
+  border-left: 3px solid gold;
+  background-color: #1c1f23;
+  color: inherit;
+  transform: scale(1.01);
 }
 
 .menu-desc {
-    font-weight: normal;
-    border: none !important;
-    transition: all 0.3s ease;
+  font-weight: normal;
+  border: none !important;
+  transition: all 0.3s ease;
 }
 
 .menu-link:hover .menu-label {
-    color: chartreuse !important;
+  color: chartreuse !important;
 }
 
 .menu-link:hover .menu-desc {
-    background-color: #1c1f23 !important;
-    color: chartreuse !important;
+  background-color: #1c1f23 !important;
+  color: chartreuse !important;
 }
 
 .menu-label {
-    color: white;
-    font-weight: 600;
-    padding: 1rem;
-    transition: color 0.3s ease, background-color 0.3s ease;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .menu-desc {
@@ -247,18 +251,18 @@ th:nth-child(3) { width: 15%; }
 }
 
 .round-header {
-    transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .round:hover {
-    background-color: rgba(255, 215, 0, 0.05);
-    transition: background-color 0.3s ease;
+  background-color: rgba(255, 215, 0, 0.05);
+  transition: background-color 0.3s ease;
 }
 
 .round-header:hover {
-    background-color: #1c1f23 !important;
-    color: chartreuse;
-    cursor: pointer;
+  background-color: #1c1f23 !important;
+  color: chartreuse;
+  cursor: pointer;
 }
 
 .round-body table {
@@ -266,16 +270,16 @@ th:nth-child(3) { width: 15%; }
 }
 
 .round-body {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 1s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 1s ease-in-out;
 }
 
 @media (max-width: 576px) {
-    #resultsChart {
-        height: 420px !important;
-        width: 100% !important;
-    }
+  #resultsChart {
+    height: 420px !important;
+    width: 100% !important;
+  }
 }
 
 .button {
