@@ -33,8 +33,17 @@ a.navbar-brand:hover {
   border-left: 1px solid gold;
 }
 
+.navbar-nav .nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
 .nav-link:hover {
-  background-color: rgba(157, 157, 157, 0.3);
+  background-color: rgba(17, 17, 17, 0.45);
   color: chartreuse !important;
 }
 
