@@ -57,13 +57,21 @@ html {
 }
 
 footer {
-  padding: 5px !important;
   width: 100%;
   position: fixed;
   bottom: 0;
-  font-size: 12px;
   width: 100%;
   z-index: 1000;
+}
+
+.footer-paragraph .rights {
+  display: inline;
+}
+
+@media (max-width: 576px) {
+  .footer-paragraph .rights {
+    display: block;
+  }
 }
 
 .container {
