@@ -43,7 +43,7 @@ const translations = {
         "homePage": "Homepage",
         "homePageDesc": "Below are cards that are links to individual subpages or features on the site.",
         "fixturesDesc": "Here you can find current season's futsal league's fixtures and scores of finished games.",
-        "historyDesc": "",
+        "historyDesc": "Young Boys Gorlice is a football club founded in the second half of the 2010s.",
         "tournamentsDesc": "Here you can find info about tournaments the club participated in.",
     },
     pl: {
