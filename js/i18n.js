@@ -89,7 +89,7 @@ const translations = {
         "goalsScored": "Bramki strzelone",
         "goalsConceded": "Bramki stracone",
         "goalBalance": "Bilans bramkowy",
-        "topScorers": "Najlepsi strzelcy (trochę brakujących danych)",
+        "topScorers": "Najlepsi strzelcy (brakujące dane)",
         "tableBeforeDivision": "Tabela przed podziałem",
         "1stDivision": "I liga",
         "2ndDivision": "II liga",
