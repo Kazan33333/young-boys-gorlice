@@ -130,6 +130,10 @@ function changeLanguage(lang) {
 
     languagePickEnElement.classList.toggle("language-active", lang === "en");
     languagePickPlElement.classList.toggle("language-active", lang === "pl");
+
+    if (typeof window.updateStatsChartLanguage === "function") {
+        window.updateStatsChartLanguage();
+    }
 }
 
 document.getElementById("language-collapsible").addEventListener("click", function() {

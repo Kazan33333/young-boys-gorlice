@@ -98,58 +98,70 @@ function renderSummaryCards() {
     changeLanguage(currentLang);
 }
 
+let clubStatsChartInstance = null;
+
 function renderResultsChart() {
     const s = calculateGlobalStats();
     const ctx = document.getElementById("clubStatsChart");
-
     if (!ctx) return;
 
-    new Chart(ctx, {
-        type: "doughnut",
-        data: {
-            labels: [
-                translations[currentLang]["wins"],
-                translations[currentLang]["draws"],
-                translations[currentLang]["losses"]
-            ],
-            datasets: [{
-                data: [s.wins, s.draws, s.losses],
-                backgroundColor: [
-                    "rgba(0,255,0,0.8)",
-                    "rgba(255,215,0,0.8)",
-                    "rgba(255,0,0,0.8)"
-                ],
-                borderColor: [
-                    "rgba(0,190,0,1)",
-                    "rgba(190,160,0,1)",
-                    "rgba(190,0,0,1)"
-                ],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            const data = context.dataset.data;
-                            const total = data.reduce((a, b) => a + b, 0);
-                            const value = context.raw;
-                            const percent = total
-                                ? ((value / total) * 100).toFixed(1)
-                                : 0;
+    const labels = [
+        translations[currentLang]["wins"],
+        translations[currentLang]["draws"],
+        translations[currentLang]["losses"]
+    ];
 
-                            return `${context.label}: ${value} (${percent}%)`;
+    const data = [s.wins, s.draws, s.losses];
+
+    if (clubStatsChartInstance) {
+        // Aktualizujemy istniejący wykres
+        clubStatsChartInstance.data.labels = labels;
+        clubStatsChartInstance.data.datasets[0].data = data;
+        clubStatsChartInstance.update();
+    } else {
+        // Tworzymy nowy wykres tylko raz
+        clubStatsChartInstance = new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: [
+                        "rgba(0,255,0,0.8)",
+                        "rgba(255,215,0,0.8)",
+                        "rgba(255,0,0,0.8)"
+                    ],
+                    borderColor: [
+                        "rgba(0,190,0,1)",
+                        "rgba(190,160,0,1)",
+                        "rgba(190,0,0,1)"
+                    ],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const data = context.dataset.data;
+                                const total = data.reduce((a, b) => a + b, 0);
+                                const value = context.raw;
+                                const percent = total
+                                    ? ((value / total) * 100).toFixed(1)
+                                    : 0;
+                                return `${context.label}: ${value} (${percent}%)`;
+                            }
                         }
+                    },
+                    legend: {
+                        labels: { color: "#fff" }
                     }
-                },
-                legend: {
-                    labels: { color: "#fff" }
                 }
             }
-        }
-    });
+        });
+    }
 }
 
 function renderTopScorersTable() {
@@ -181,3 +193,9 @@ function renderTopScorersTable() {
         </tr>
     `).join("");
 }
+
+window.updateStatsChartLanguage = () => {
+    if (clubStatsChartInstance) {
+        renderResultsChart();
+    }
+};
