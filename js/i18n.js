@@ -4,6 +4,7 @@ const translations = {
         "navbar.history": "History",
         "navbar.results": "Results",
         "navbar.tournaments": "Tournaments",
+        "navbar.stats": "Stats",
         "navbar.gallery": "Gallery",
         "table.hour": "Hour",
         "table.date": "Date",
@@ -26,6 +27,11 @@ const translations = {
         "week": "Week",
         "total": "Total",
         "matches": "Matches",
+        "player": "Player",
+        "goals": "Goals",
+        "wins": "Wins",
+        "draws": "Draws",
+        "losses": "Losses",
         "goalsScored": "Goals scored",
         "goalsConceded": "Goals conceded",
         "goalBalance": "Goal balance",
@@ -45,12 +51,14 @@ const translations = {
         "fixturesDesc": "Here you can find current season's futsal league's fixtures and scores of finished games.",
         "historyDesc": "Young Boys Gorlice is a football club founded in the second half of the 2010s.",
         "tournamentsDesc": "Here you can find info about tournaments the club participated in.",
+        "statsDesc": "Here you can find miscellaneous statistics."
     },
     pl: {
         "navbar.fixtures": "Terminarz",
         "navbar.history": "Historia",
         "navbar.results": "Wyniki",
         "navbar.tournaments": "Turnieje",
+        "navbar.stats": "Statystyki",
         "navbar.gallery": "Galeria",
         "table.hour": "Godzina",
         "table.date": "Data",
@@ -72,6 +80,11 @@ const translations = {
         "week": "Tydzień",
         "total": "Łącznie",
         "matches": "Mecze",
+        "player": "Zawodnik",
+        "goals": "Gole",
+        "wins": "Wygrane",
+        "draws": "Remisy",
+        "losses": "Porażki",
         "goalsScored": "Bramki strzelone",
         "goalsConceded": "Bramki stracone",
         "goalBalance": "Bilans bramkowy",
@@ -91,6 +104,7 @@ const translations = {
         "fixturesDesc": "Tutaj znajdziesz terminarz wszystkich meczów obecnego sezonu ligi futsal oraz wyniki z odbytych meczów.",
         "historyDesc": "Young Boys Gorlice to klub piłkarski założony w drugiej połowie lat 10. XXI wieku.",
         "tournamentsDesc": "Tutaj znajdziesz informacje o turniejach, w których klub brał udział.",
+        "statsDesc": "Tutaj znajdziesz rozmaite statystyki."
     }
 };
 

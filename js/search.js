@@ -257,7 +257,7 @@ function showSearchModal(teamName, results) {
 
             r.scorers.split(",").forEach(entry => {
                 entry = entry.trim();
-                if (!entry || entry.includes("sam")) return;
+                if (!entry || entry.includes("o.g.")) return;
 
                 const match = entry.match(/(.+?)(?:\s*x?\s*(\d+))?$/i);
                 if (!match) return;

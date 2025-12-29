@@ -1,0 +1,127 @@
+import { resultsData } from "./resultsData.js";
+import { tournamentResultsData } from "./tournamentsData.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderClubStats();
+});
+
+function renderClubStats() {
+    renderSummaryCards();
+    renderTopScorersTable();
+}
+
+function parseScore(score) {
+    if (!score || !score.includes("-")) return null;
+    const [a, b] = score.split("-").map(s => parseInt(s.trim(), 10));
+    if (isNaN(a) || isNaN(b)) return null;
+    return { a, b };
+}
+
+function isYBGHome(match) {
+    return match.team.startsWith("Young Boys Gorlice");
+}
+
+function calculateGlobalStats() {
+    const stats = {
+        matches: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
+        goalsFor: 0,
+        goalsAgainst: 0,
+        maxGoalsInMatch: 0,
+        seasonsCount: 0
+    };
+
+    const allMatches = [
+        ...Object.values(resultsData).flat(),
+        ...Object.values(tournamentResultsData).flat()
+    ];
+
+    const seasons = Object.keys(resultsData);
+    stats.seasonsCount = seasons.length;
+
+    allMatches.forEach(match => {
+        const parsed = parseScore(match.score);
+        if (!parsed) return;
+
+        stats.matches++;
+
+        const home = isYBGHome(match);
+        const gf = home ? parsed.a : parsed.b;
+        const ga = home ? parsed.b : parsed.a;
+
+        stats.goalsFor += gf;
+        stats.goalsAgainst += ga;
+
+        if (gf > ga) stats.wins++;
+        else if (gf === ga) stats.draws++;
+        else stats.losses++;
+
+        if (gf > stats.maxGoalsInMatch) stats.maxGoalsInMatch = gf;
+    });
+
+    return stats;
+}
+
+function renderSummaryCards() {
+    const container = document.getElementById("clubStatsCards");
+    const s = calculateGlobalStats();
+
+    container.innerHTML = `
+        <div class="stat-card">
+            <div class="stat-value">${s.matches}</div>
+            <div class="stat-label" data-i18n="matches"></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${s.wins}</div>
+            <div class="stat-label" data-i18n="wins"></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${s.draws}</div>
+            <div class="stat-label" data-i18n="draws"></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${s.losses}</div>
+            <div class="stat-label" data-i18n="losses"></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${s.goalsFor}</div>
+            <div class="stat-label" data-i18n="goalsScored"></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${s.goalsAgainst}</div>
+            <div class="stat-label" data-i18n="goalsConceded"></div>
+        </div>
+    `;
+    changeLanguage(currentLang);
+}
+
+function renderTopScorersTable() {
+    const tbody = document.getElementById("clubStatsTableBody");
+    const allMatches = Object.values(resultsData).flat();
+
+    const scorersMap = {};
+
+    allMatches.forEach(match => {
+        if (!match.scorers) return;
+        const scorersList = match.scorers.split(",").map(s => s.trim());
+        scorersList.forEach(player => {
+            if (!player || player.toLowerCase() === "n/a" || player.toLowerCase() === "o.g." || player.toLowerCase() === "w/o") return;
+            const [name, mult] = player.split(" x");
+            const count = mult ? parseInt(mult, 10) : 1;
+            scorersMap[name] = (scorersMap[name] || 0) + count;
+        });
+    });
+
+    const sortedScorers = Object.entries(scorersMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+
+    tbody.innerHTML = sortedScorers.map(([player, goals]) => `
+        <tr>
+            <td>${player}</td>
+            <td>${goals}</td>
+        </tr>
+    `).join("");
+}
