@@ -92,17 +92,35 @@
 
             <div id="clubStatsCards" class="stats-grid mb-4"></div>
 
-            <table class="table table-dark table-striped table-sm mt-4">
-                <thead>
-                    <tr>
-                        <th data-i18n="player"></th>
-                        <th data-i18n="goals"></th>
-                    </tr>
-                </thead>
-                <tbody id="clubStatsTableBody"></tbody>
-            </table>
+            <div class="row g-4">
+                <div class="col-12 col-sm-4">
+                    <div class="card bg-dark text-light p-3 h-100">
+                        <h5 class="mb-3" data-i18n="chart"></h5>
+                        <canvas id="clubStatsChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-8">
+                    <div class="card bg-dark text-light p-3 h-100">
+                        <h5 class="mb-3" data-i18n="topScorers"></h5>
+
+                        <table class="table table-dark table-striped table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th data-i18n="player"></th>
+                                    <th data-i18n="goals"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="clubStatsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
 
         </section>
+
     </main>
 
     <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5" style="padding: 5px !important;">

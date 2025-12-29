@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderClubStats() {
     renderSummaryCards();
+    renderResultsChart();
     renderTopScorersTable();
 }
 
@@ -97,6 +98,60 @@ function renderSummaryCards() {
     changeLanguage(currentLang);
 }
 
+function renderResultsChart() {
+    const s = calculateGlobalStats();
+    const ctx = document.getElementById("clubStatsChart");
+
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: [
+                translations[currentLang]["wins"],
+                translations[currentLang]["draws"],
+                translations[currentLang]["losses"]
+            ],
+            datasets: [{
+                data: [s.wins, s.draws, s.losses],
+                backgroundColor: [
+                    "rgba(0,255,0,0.8)",
+                    "rgba(255,215,0,0.8)",
+                    "rgba(255,0,0,0.8)"
+                ],
+                borderColor: [
+                    "rgba(0,190,0,1)",
+                    "rgba(190,160,0,1)",
+                    "rgba(190,0,0,1)"
+                ],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const data = context.dataset.data;
+                            const total = data.reduce((a, b) => a + b, 0);
+                            const value = context.raw;
+                            const percent = total
+                                ? ((value / total) * 100).toFixed(1)
+                                : 0;
+
+                            return `${context.label}: ${value} (${percent}%)`;
+                        }
+                    }
+                },
+                legend: {
+                    labels: { color: "#fff" }
+                }
+            }
+        }
+    });
+}
+
 function renderTopScorersTable() {
     const tbody = document.getElementById("clubStatsTableBody");
     const allMatches = Object.values(resultsData).flat();
@@ -118,8 +173,9 @@ function renderTopScorersTable() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10);
 
-    tbody.innerHTML = sortedScorers.map(([player, goals]) => `
+    tbody.innerHTML = sortedScorers.map(([player, goals], index) => `
         <tr>
+            <td>${index + 1}</td>
             <td>${player}</td>
             <td>${goals}</td>
         </tr>
