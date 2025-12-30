@@ -35,7 +35,7 @@ const translations = {
         "goalsScored": "Goals scored",
         "goalsConceded": "Goals conceded",
         "goalBalance": "Goal balance",
-        "achievements": "Osiągnięcia",
+        "achievements": "Achievements",
         "topScorers": "Top scorers (some data missing)",
         "tableBeforeDivision": "Table before division",
         "1stDivision": "1st division",

@@ -168,42 +168,44 @@ function renderAchievementsCard() {
     if (!container) return;
 
     container.innerHTML = `
-        <div class="achievement-item mb-3">
-            <div class="fw-bold">2019/20</div>
-            <div class="small text-muted" data-i18n="achievement.league"></div>
-            <div class="d-flex align-items-center gap-2 mt-1">
-                <img src="images/silver-medal.svg" width="22" height="22" alt="">
-                <span data-i18n="achievement.silver"></span>
-            </div>
-        </div>
+        <div class="row g-3">
 
-        <div class="achievement-item mb-3">
-            <div class="fw-bold">2022/23</div>
-            <div class="small text-muted" data-i18n="achievement.league"></div>
-            <div class="d-flex align-items-center gap-2 mt-1">
-                <img src="images/silver-medal.svg" width="22" height="22" alt="">
-                <span data-i18n="achievement.silver"></span>
+            <div class="col-12 col-md-6">
+                <div class="achievement-tile text-center p-3 h-100">
+                    <img src="images/silver-medal-static.svg" class="achievement-icon mb-2" alt="">
+                    <div class="fw-bold">OSiR Liga Futsal - sezon 2019/20</div>
+                    <div class="small text-muted" data-i18n="achievement.league"></div>
+                    <div class="mt-1" data-i18n="achievement.silver"></div>
+                </div>
             </div>
-        </div>
 
-        <div class="achievement-item mb-3">
-            <div class="fw-bold">2024/25</div>
-            <div class="small text-muted" data-i18n="achievement.league"></div>
-            <div class="d-flex align-items-center gap-2 mt-1">
-                <img src="images/bronze-medal.svg" width="22" height="22" alt="">
-                <span data-i18n="achievement.bronze"></span>
+            <div class="col-12 col-md-6">
+                <div class="achievement-tile text-center p-3 h-100">
+                    <img src="images/silver-medal-static.svg" class="achievement-icon mb-2" alt="">
+                    <div class="fw-bold">OSiR Liga Futsal - sezon 2022/23</div>
+                    <div class="small text-muted" data-i18n="achievement.league"></div>
+                    <div class="mt-1" data-i18n="achievement.silver"></div>
+                </div>
             </div>
-        </div>
 
-        <hr class="border-secondary">
-
-        <div class="achievement-item mb-3">
-            <div class="fw-bold">2021 – Turniej Małego Pola</div>
-            <div class="small text-muted" data-i18n="achievement.tournament"></div>
-            <div class="d-flex align-items-center gap-2 mt-1">
-                <img src="images/bronze-medal.svg" width="22" height="22" alt="">
-                <span data-i18n="achievement.bronze"></span>
+            <div class="col-12 col-md-6">
+                <div class="achievement-tile text-center p-3 h-100">
+                    <img src="images/bronze-medal-static.svg" class="achievement-icon mb-2" alt="">
+                    <div class="fw-bold">OSiR Liga Futsal - sezon 2024/25</div>
+                    <div class="small text-muted" data-i18n="achievement.league"></div>
+                    <div class="mt-1" data-i18n="achievement.bronze"></div>
+                </div>
             </div>
+
+            <div class="col-12 col-md-6">
+                <div class="achievement-tile text-center p-3 h-100">
+                    <img src="images/bronze-medal-static.svg" class="achievement-icon mb-2" alt="">
+                    <div class="fw-bold">2021 - Turniej Małego Pola</div>
+                    <div class="small text-muted" data-i18n="achievement.tournament"></div>
+                    <div class="mt-1" data-i18n="achievement.bronze"></div>
+                </div>
+            </div>
+
         </div>
     `;
 

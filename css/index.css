@@ -445,3 +445,20 @@ th:nth-child(3) { width: 15%; }
   color: gold;
 }
 
+.achievement-tile {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid gold;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(145deg, #1e1e1e, #1C1F23);
+}
+
+.achievement-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.achievement-icon {
+    width: 64px;
+    height: 64px;
+}
