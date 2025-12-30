@@ -170,7 +170,7 @@ function renderAchievementsCard() {
     container.innerHTML = `
         <div class="row g-3">
 
-            <div class="col-12 col-md-6">
+            <div class="col-6 col-md-6">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/silver-medal-static.svg" class="achievement-icon mb-2" alt="">
                     <div class="fw-bold">OSiR Liga Futsal - sezon 2019/20</div>
@@ -179,7 +179,7 @@ function renderAchievementsCard() {
                 </div>
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-6 col-md-6">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/silver-medal-static.svg" class="achievement-icon mb-2" alt="">
                     <div class="fw-bold">OSiR Liga Futsal - sezon 2022/23</div>
@@ -188,7 +188,7 @@ function renderAchievementsCard() {
                 </div>
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-6 col-md-6">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/bronze-medal-static.svg" class="achievement-icon mb-2" alt="">
                     <div class="fw-bold">OSiR Liga Futsal - sezon 2024/25</div>
@@ -197,7 +197,7 @@ function renderAchievementsCard() {
                 </div>
             </div>
 
-            <div class="col-12 col-md-6">
+            <div class="col-6 col-md-6">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/bronze-medal-static.svg" class="achievement-icon mb-2" alt="">
                     <div class="fw-bold">2021 - Turniej Małego Pola</div>
