@@ -13,6 +13,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const SEASON = "2025/26";
     let currentTableIndex = 0;
 
+    function parsePLDate(dateStr) {
+        const [day, month, year] = dateStr.split(".");
+        return new Date(year, month - 1, day, 12);
+    }
+
+    function getDefaultOpenRoundIndex(roundDates) {
+        const now = new Date();
+        let resultIndex = -1;
+
+        for (let i = 0; i < roundDates.length; i++) {
+            const roundDate = parsePLDate(roundDates[i]);
+
+            const endOfVisibility = new Date(roundDate);
+            endOfVisibility.setDate(endOfVisibility.getDate() + 2);
+            endOfVisibility.setHours(23, 59, 59, 999);
+
+            if (now <= endOfVisibility) {
+                resultIndex = i;
+                break;
+            }
+
+            if (now > endOfVisibility && i + 1 < roundDates.length) {
+                resultIndex = i + 1;
+            }
+        }
+
+        return resultIndex;
+    }
+
     function updateFixtures() {
         const container = document.getElementById("fixturesContainer");
         container.innerHTML = "";
@@ -24,10 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
             rounds[day].push(match);
         });
 
-        const roundDates = Object.keys(rounds);
-        roundDates.forEach((date, roundIndex) => {
-            const isOpen = roundIndex === 4;
+        const roundDates = Object.keys(rounds).sort(
+            (a, b) => parsePLDate(a) - parsePLDate(b)
+        );
 
+        const defaultOpenIndex = getDefaultOpenRoundIndex(roundDates);
+
+        roundDates.forEach((date, roundIndex) => {
+            const isOpen = roundIndex === defaultOpenIndex;
             const roundDiv = document.createElement("div");
             roundDiv.classList.add("round");
 
