@@ -1,13 +1,13 @@
 export const standingsData = {
     "2018/19": [
-        { "position": 1, team: "Haller Gorlice", matches: 14, points: 34, balance: "46-13" },
-        { "position": 2, team: "Podhalanin Biecz", matches: 14, points: 26, balance: "41-27" },
-        { "position": 3, team: "Kwiatonowice", matches: 14, points: 23, balance: "28-24" },
-        { "position": 4, team: "Stemik Klęczany", matches: 14, points: 20, balance: "26-29" },
-        { "position": 5, team: "AL-KAM Gorlice", matches: 14, points: 18, balance: "32-33" },
-        { "position": 6, team: "Nafta Kryg", matches: 14, points: 17, balance: "17-32" },
-        { "position": 7, team: "Young Boys Gorlice", matches: 14, points: 16, balance: "32-38" },
-        { "position": 8, team: "Ogień Sękowa", matches: 14, points: 7, balance: "20-46" }
+        { position: 1, team: "Haller Gorlice", matches: 14, points: 34, balance: "46-13" },
+        { position: 2, team: "Podhalanin Biecz", matches: 14, points: 26, balance: "41-27" },
+        { position: 3, team: "Kwiatonowice", matches: 14, points: 23, balance: "28-24" },
+        { position: 4, team: "Stemik Klęczany", matches: 14, points: 20, balance: "26-29" },
+        { position: 5, team: "AL-KAM Gorlice", matches: 14, points: 18, balance: "32-33" },
+        { position: 6, team: "Nafta Kryg", matches: 14, points: 17, balance: "17-32" },
+        { position: 7, team: "Young Boys Gorlice", matches: 14, points: 16, balance: "32-38" },
+        { position: 8, team: "Ogień Sękowa", matches: 14, points: 7, balance: "20-46" }
     ],
     "2019/20": [
         { position: 1, team: "Hanmart Gorlice", matches: 15, points: 37, balance: "82-20" },
