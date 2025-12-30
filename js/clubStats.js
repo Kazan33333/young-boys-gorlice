@@ -9,6 +9,7 @@ function renderClubStats() {
     renderSummaryCards();
     renderResultsChart();
     renderTopScorersTable();
+    renderAchievementsCard();
 }
 
 function parseScore(score) {
@@ -114,12 +115,10 @@ function renderResultsChart() {
     const data = [s.wins, s.draws, s.losses];
 
     if (clubStatsChartInstance) {
-        // Aktualizujemy istniejący wykres
         clubStatsChartInstance.data.labels = labels;
         clubStatsChartInstance.data.datasets[0].data = data;
         clubStatsChartInstance.update();
     } else {
-        // Tworzymy nowy wykres tylko raz
         clubStatsChartInstance = new Chart(ctx, {
             type: "pie",
             data: {
@@ -162,6 +161,53 @@ function renderResultsChart() {
             }
         });
     }
+}
+
+function renderAchievementsCard() {
+    const container = document.getElementById("achievementsCard");
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="achievement-item mb-3">
+            <div class="fw-bold">2019/20</div>
+            <div class="small text-muted" data-i18n="achievement.league"></div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+                <img src="images/silver-medal.svg" width="22" height="22" alt="">
+                <span data-i18n="achievement.silver"></span>
+            </div>
+        </div>
+
+        <div class="achievement-item mb-3">
+            <div class="fw-bold">2022/23</div>
+            <div class="small text-muted" data-i18n="achievement.league"></div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+                <img src="images/silver-medal.svg" width="22" height="22" alt="">
+                <span data-i18n="achievement.silver"></span>
+            </div>
+        </div>
+
+        <div class="achievement-item mb-3">
+            <div class="fw-bold">2024/25</div>
+            <div class="small text-muted" data-i18n="achievement.league"></div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+                <img src="images/bronze-medal.svg" width="22" height="22" alt="">
+                <span data-i18n="achievement.bronze"></span>
+            </div>
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="achievement-item mb-3">
+            <div class="fw-bold">2021 – Turniej Małego Pola</div>
+            <div class="small text-muted" data-i18n="achievement.tournament"></div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+                <img src="images/bronze-medal.svg" width="22" height="22" alt="">
+                <span data-i18n="achievement.bronze"></span>
+            </div>
+        </div>
+    `;
+
+    changeLanguage(currentLang);
 }
 
 function renderTopScorersTable() {
