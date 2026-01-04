@@ -3,15 +3,17 @@ import { standingsData } from "./standingsData.js";
 import { seasonMedals } from "./seasonMedals.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    const seasonDropdownButton = document.getElementById("fixturesSeasonDropdown");
+    const seasonDropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
     const fixturesContainer = document.getElementById("fixturesTableBody");
     const standingsTableBody = document.getElementById("standingsTableBody");
     const seasonTitle = document.getElementById("seasonTitle");
     const medalIcon = document.getElementById("medalIcon");
     const pdfLink = document.getElementById("pdfLink");
 
-    const SEASON = "2025/26";
+    let currentSeason = "2025/26";
     let currentTableIndex = 0;
+    seasonDropdownButton.textContent = currentSeason;
 
     function parsePLDate(dateStr) {
         const [day, month, year] = dateStr.split(".");
@@ -42,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return resultIndex;
     }
 
-    function updateFixtures() {
+    function updateFixtures(season = currentSeason) {
         const container = document.getElementById("fixturesContainer");
         container.innerHTML = "";
 
         const rounds = {};
-        leagueFixturesData[SEASON].forEach(match => {
+        leagueFixturesData[season].forEach(match => {
             const day = match.date.split(" ")[0];
             if (!rounds[day]) rounds[day] = [];
             rounds[day].push(match);
@@ -161,16 +163,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+        pdfLink.href = `pdf/league/wyniki_${season.replace("/", "-")}.pdf`;
+        medalIcon.src = seasonMedals[season];
     }
 
     updateFixtures();
 
+    seasonDropdownItems.forEach(item => {
+        item.addEventListener("click", () => {
+            currentSeason = item.textContent.trim();
+            seasonDropdownButton.textContent = currentSeason;
+            updateFixtures(currentSeason);
+        });
+    });
+
     function loadStandings() {
-        seasonTitle.textContent = SEASON;
-        const seasonData = standingsData[SEASON];
+        seasonTitle.textContent = currentSeason;
+        const seasonData = standingsData[currentSeason];
 
         if (!seasonData) {
-            console.error("Brak danych standingsData dla sezonu:", SEASON);
+            console.error("Brak danych standingsData dla sezonu:", currentSeason);
             return;
         }
 
@@ -228,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const infoText = document.createElement("div");
         infoText.id = "tableInfoText";
         infoText.style.fontWeight = "bold";
-        infoText.textContent = standingsData[SEASON].tables[currentTableIndex].title;
+        infoText.textContent = standingsData[season].tables[currentTableIndex].title;
 
         const prev = document.createElement("button");
         prev.className = "btn btn-dark btn-sm";
@@ -251,8 +264,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         function updateInfo() {
-            infoText.textContent = standingsData[SEASON].tables[currentTableIndex].title;
-            renderMultiTable(standingsData[SEASON].tables[currentTableIndex]);
+            infoText.textContent = standingsData[season].tables[currentTableIndex].title;
+            renderMultiTable(standingsData[season].tables[currentTableIndex]);
         }
 
         navDiv.appendChild(prev);
@@ -268,7 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     pdfLink.href = `pdf/league/wyniki_2025-26.pdf`;
-    medalIcon.src = seasonMedals[SEASON];
 
     medalIcon.addEventListener("click", () => {
         new bootstrap.Modal(document.getElementById("resultsModal")).show();
