@@ -35,12 +35,12 @@ export const leagueFixturesData = {
         { date: "28.12.2025 16:00", team: "Silvestria - Hanmart Gorlice", score: "0 - 1", scorers: "" },
         { date: "28.12.2025 16:30", team: "Redlions - Mongoły", score: "3 - 3", scorers: "" },
 
-        { date: "04.01.2026 14:00", team: "MK Ubezpieczenia Gorlice - Mongoły", score: "", scorers: "" },
+        { date: "04.01.2026 14:00", team: "MK Ubezpieczenia Gorlice - Mongoły", score: "3 - 1", scorers: "" },
         { date: "04.01.2026 14:30", team: "Hanmart Gorlice - FC Melina", score: "5 - 0", scorers: "w/o" },
-        { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "", scorers: "" },
+        { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "2 - 3", scorers: "" },
         { date: "04.01.2026 15:30", team: "Mongoły - FC Melina", score: "5 - 0", scorers: "w/o" },
-        { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "", scorers: "" },
-        { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "", scorers: "" },
+        { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "? - Krzysztof Kazanowski" },
+        { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "3 - 2", scorers: "" },
 
         { date: "11.01.2026 15:00", team: "Hanmart Gorlice - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
         { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
