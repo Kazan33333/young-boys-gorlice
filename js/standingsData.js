@@ -123,7 +123,7 @@ export const standingsData = {
     ],
     "2025/26": [
         { position: 1, team: "Hanmart Gorlice", matches: 8, points: 22, balance: "29-11" },
-        { position: 2, team: "FC Melina", matches: 8, points: 18, balance: "28-12" },
+        { position: 2, team: "FC Melina", matches: 10, points: 18, balance: "28-22" },
         { position: 3, team: "Young Boys Gorlice", matches: 9, points: 16, balance: "21-17" },
         { position: 4, team: "Mongoły", matches: 9, points: 10, balance: "20-22" },
         { position: 5, team: "MK Ubezpieczenia Gorlice", matches: 9, points: 9, balance: "18-30" },
