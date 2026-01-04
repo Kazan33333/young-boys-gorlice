@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const seasonMedals = {
         "2019 - Turniej Małego Pola": "images/pedestal-podium.svg",
-        "2021 - Turniej Małego Pola": "images/bronze-medal.svg",
+        "2021 - Turniej Małego Pola": "images/bronze-medal-static.svg",
         "2025 - Turniej Futsal": "images/pedestal-podium.svg",
         "2025 - Turniej Małego Pola": "images/pedestal-podium.svg",
     };
