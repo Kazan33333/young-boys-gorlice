@@ -126,7 +126,7 @@ export const standingsData = {
         { position: 2, team: "FC Melina", matches: 10, points: 18, balance: "28-22" },
         { position: 3, team: "Young Boys Gorlice", matches: 10, points: 16, balance: "22-19" },
         { position: 4, team: "Mongoły", matches: 11, points: 13, balance: "26-25" },
-        { position: 5, team: "MK Ubezpieczenia Gorlice", matches: 10, points: 12, balance: "23-34" },
+        { position: 5, team: "MK Ubezpieczenia Gorlice", matches: 11, points: 12, balance: "23-34" },
         { position: 6, team: "Redlions", matches: 10, points: 11, balance: "20-28" },
         { position: 7, team: "Silvestria", matches: 10, points: 5, balance: "17-32" }
     ]
