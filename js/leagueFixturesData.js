@@ -38,7 +38,7 @@ export const leagueFixturesData = {
         { date: "04.01.2026 14:00", team: "MK Ubezpieczenia Gorlice - Mongoły", score: "", scorers: "" },
         { date: "04.01.2026 14:30", team: "Hanmart Gorlice - FC Melina", score: "5 - 0", scorers: "w/o" },
         { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "", scorers: "" },
-        { date: "04.01.2026 15:30", team: "Mongoły - FC Melina", score: "", scorers: "" },
+        { date: "04.01.2026 15:30", team: "Mongoły - FC Melina", score: "5 - 0", scorers: "w/o" },
         { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "", scorers: "" },
         { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "", scorers: "" },
 
