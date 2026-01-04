@@ -59,7 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
             (a, b) => parsePLDate(a) - parsePLDate(b)
         );
 
-        const defaultOpenIndex = getDefaultOpenRoundIndex(roundDates);
+        let defaultOpenIndex;
+        const lastMatchDate = parsePLDate(roundDates[roundDates.length - 1]);
+        if (lastMatchDate >= new Date()) {
+            defaultOpenIndex = getDefaultOpenRoundIndex(roundDates);
+        } else {
+            defaultOpenIndex = -1;
+        }
 
         roundDates.forEach((date, roundIndex) => {
             const isOpen = roundIndex === defaultOpenIndex;
