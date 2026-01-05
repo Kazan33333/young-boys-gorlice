@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const defaultSeason = "2025 - Turniej Małego Pola";
+    const defaultSeason = "Turniej Małego Pola - Sękowa 2025";
     seasonButton.textContent = defaultSeason;
     updateTable(defaultSeason);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
     const standingsData = {
-        "2019 - Turniej Małego Pola": [
+        "Turniej Małego Pola - Gorlice 2019": [
             { position: 1, team: "Solidarność Glinik Gorlice" },
             { position: 2, team: "Hanmart Gorlice" },
             { position: 3, team: "Wojnarowa" },
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: 11, team: "LKS Łużna" },
             { position: 12, team: "Stemik Klęczany" }
         ],
-        "2021 - Turniej Małego Pola": [
+        "Turniej Małego Pola - Gorlice 2021": [
             { position: 1, team: "Solidarność Glinik", matches: 6, points: 16, balance: "25-2" },
             { position: 2, team: "Wysowa-Zdrój", matches: 6, points: 11, balance: "16-5" },
             { position: 3, team: "Young Boys Gorlice", matches: 6, points: 10, balance: "17-15" },
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: 6, team: "Ogień Sękowa", matches: 6, points: 4, balance: "9-14" },
             { position: 7, team: "Iskra Tarnów", matches: 6, points: 3, balance: "8-26" },
         ],
-        "2025 - Turniej Futsal": [
+        "Turniej Futsal - Gorlice 2025": [
             { position: 1, team: "LKS Łużna" },
             { position: 2, team: "Sokół Staszkówka" },
             { position: 3, team: "JGS Gorlice" },
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: "", team: "LKS Kobylanka" },
             { position: "", team: "Ogień Sękowa" },
         ],
-        "2025 - Turniej Małego Pola": [
+        "Turniej Małego Pola - Sękowa 2025": [
             { position: 1, team: "Przełęcz Dukla" },
             { position: 2, team: "FC Haller Gorlice" },
             { position: 3, team: "Welder Kobylanka" },
@@ -109,10 +109,10 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const seasonMedals = {
-        "2019 - Turniej Małego Pola": "images/pedestal-podium.svg",
-        "2021 - Turniej Małego Pola": "images/bronze-medal-static.svg",
-        "2025 - Turniej Futsal": "images/pedestal-podium.svg",
-        "2025 - Turniej Małego Pola": "images/pedestal-podium.svg",
+        "Turniej Małego Pola - Gorlice 2019": "images/pedestal-podium.svg",
+        "Turniej Małego Pola - Gorlice 2021": "images/bronze-medal-static.svg",
+        "Turniej Futsal - Gorlice 2025": "images/pedestal-podium.svg",
+        "Turniej Małego Pola - Sękowa 2025": "images/pedestal-podium.svg",
     };
 
     function hideEmptyColumns() {
@@ -197,16 +197,16 @@ document.addEventListener("DOMContentLoaded", function() {
     function updatePdfLink(season) {
         let pdfFilename = "";
 
-        if (season === "2019 - Turniej Małego Pola") {
+        if (season === "Turniej Małego Pola - Gorlice 2019") {
             pdfFilename = "male-pole-2019.pdf";
         }
-        else if (season === "2021 - Turniej Małego Pola") {
+        else if (season === "Turniej Małego Pola - Gorlice 2021") {
             pdfFilename = "turniejmalegopola2021.pdf";
         }
-        else if (season === "2025 - Turniej Futsal") {
+        else if (season === "Turniej Futsal - Gorlice 2025") {
             pdfFilename = "turniej_futsal_2025.pdf";
         }
-        else if (season === "2025 - Turniej Małego Pola") {
+        else if (season === "Turniej Małego Pola - Sękowa 2025") {
             pdfFilename = "male-pole-2025.pdf";
         }
 
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    loadStandings("2025 - Turniej Małego Pola");
-    updateMedal("2025 - Turniej Małego Pola");
-    updatePdfLink("2025 - Turniej Małego Pola")
+    loadStandings("Turniej Małego Pola - Sękowa 2025");
+    updateMedal("Turniej Małego Pola - Sękowa 2025");
+    updatePdfLink("Turniej Małego Pola - Sękowa 2025")
 });
