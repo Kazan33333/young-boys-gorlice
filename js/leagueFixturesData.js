@@ -112,14 +112,14 @@ export const leagueFixturesData = {
         { date: "04.01.2026 14:30", team: "Hanmart Gorlice - FC Melina", score: "5 - 0", scorers: "w/o" },
         { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "2 - 3", scorers: "" },
         { date: "04.01.2026 15:30", team: "Mongoły - FC Melina", score: "5 - 0", scorers: "w/o" },
-        { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "? - Krzysztof Kazanowski" },
+        { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "? - K. Kazanowski" },
         { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "3 - 2", scorers: "" },
 
         { date: "11.01.2026 15:00", team: "Hanmart Gorlice - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
-        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
+        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "R. Gucwa 2" },
         { date: "11.01.2026 16:00", team: "Redlions - Hanmart Gorlice", score: "", scorers: "" },
         { date: "11.01.2026 16:30", team: "FC Melina - Silvestria", score: "", scorers: "" },
-        { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "", scorers: "" },
+        { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "? - B. Knych x2, M. Nowak, T. Dynda" },
         { date: "11.01.2026 17:30", team: "Mongoły - Silvestria", score: "", scorers: "" }
     ]
 }
