@@ -128,7 +128,7 @@ export const resultsData = {
         { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "0 - 0", scorers: "n/a" },
         { date: "28.12.2025", team: "MK Ubezpieczenia Gorlice - Young Boys Gorlice", score: "0 - 6", scorers: "Radosław Gucwa x4, Filip Kucharkowski, Bartłomiej Knych" },
         { date: "04.01.2026", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "Krzysztof Kazanowski" },
-        { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "", scorers: "" },
-        { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "", scorers: "" }
+        { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "Radosław Gucwa x2" },
+        { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "Bartłomiej Knych x2, Michał Nowak, Tomasz Dynda" }
     ]
 };
