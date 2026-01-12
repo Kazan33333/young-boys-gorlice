@@ -122,12 +122,12 @@ export const standingsData = {
         { position: 12, team: "Ogień Sękowa", matches: 11, points: 0, balance: "4-82" },
     ],
     "2025/26": [
-        { position: 1, team: "Hanmart Gorlice", matches: 10, points: 28, balance: "36-12" },
-        { position: 2, team: "FC Melina", matches: 10, points: 18, balance: "28-22" },
-        { position: 3, team: "Young Boys Gorlice", matches: 10, points: 16, balance: "22-19" },
-        { position: 4, team: "Mongoły", matches: 11, points: 13, balance: "26-25" },
-        { position: 5, team: "MK Ubezpieczenia Gorlice", matches: 11, points: 12, balance: "23-34" },
-        { position: 6, team: "Redlions", matches: 10, points: 11, balance: "20-28" },
-        { position: 7, team: "Silvestria", matches: 10, points: 5, balance: "17-32" }
+        { position: 1, team: "Hanmart Gorlice", matches: 12, points: 31, balance: "42-17" },
+        { position: 2, team: "FC Melina", matches: 12, points: 24, balance: "33-25" },
+        { position: 3, team: "Young Boys Gorlice", matches: 12, points: 19, balance: "28-22" },
+        { position: 4, team: "Mongoły", matches: 12, points: 16, balance: "30-27" },
+        { position: 5, team: "Redlions", matches: 12, points: 14, balance: "28-42" },
+        { position: 6, team: "MK Ubezpieczenia Gorlice", matches: 12, points: 12, balance: "27-39" },
+        { position: 7, team: "Silvestria", matches: 12, points: 5, balance: "16-31" }
     ]
 };
