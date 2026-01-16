@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    loadStandings("Turniej Małego Pola - Sękowa 2025");
-    updateMedal("Turniej Małego Pola - Sękowa 2025");
-    updatePdfLink("Turniej Małego Pola - Sękowa 2025")
+    loadStandings("Turniej Futsal - Gorlice 2026");
+    updateMedal("Turniej Futsal - Gorlice 2026");
+    updatePdfLink("Turniej Futsal - Gorlice 2026")
 });
