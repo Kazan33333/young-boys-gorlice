@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const defaultSeason = "Turniej Małego Pola - Sękowa 2025";
+    const defaultSeason = "Turniej Futsal - Gorlice 2026";
     seasonButton.textContent = defaultSeason;
     updateTable(defaultSeason);
 });
