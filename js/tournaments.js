@@ -26,10 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const highlightedTeam = match.team.replace("Young Boys Gorlice", "<span style='color: gold;'>Young Boys Gorlice</span>");
             
+            const scoreDisplay = match.score
+                    ? match.score
+                    : `<span data-i18n="table.toBePlayed">${translations[currentLang]["table.toBePlayed"]}</span>`;
+
             const row = `<tr class="match-row" data-index="${index}">
                             <td>${match.date}</td>
                             <td>${highlightedTeam}</td>
-                            <td style="color: ${scoreColor};">${match.score}</td>
+                            <td style="color: ${scoreColor};">${scoreDisplay}</td>
                          </tr>`;
             tableBody.innerHTML += row;
         });
@@ -105,6 +109,9 @@ document.addEventListener("DOMContentLoaded", function() {
             { position: "", team: "FC Po Nalewce" },
             { position: "", team: "Truchcik Libusza" },
             { position: "", team: "Wysowa" }
+        ],
+        "Turniej Futsal - Gorlice 2026": [
+
         ]
     };
 
@@ -113,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Turniej Małego Pola - Gorlice 2021": "images/bronze-medal-static.svg",
         "Turniej Futsal - Gorlice 2025": "images/pedestal-podium.svg",
         "Turniej Małego Pola - Sękowa 2025": "images/pedestal-podium.svg",
-        "Turniej Futsal - Gorlice 2025": "images/pedestal-podium.svg",
+        "Turniej Futsal - Gorlice 2026": "images/pedestal-podium.svg",
     };
 
     function hideEmptyColumns() {
@@ -209,6 +216,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         else if (season === "Turniej Małego Pola - Sękowa 2025") {
             pdfFilename = "male-pole-2025.pdf";
+        }
+        else if (season === "Turniej Futsal - Gorlice 2026") {
+            pdfFilename = "turniej_futsal_2025.pdf";
         }
 
         const pdfUrl = `pdf/tournaments/${pdfFilename}`;
