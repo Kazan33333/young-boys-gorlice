@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Turniej Małego Pola - Gorlice 2021": "images/bronze-medal-static.svg",
         "Turniej Futsal - Gorlice 2025": "images/pedestal-podium.svg",
         "Turniej Małego Pola - Sękowa 2025": "images/pedestal-podium.svg",
+        "Turniej Futsal - Gorlice 2025": "images/pedestal-podium.svg",
     };
 
     function hideEmptyColumns() {
