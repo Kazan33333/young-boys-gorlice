@@ -26,5 +26,12 @@ export const tournamentResultsData = {
         { date: "29.06.2025", team: "Young Boys Gorlice - FC Górki", score: "4 - 0" },
         { date: "29.06.2025", team: "Welder Kobylanka - Young Boys Gorlice", score: "3 - 0" },
         { date: "29.06.2025", team: "Young Boys Gorlice - Ogień Sękowa", score: "0 - 1" }
-    ]
+    ],
+    "Turniej Futsal - Gorlice 2025": [
+        { date: "18.01.2026 9:20", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "" },
+        { date: "18.01.2026 10:00", team: "FC Melina - Young Boys Gorlice", score: "" },
+        { date: "18.01.2026 11:10", team: "Young Boys Gorlice - Silvestria", score: "" },
+        { date: "18.01.2026 12:10", team: "Young Boys Gorlice - Mongoły", score: "" },
+        { date: "18.01.2026 13:10", team: "Redlions - Young Boys Gorlice", score: "" }
+    ],
 };
