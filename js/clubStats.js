@@ -173,7 +173,7 @@ function renderAchievementsCard() {
             <div class="col-6 col-md-4">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/gold-medal-static.svg" class="achievement-icon mb-2" alt="">
-                    <div class="fw-bold">Turniej Futsal - Gorlice 2026</div>
+                    <div class="fw-bold">OSiR Turniej Futsal - Gorlice 2026</div>
                     <div class="small text-muted" data-i18n="achievement.league"></div>
                     <div class="mt-1" data-i18n="achievement.bronze"></div>
                 </div>
@@ -218,7 +218,7 @@ function renderAchievementsCard() {
             <div class="col-6 col-md-4">
                 <div class="achievement-tile text-center p-3 h-100">
                     <img src="images/bronze-medal-static.svg" class="achievement-icon mb-2" alt="">
-                    <div class="fw-bold">Turniej Małego Pola - Gorlice 2021</div>
+                    <div class="fw-bold">OSiR Turniej Małego Pola - Gorlice 2021</div>
                     <div class="small text-muted" data-i18n="achievement.tournament"></div>
                     <div class="mt-1" data-i18n="achievement.bronze"></div>
                 </div>
