@@ -31,7 +31,7 @@ export const tournamentResultsData = {
         { date: "18.01.2026 09:20", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 0" },
         { date: "18.01.2026 10:00", team: "FC Melina - Young Boys Gorlice", score: "1 - 2" },
         { date: "18.01.2026 11:10", team: "Young Boys Gorlice - Silvestria", score: "0 - 0" },
-        { date: "18.01.2026 12:10", team: "Young Boys Gorlice - Mongoły", score: "" },
+        { date: "18.01.2026 12:10", team: "Young Boys Gorlice - Mongoły", score: "1 - 0" },
         { date: "18.01.2026 13:10", team: "Redlions - Young Boys Gorlice", score: "" }
     ],
 };
