@@ -28,10 +28,10 @@ export const tournamentResultsData = {
         { date: "29.06.2025", team: "Young Boys Gorlice - Ogień Sękowa", score: "0 - 1" }
     ],
     "Turniej Futsal - Gorlice 2026": [
-        { date: "18.01.2026 09:20", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 0" },
-        { date: "18.01.2026 10:00", team: "FC Melina - Young Boys Gorlice", score: "1 - 2" },
-        { date: "18.01.2026 11:10", team: "Young Boys Gorlice - Silvestria", score: "0 - 0" },
-        { date: "18.01.2026 12:10", team: "Young Boys Gorlice - Mongoły", score: "1 - 0" },
-        { date: "18.01.2026 13:10", team: "Redlions - Young Boys Gorlice", score: "3 - 1" }
+        { date: "18.01.2026 09:20", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 0", scorers: "Filip Kucharkowski" },
+        { date: "18.01.2026 10:00", team: "FC Melina - Young Boys Gorlice", score: "1 - 2", scorers: "Tomasz Abram, Dawid Głowacki" },
+        { date: "18.01.2026 11:10", team: "Young Boys Gorlice - Silvestria", score: "0 - 0", scorers: "" },
+        { date: "18.01.2026 12:10", team: "Young Boys Gorlice - Mongoły", score: "1 - 0", scorers: "Dawid Głowacki" },
+        { date: "18.01.2026 13:10", team: "Redlions - Young Boys Gorlice", score: "3 - 1", scorers: "Filip Kucharkowski" }
     ],
 };
