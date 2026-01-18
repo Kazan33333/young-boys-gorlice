@@ -214,7 +214,10 @@ function renderAchievementsCard() {
 
 function renderTopScorersTable() {
     const tbody = document.getElementById("clubStatsTableBody");
-    const allMatches = Object.values(resultsData).flat();
+    const allMatches = [
+        ...Object.values(resultsData).flat(),
+        ...Object.values(tournamentResultsData).flat()
+    ];
 
     const scorersMap = {};
 
