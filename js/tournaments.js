@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
             pdfFilename = "male-pole-2019.pdf";
         }
         else if (season === "Turniej Małego Pola - Gorlice 2021") {
-            pdfFilename = "turniejmalegopola2021.pdf";
+            pdfFilename = "male-pole-2021.pdf";
         }
         else if (season === "Turniej Futsal - Gorlice 2025") {
             pdfFilename = "turniej_futsal_2025.pdf";
