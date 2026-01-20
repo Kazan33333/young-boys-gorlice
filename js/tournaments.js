@@ -1,4 +1,5 @@
 import { tournamentResultsData } from "./tournamentsData.js";
+import { standingsData } from "./tournamentsStandingsData.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("resultsTableBody");
@@ -53,68 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const standingsData = {
-        "Turniej Małego Pola - Gorlice 2019": [
-            { position: 1, team: "Solidarność Glinik Gorlice" },
-            { position: 2, team: "Hanmart Gorlice" },
-            { position: 3, team: "Wojnarowa" },
-            { position: 4, team: "Uście Gorlickie" },
-            { position: 5, team: "Ogień Sękowa" },
-            { position: 6, team: "Young Boys Gorlice" },
-            { position: 7, team: "Nafta Kryg" },
-            { position: 8, team: "Iskra Tarnów" },
-            { position: 9, team: "Stróże" },
-            { position: 10, team: "Haller Gorlice" },
-            { position: 11, team: "LKS Łużna" },
-            { position: 12, team: "Stemik Klęczany" }
-        ],
-        "Turniej Małego Pola - Gorlice 2021": [
-            { position: 1, team: "Solidarność Glinik", matches: 6, points: 16, balance: "25-2" },
-            { position: 2, team: "Wysowa-Zdrój", matches: 6, points: 11, balance: "16-5" },
-            { position: 3, team: "Young Boys Gorlice", matches: 6, points: 10, balance: "17-15" },
-            { position: 4, team: "LKS Łużna", matches: 6, points: 10, balance: "13-13" },
-            { position: 5, team: "Gór-Bet", matches: 6, points: 6, balance: "12-25" },
-            { position: 6, team: "Ogień Sękowa", matches: 6, points: 4, balance: "9-14" },
-            { position: 7, team: "Iskra Tarnów", matches: 6, points: 3, balance: "8-26" },
-        ],
-        "Turniej Futsal - Gorlice 2025": [
-            { position: 1, team: "LKS Łużna" },
-            { position: 2, team: "Sokół Staszkówka" },
-            { position: 3, team: "JGS Gorlice" },
-            { position: 4, team: "Przełęcz Magurska" },
-            { position: 5, team: "Young Boys Gorlice" },
-            { position: "", team: "Grzmotomocni" },
-            { position: "", team: "Silvestria Gorlice" },
-            { position: "", team: "Rawian Glass" },
-            { position: 9, team: "Redlions" },
-            { position: "", team: "Hanmart" },
-            { position: "", team: "LKS Kobylanka" },
-            { position: "", team: "Ogień Sękowa" },
-        ],
-        "Turniej Małego Pola - Sękowa 2025": [
-            { position: 1, team: "Przełęcz Dukla" },
-            { position: 2, team: "FC Haller Gorlice" },
-            { position: 3, team: "Welder Kobylanka" },
-            { position: 4, team: "Mongoły" },
-            { position: 5, team: "Ogień Sękowa" },
-            { position: "", team: "Przełęcz Magurska" },
-            { position: "", team: "Welder Junior" },
-            { position: "", team: "FC Bloxham" },
-            { position: 9, team: "Young Boys Gorlice" },
-            { position: "", team: "FC Górki" },
-            { position: "", team: "Sękowskie Armaty" },
-            { position: "", team: "Redlions" },
-            { position: 13, team: "Batalion Ropica Górna" },
-            { position: "", team: "FC Libusza United" },
-            { position: "", team: "FC Po Nalewce" },
-            { position: "", team: "Truchcik Libusza" },
-            { position: "", team: "Wysowa" }
-        ],
-        "Turniej Futsal - Gorlice 2026": [
-
-        ]
-    };
-
     const seasonMedals = {
         "Turniej Małego Pola - Gorlice 2019": "images/pedestal-podium.svg",
         "Turniej Małego Pola - Gorlice 2021": "images/bronze-medal-static.svg",
