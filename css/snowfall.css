@@ -4,6 +4,11 @@
   initial-value: -1%;
 }
 
+/* Off */
+.snowfall {
+    display: none;
+}
+
 .snowfall,
 .snowfall::before,
 .snowfall::after {
