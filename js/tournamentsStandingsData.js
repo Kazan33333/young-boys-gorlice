@@ -56,6 +56,11 @@ export const standingsData = {
         { position: "", team: "Wysowa" }
     ],
     "Turniej Futsal - Gorlice 2026": [
-
+        { position: 1, team: "Young Boys Gorlice", matches: 5, points: 10, balance: "5-4" },
+        { position: 2, team: "MK Ubezpieczenia", matches: 5, points: 10, balance: "7-4" },
+        { position: 3, team: "FC Melina", matches: 5, points: 8, balance: "7-5" },
+        { position: 4, team: "Redlions", matches: 5, points: 8, balance: "8-7" },
+        { position: 5, team: "Silvestria Gorlice", matches: 5, points: 3, balance: "4-6" },
+        { position: 6, team: "Mongoły", matches: 5, points: 1, balance: "6-11" },
     ]
 };
