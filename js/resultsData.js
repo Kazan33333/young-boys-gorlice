@@ -1,3 +1,7 @@
+import { leagueFixturesData } from "./leagueFixturesData.js";
+
+// Historical seasons precede the detailed league-fixture archive.
+// The 2024/25 and 2025/26 records are derived below from the canonical fixtures.
 export const resultsData = {
     "2018/19": [
         { date: "25.11.2018", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "2 - 0", scorers: "n/a" },
@@ -104,31 +108,56 @@ export const resultsData = {
         { date: "03.02.2024", team: "Wysowa-Zdrój - Young Boys Gorlice", score: "6 - 3", scorers: "Filip Kucharkowski x2, Michał Nowak" },
         { date: "11.02.2024", team: "Young Boys Gorlice - LKS Łużna", score: "5 - 0", scorers: "w/o" }
     ],
+};
+
+// Club-only descriptions differ from the full league's abbreviated scorer lists.
+// Each array corresponds to the Young Boys fixtures in chronological order.
+const clubScorers = {
     "2024/25": [
-        { date: "24.11.2024", team: "LKS Kobylanka - Young Boys Gorlice", score: "1 - 1", scorers: "Krzysztof Kazanowski" },
-        { date: "24.11.2024", team: "Young Boys Gorlice - Rawian Glass", score: "4 - 1", scorers: "Krzysztof Kazanowski, Filip Kucharkowski, Przemysław Piecuch, Tomasz Abram" },
-        { date: "01.12.2024", team: "Grzmotomocni - Young Boys Gorlice", score: "0 - 2", scorers: "Filip Kucharkowski, Kacper Wójtowicz" },
-        { date: "01.12.2024", team: "Young Boys Gorlice - Redlions", score: "7 - 1", scorers: "Krzysztof Kazanowski x3, Kacper Wójtowicz x2, Przemysław Piecuch" },
-        { date: "08.12.2024", team: "Sokół Staszkówka - Young Boys Gorlice", score: "2 - 9", scorers: "Krzysztof Kazanowski x4, Kacper Szpyrka x2, Michał Nowak x2, Tomasz Abram" },
-        { date: "08.12.2024", team: "Young Boys Gorlice - Ogień Sękowa", score: "9 - 2", scorers: "Michał Nowak x3, Mateusz Węgrzyn x2, Krzysztof Kazanowski x2, Kacper Szpyrka, Tomasz Abram" },
-        { date: "22.12.2024", team: "Young Boys Gorlice - Przęłęcz Magurska", score: "4 - 2", scorers: "Kacper Wójtowicz x3, Mateusz Węgrzyn" },
-        { date: "29.12.2024", team: "JGS Gorlice - Young Boys Gorlice", score: "0 - 2", scorers: "Mateusz Węgrzyn, Przemysław Piecuch" },
-        { date: "29.12.2024", team: "Young Boys Gorlice - Hanmart Gorlice", score: "2 - 5", scorers: "Kacper Wójtowicz, Przemysław Piecuch" },
-        { date: "05.01.2025", team: "Silvestria - Young Boys Gorlice", score: "2 - 4", scorers: "Krzysztof Kazanowski, Filip Kucharkowski, Kacper Wójtowicz, Bartłomiej Knych" },
-        { date: "05.01.2025", team: "Young Boys Gorlice - LKS Łużna", score: "2 - 4", scorers: "Kacper Wójtowicz, Kacper Szpyrka" },
+        "Krzysztof Kazanowski",
+        "Krzysztof Kazanowski, Filip Kucharkowski, Przemysław Piecuch, Tomasz Abram",
+        "Filip Kucharkowski, Kacper Wójtowicz",
+        "Krzysztof Kazanowski x3, Kacper Wójtowicz x2, Przemysław Piecuch",
+        "Krzysztof Kazanowski x4, Kacper Szpyrka x2, Michał Nowak x2, Tomasz Abram",
+        "Michał Nowak x3, Mateusz Węgrzyn x2, Krzysztof Kazanowski x2, Kacper Szpyrka, Tomasz Abram",
+        "Kacper Wójtowicz x3, Mateusz Węgrzyn",
+        "Mateusz Węgrzyn, Przemysław Piecuch",
+        "Kacper Wójtowicz, Przemysław Piecuch",
+        "Krzysztof Kazanowski, Filip Kucharkowski, Kacper Wójtowicz, Bartłomiej Knych",
+        "Kacper Wójtowicz, Kacper Szpyrka"
     ],
     "2025/26": [
-        { date: "23.11.2025", team: "Mongoły - Young Boys Gorlice", score: "5 - 1", scorers: "Radosław Gucwa" },
-        { date: "23.11.2025", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "3 - 2", scorers: "Krzysztof Kazanowski x3" },
-        { date: "30.11.2025", team: "Silvestria - Young Boys Gorlice", score: "2 - 3", scorers: "Filip Kucharkowski, Radosław Gucwa, Michał Nowak" },
-        { date: "07.12.2025", team: "Young Boys Gorlice - Hanmart Gorlice", score: "0 - 4", scorers: "n/a" },
-        { date: "07.12.2025", team: "Redlions - Young Boys Gorlice", score: "1 - 5", scorers: "Radosław Gucwa x4, Dawid Głowacki" },
-        { date: "14.12.2025", team: "Young Boys Gorlice - FC Melina", score: "0 - 1", scorers: "n/a" },
-        { date: "14.12.2025", team: "Young Boys Gorlice - Mongoły", score: "3 - 2", scorers: "Radosław Gucwa, Kacper Szpyrka, Krzysztof Kazanowski" },
-        { date: "28.12.2025", team: "Young Boys Gorlice - Silvestria", score: "0 - 0", scorers: "n/a" },
-        { date: "28.12.2025", team: "MK Ubezpieczenia Gorlice - Young Boys Gorlice", score: "0 - 6", scorers: "Radosław Gucwa x4, Filip Kucharkowski, Bartłomiej Knych" },
-        { date: "04.01.2026", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "Krzysztof Kazanowski" },
-        { date: "11.01.2026", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "Radosław Gucwa x2" },
-        { date: "11.01.2026", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "Bartłomiej Knych x2, Michał Nowak, Tomasz Dynda" }
+        "Radosław Gucwa",
+        "Krzysztof Kazanowski x3",
+        "Filip Kucharkowski, Radosław Gucwa, Michał Nowak",
+        "n/a",
+        "Radosław Gucwa x4, Dawid Głowacki",
+        "n/a",
+        "Radosław Gucwa, Kacper Szpyrka, Krzysztof Kazanowski",
+        "n/a",
+        "Radosław Gucwa x4, Filip Kucharkowski, Bartłomiej Knych",
+        "Krzysztof Kazanowski",
+        "Radosław Gucwa x2",
+        "Bartłomiej Knych x2, Michał Nowak, Tomasz Dynda"
     ]
 };
+
+for (const season of Object.keys(clubScorers)) {
+    const clubMatches = leagueFixturesData[season].filter(match =>
+        match.team.includes("Young Boys Gorlice")
+    );
+
+    if (clubMatches.length !== clubScorers[season].length) {
+        throw new Error(`Mismatched fixture and club scorer counts in ${season}`);
+    }
+
+    resultsData[season] = clubMatches.map((match, index) => ({
+        date: match.date.split(" ")[0],
+        // Preserve the spelling from the original results archive.
+        team: season === "2024/25" && index === 6
+            ? "Young Boys Gorlice - Przęłęcz Magurska"
+            : match.team,
+        score: match.score,
+        scorers: clubScorers[season][index]
+    }));
+}

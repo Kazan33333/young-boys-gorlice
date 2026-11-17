@@ -1,3 +1,5 @@
+import { renderStandingsRows } from "./standingsTable.js";
+import { clubScoreColor, highlightClub } from "./matchUtils.js";
 import { tournamentResultsData } from "./tournamentsData.js";
 import { standingsData } from "./tournamentsStandingsData.js";
 
@@ -7,25 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const seasonButton = document.getElementById("seasonDropdown");
 
     function updateTable(season) {
-        tableBody.innerHTML = "";
-        tournamentResultsData[season].forEach((match, index) => {
-            const scores = match.score.split(" - ").map(Number);
-            const teams = match.team.split(" - ");
-            const ourTeamIndex = teams.indexOf("Young Boys Gorlice");
-            let scoreColor = "";
-
-            if (ourTeamIndex !== -1) {
-                const ourScore = scores[ourTeamIndex];
-                const opponentScore = scores[1 - ourTeamIndex];
-                
-                if (ourScore > opponentScore) {
-                    scoreColor = "chartreuse";
-                } else if (ourScore < opponentScore) {
-                    scoreColor = "red";
-                }
-            }
-
-            const highlightedTeam = match.team.replace("Young Boys Gorlice", "<span style='color: gold;'>Young Boys Gorlice</span>");
+        tableBody.innerHTML = tournamentResultsData[season].map((match, index) => {
+            const scoreColor = clubScoreColor(match);
+            const highlightedTeam = highlightClub(match.team);
             
             const scoreDisplay = match.score
                     ? match.score
@@ -36,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <td>${highlightedTeam}</td>
                             <td style="color: ${scoreColor};">${scoreDisplay}</td>
                          </tr>`;
-            tableBody.innerHTML += row;
-        });
+            return row;
+        }).join("");
     }
 
     seasonDropdownItems.forEach(item => {
@@ -116,21 +102,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const seasonTitle = document.getElementById("seasonTitle");
     
         seasonTitle.textContent = season;
-        standingsTableBody.innerHTML = "";
-    
         const standings = standingsData[season] || [];
-        standings.forEach(team => {
-            const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
-            const row = `<tr ${myTeam}>
-                <td>${team.position}</td>
-                <td>${team.team}</td>
-                <td>${team.matches || ""}</td>
-                <td>${team.points || ""}</td>
-                <td>${team.balance || ""}</td>
-            </tr>`;
-            standingsTableBody.insertAdjacentHTML('beforeend', row);
-        });
-    
+        renderStandingsRows(standingsTableBody, standings, { emptyMissing: true });
+
         hideEmptyColumns();
     }  
 

@@ -1,3 +1,5 @@
+import { renderStandingsRows } from "./standingsTable.js";
+import { clubScoreColor, highlightClub } from "./matchUtils.js";
 import { resultsData } from "./resultsData.js";
 import { standingsData } from "./standingsData.js";
 import { seasonMedals } from "./seasonMedals.js";
@@ -8,25 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const seasonButton = document.getElementById("seasonDropdown");
 
     function updateTable(season) {
-        tableBody.innerHTML = "";
-        resultsData[season].forEach((match, index) => {
-            const scores = match.score.split(" - ").map(Number);
-            const teams = match.team.split(" - ");
-            const ourTeamIndex = teams.indexOf("Young Boys Gorlice");
-            let scoreColor = "";
-
-            if (ourTeamIndex !== -1) {
-                const ourScore = scores[ourTeamIndex];
-                const opponentScore = scores[1 - ourTeamIndex];
-                
-                if (ourScore > opponentScore) {
-                    scoreColor = "chartreuse";
-                } else if (ourScore < opponentScore) {
-                    scoreColor = "red";
-                }
-            }
-
-            const highlightedTeam = match.team.replace("Young Boys Gorlice", "<span style='color: gold;'>Young Boys Gorlice</span>");
+        tableBody.innerHTML = resultsData[season].map((match, index) => {
+            const scoreColor = clubScoreColor(match);
+            const highlightedTeam = highlightClub(match.team);
             
             const row = `<tr class="match-row" data-index="${index}">
                             <td>${match.date}</td>
@@ -36,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
                          <tr class="scorers-row" data-index="${index}" style="display: none;">
                             <td colspan="3">⚽ <span class="scorers-text">${match.scorers ? match.scorers : `<span data-i18n="table.noData">${translations[currentLang]["table.noData"]}</span>`}</span></td>
                          </tr>`;
-            tableBody.innerHTML += row;
-        });
+            return row;
+        }).join("");
 
         document.querySelectorAll(".match-row").forEach(row => {
             row.style.cursor = "pointer";
@@ -87,34 +73,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function renderSingleTable(table) {
-        standingsTableBody.innerHTML = "";
-        table.forEach(team => {
-            const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
-            const row = `<tr ${myTeam}>
-                <td>${team.position}</td>
-                <td>${team.team}</td>
-                <td>${team.matches}</td>
-                <td>${team.points}</td>
-                <td>${team.balance}</td>
-            </tr>`;
-            standingsTableBody.insertAdjacentHTML('beforeend', row);
-        });
+        renderStandingsRows(standingsTableBody, table);
     }
 
     function renderMultiTable(tableObj) {
-        standingsTableBody.innerHTML = "";
-
-        tableObj.rows.forEach(team => {
-            const myTeam = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
-            const row = `<tr ${myTeam}>
-                <td>${team.position}</td>
-                <td>${team.team}</td>
-                <td>${team.matches}</td>
-                <td>${team.points}</td>
-                <td>${team.balance}</td>
-            </tr>`;
-            standingsTableBody.insertAdjacentHTML('beforeend', row);
-        });
+        renderStandingsRows(standingsTableBody, tableObj.rows);
     }
 
     function t(key) {

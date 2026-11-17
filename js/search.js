@@ -301,7 +301,7 @@ function showSearchModal(teamName, results) {
                 </div>
             </div>
 
-            <h6 class="mb-2">TOP 3 STRZELCÓW YBG</h6>
+            <h6 class="mb-2" data-i18n="top3Scorers"></h6>
             <ul class="list-group top-scorers">
                 ${topScorers.length === 0
                     ? `<li class="list-group-item bg-dark text-secondary">Brak danych</li>`
@@ -482,8 +482,6 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestionBox.style.top = input.offsetHeight + "px";
     }
 
-    input.parentElement.appendChild(suggestionBox);
-
     let currentFocus = -1;
 
     function getAllTeams() {
@@ -642,10 +640,6 @@ document.addEventListener("DOMContentLoaded", () => {
             showSuggestionsOnFocus();
         }, 400);
     });
-
-    if (searchIcon) {
-        searchIcon.addEventListener("click", performSearch);
-    }
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "/" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {

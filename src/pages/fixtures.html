@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixtures</title>
+    <link rel="canonical" href="https://youngboysgorlice.pl/fixtures.html" />
+{{>base-head}}
+    <link rel="stylesheet" href="css/snowfall.css">
+    <link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet">
+{{>libraries}}
+    <script defer src="js/i18n.js"></script>
+    <script defer src="js/activePage.js"></script>
+    <script type="module" src="js/leagueFixtures.js"></script>
+    <script type="module" src="js/search.js"></script>
+{{>analytics}}
+</head>
+<body style="background-color: black; color: white;">
+
+{{>header}}
+
+    <div class="snowfall"></div>
+
+    <main class="container flex-grow-1">
+        <img src="images/pedestal-podium.svg" id="medalIcon" alt="Medal" 
+            style="width: 110px; cursor: pointer; float: right;">
+        <a id="pdfLink" href="#" target="_blank" style="float: right; margin-right: 1%;">
+            <img src="images/icons8-pdf-transparent.svg" 
+                    style="width: 60px; cursor: pointer; user-select: none;">
+        </a>
+        <h1 data-i18n="futsalLeagueFixtures"></h1>
+        <p data-i18n="fixturesDesc"></p>
+
+        <div class="dropdown mb-4" data-bs-theme="dark">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="fixturesSeasonDropdown" data-bs-toggle="dropdown">
+                Wybierz sezon
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="seasonDropdown">
+                <!-- <li><a class="dropdown-item" href="javascript:void(0)">2018/19</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2019/20</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2020/21</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2021/22</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2022/23</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2023/24</a></li> -->
+                <li><a class="dropdown-item" href="javascript:void(0)">2024/25</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">2025/26</a></li>
+            </ul>
+        </div>
+
+        <div id="fixturesContainer"></div>
+    </main>
+
+{{>footer}}
+
+{{>results-modal}}
+
+{{>search-modal}}
+</body>
+</html>

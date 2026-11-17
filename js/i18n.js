@@ -54,7 +54,8 @@ const translations = {
         "fixturesDesc": "Here you can find current season's futsal league's fixtures and scores of finished games.",
         "historyDesc": "Young Boys Gorlice is a football club founded in the second half of the 2010s.",
         "tournamentsDesc": "Here you can find info about tournaments the club participated in.",
-        "statsDesc": "Here you can find miscellaneous team statistics over the years."
+        "statsDesc": "Here you can find miscellaneous team statistics over the years.",
+        "top3Scorers": "Top 3 YBG scorers"
     },
     pl: {
         "navbar.fixtures": "Terminarz",
@@ -110,7 +111,8 @@ const translations = {
         "fixturesDesc": "Tutaj znajdziesz terminarz wszystkich meczów obecnego sezonu ligi futsal oraz wyniki z odbytych meczów.",
         "historyDesc": "Young Boys Gorlice to klub piłkarski założony w drugiej połowie lat 10. XXI wieku.",
         "tournamentsDesc": "Tutaj znajdziesz informacje o turniejach, w których klub brał udział.",
-        "statsDesc": "Tutaj znajdziesz rozmaite statystyki drużyny na przestrzeni lat."
+        "statsDesc": "Tutaj znajdziesz rozmaite statystyki drużyny na przestrzeni lat.",
+        "top3Scorers": "Top 3 strzelców YBG"
     }
 };
 

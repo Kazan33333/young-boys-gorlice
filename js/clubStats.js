@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderClubStats() {
     renderSummaryCards();
     renderResultsChart();
-    renderTopScorersTable();
+    renderFScorersTable();
     renderAchievementsCard();
 }
 

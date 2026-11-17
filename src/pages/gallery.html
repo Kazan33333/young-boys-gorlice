@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="canonical" href="https://youngboysgorlice.pl/gallery.html" />
+{{>base-head}}
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/snowfall.css">
+    <link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet">
+{{>libraries}}
+    <script defer src="js/i18n.js"></script>
+    <script defer src="js/activePage.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/search.js"></script>
+{{>analytics}}
+</head>
+<body style="background-color: black; color: white;">
+
+{{>header}}
+
+    <div class="snowfall"></div>
+
+    <main class="container flex-grow-1">
+        <img src="images/photos/YBG_2019-20.jpg" alt="2019/20">
+        <img src="images/photos/YBG_2020-21_1.jpg" alt="2020/21">
+        <img src="images/photos/YBG_2020-21_2.jpg" alt="2020/21">
+        <img src="images/photos/YBG_2022-23_trophy.jpg" alt="2022/23">
+        <img src="images/photos/YBG_2025-26_trophy_tournament.jpg" alt="2025/26">
+    </main>
+
+{{>footer}}
+
+{{>search-modal}}
+</body>
+</html>

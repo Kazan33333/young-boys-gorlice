@@ -1,3 +1,5 @@
+import { renderStandingsRows } from "./standingsTable.js";
+import { highlightClub } from "./matchUtils.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
 import { standingsData } from "./standingsData.js";
 import { seasonMedals } from "./seasonMedals.js";
@@ -5,7 +7,6 @@ import { seasonMedals } from "./seasonMedals.js";
 document.addEventListener("DOMContentLoaded", function () {
     const seasonDropdownButton = document.getElementById("fixturesSeasonDropdown");
     const seasonDropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
-    const fixturesContainer = document.getElementById("fixturesTableBody");
     const standingsTableBody = document.getElementById("standingsTableBody");
     const seasonTitle = document.getElementById("seasonTitle");
     const medalIcon = document.getElementById("medalIcon");
@@ -105,11 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const tbody = document.createElement("tbody");
 
-            rounds[date].forEach((match, matchIndex) => {
-                const highlightedTeam = match.team.replace(
-                    "Young Boys Gorlice",
-                    "<span style='color: gold;'>Young Boys Gorlice</span>"
-                );
+            rounds[date].forEach(match => {
+                const highlightedTeam = highlightClub(match.team);
 
                 const scoreDisplay = match.score
                     ? match.score
@@ -204,35 +202,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function renderSingleTable(table) {
-        standingsTableBody.innerHTML = "";
-        table.forEach(team => {
-            const isYBG = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
-            standingsTableBody.insertAdjacentHTML("beforeend", `
-                <tr ${isYBG}>
-                    <td>${team.position}</td>
-                    <td>${team.team}</td>
-                    <td>${team.matches}</td>
-                    <td>${team.points}</td>
-                    <td>${team.balance}</td>
-                </tr>
-            `);
-        });
+        renderStandingsRows(standingsTableBody, table);
     }
 
     function renderMultiTable(tableObj) {
-        standingsTableBody.innerHTML = "";
-        tableObj.rows.forEach(team => {
-            const isYBG = team.team === "Young Boys Gorlice" ? 'style="color: gold;"' : "";
-            standingsTableBody.insertAdjacentHTML("beforeend", `
-                <tr ${isYBG}>
-                    <td>${team.position}</td>
-                    <td>${team.team}</td>
-                    <td>${team.matches}</td>
-                    <td>${team.points}</td>
-                    <td>${team.balance}</td>
-                </tr>
-            `);
-        });
+        renderStandingsRows(standingsTableBody, tableObj.rows);
     }
 
     function addNavigationButtons(totalTables) {

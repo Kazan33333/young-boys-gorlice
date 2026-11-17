@@ -1,0 +1,24 @@
+    <div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultsModalLabel">Tabela końcowa <span id="seasonTitle">{{modalSeason}}</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="{{modalTableClass}}">
+                        <thead>
+                            <tr>
+                                <th style="width: 10% !important;">#</th>
+                                <th style="width: 50% !important;" data-i18n="table.team"></th>
+                                <th style="width: 11% !important;">M</th>
+                                <th style="width: 11% !important;">P</th>
+                                <th style="width: 18% !important;" data-i18n="table.G"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="standingsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
