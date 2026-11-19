@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "Silvestria",
             "MK Marek Kiełtyka Ubezpieczenia Gorlice",
             "Hanmart",
-            "Young Boys",
+            "Young Boys Gorlice",
             "FC Górki"
         ]
     };
