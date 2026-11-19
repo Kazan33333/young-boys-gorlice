@@ -21,89 +21,231 @@ document.addEventListener("DOMContentLoaded", function () {
         return new Date(year, month - 1, day, 12);
     }
 
-    function generateStandingsFromFixtures(season) {
-        const matches = leagueFixturesData[season] || [];
-        const teams = new Map();
+function generateStandingsFromFixtures(season) {
+    const matches = leagueFixturesData[season] || [];
+    const teams = new Map();
+    const playedMatches = [];
 
-        function addTeam(teamName) {
-            if (!teams.has(teamName)) {
-                teams.set(teamName, {
-                    team: teamName,
-                    matches: 0,
-                    wins: 0,
-                    draws: 0,
-                    losses: 0,
+    function parseScore(score) {
+        const result = String(score || "").trim().match(
+            /^(\d+)\s*(?:-|–|—|:)\s*(\d+)$/
+        );
+
+        if (!result) return null;
+
+        return {
+            homeGoals: Number(result[1]),
+            awayGoals: Number(result[2])
+        };
+    }
+
+    function addTeam(teamName) {
+        if (!teams.has(teamName)) {
+            teams.set(teamName, {
+                team: teamName,
+                matches: 0,
+                wins: 0,
+                draws: 0,
+                losses: 0,
+                points: 0,
+                goalsFor: 0,
+                goalsAgainst: 0
+            });
+        }
+
+        return teams.get(teamName);
+    }
+
+    const fixtures = matches.map(match => {
+        const teamsInMatch = match.team.split(/\s+-\s+/);
+
+        if (teamsInMatch.length !== 2) return null;
+
+        const homeName = teamsInMatch[0].trim();
+        const awayName = teamsInMatch[1].trim();
+
+        const home = addTeam(homeName);
+        const away = addTeam(awayName);
+
+        return {
+            homeName,
+            awayName,
+            home,
+            away,
+            score: parseScore(match.score)
+        };
+    });
+
+    const seasonComplete =
+        fixtures.length > 0 &&
+        fixtures.every(fixture => fixture !== null && fixture.score !== null);
+
+    fixtures.forEach(fixture => {
+        if (!fixture || !fixture.score) return;
+
+        const { home, away, homeName, awayName, score } = fixture;
+
+        const { homeGoals, awayGoals } = score;
+
+        home.matches++;
+        away.matches++;
+
+        home.goalsFor += homeGoals;
+        home.goalsAgainst += awayGoals;
+
+        away.goalsFor += awayGoals;
+        away.goalsAgainst += homeGoals;
+
+        if (homeGoals > awayGoals) {
+            home.points += 3;
+            home.wins++;
+            away.losses++;
+        } else if (homeGoals < awayGoals) {
+            away.points += 3;
+            away.wins++;
+            home.losses++;
+        } else {
+            home.points++;
+            away.points++;
+
+            home.draws++;
+            away.draws++;
+        }
+
+        playedMatches.push({
+            home: homeName,
+            away: awayName,
+            homeGoals,
+            awayGoals
+        });
+    });
+
+    function compareOverall(a, b) {
+        const goalDifferenceA = a.goalsFor - a.goalsAgainst;
+        const goalDifferenceB = b.goalsFor - b.goalsAgainst;
+
+        return (
+            b.points - a.points ||
+            goalDifferenceB - goalDifferenceA ||
+            b.goalsFor - a.goalsFor
+        );
+    }
+
+    let sortedTeams;
+
+    if (!seasonComplete) {
+
+        sortedTeams = [...teams.values()].sort(compareOverall);
+
+    } else {
+
+        const teamsByPoints = [...teams.values()].sort(
+            (a, b) => b.points - a.points
+        );
+
+        sortedTeams = [];
+
+        let index = 0;
+
+        while (index < teamsByPoints.length) {
+
+            let nextIndex = index + 1;
+
+            while (
+                nextIndex < teamsByPoints.length &&
+                teamsByPoints[nextIndex].points === teamsByPoints[index].points
+            ) {
+                nextIndex++;
+            }
+
+            const tiedTeams = teamsByPoints.slice(index, nextIndex);
+
+            if (tiedTeams.length === 1) {
+                sortedTeams.push(tiedTeams[0]);
+                index = nextIndex;
+                continue;
+            }
+
+            const tiedTeamNames = new Set(
+                tiedTeams.map(team => team.team)
+            );
+
+            const headToHead = new Map();
+
+            tiedTeams.forEach(team => {
+                headToHead.set(team.team, {
                     points: 0,
                     goalsFor: 0,
                     goalsAgainst: 0
                 });
-            }
+            });
 
-            return teams.get(teamName);
+            playedMatches.forEach(match => {
+
+                if (
+                    !tiedTeamNames.has(match.home) ||
+                    !tiedTeamNames.has(match.away)
+                ) {
+                    return;
+                }
+
+                const home = headToHead.get(match.home);
+                const away = headToHead.get(match.away);
+
+                home.goalsFor += match.homeGoals;
+                home.goalsAgainst += match.awayGoals;
+
+                away.goalsFor += match.awayGoals;
+                away.goalsAgainst += match.homeGoals;
+
+                if (match.homeGoals > match.awayGoals) {
+                    home.points += 3;
+                } else if (match.homeGoals < match.awayGoals) {
+                    away.points += 3;
+                } else {
+                    home.points++;
+                    away.points++;
+                }
+            });
+
+            tiedTeams.sort((a, b) => {
+                const headA = headToHead.get(a.team);
+                const headB = headToHead.get(b.team);
+
+                const headDifferenceA =
+                    headA.goalsFor - headA.goalsAgainst;
+
+                const headDifferenceB =
+                    headB.goalsFor - headB.goalsAgainst;
+
+                return (
+                    headB.points - headA.points ||
+
+                    headDifferenceB - headDifferenceA ||
+
+                    headB.goalsFor - headA.goalsFor ||
+
+                    (b.goalsFor - b.goalsAgainst) -
+                    (a.goalsFor - a.goalsAgainst) ||
+
+                    b.goalsFor - a.goalsFor
+                );
+            });
+
+            sortedTeams.push(...tiedTeams);
+
+            index = nextIndex;
         }
-
-        matches.forEach(match => {
-            const teamsInMatch = match.team.split(/\s+-\s+/);
-
-            if (teamsInMatch.length !== 2) return;
-
-            const home = addTeam(teamsInMatch[0].trim());
-            const away = addTeam(teamsInMatch[1].trim());
-
-            const scoreMatch = String(match.score || "").trim().match(
-                /^(\d+)\s*(?:-|–|—|:)\s*(\d+)$/
-            );
-
-            if (!scoreMatch) return;
-
-            const homeGoals = Number(scoreMatch[1]);
-            const awayGoals = Number(scoreMatch[2]);
-
-            home.goalsFor += homeGoals;
-            home.goalsAgainst += awayGoals;
-
-            away.goalsFor += awayGoals;
-            away.goalsAgainst += homeGoals;
-
-            home.matches++;
-            away.matches++;
-
-            if (homeGoals > awayGoals) {
-                home.points += 3;
-                home.wins++;
-                away.losses++;
-            } else if (homeGoals < awayGoals) {
-                away.points += 3;
-                away.wins++;
-                home.losses++;
-            } else {
-                home.points++;
-                away.points++;
-
-                home.draws++;
-                away.draws++;
-            }
-        });
-
-        const sortedTeams = [...teams.values()].sort((a, b) => {
-            const goalDifferenceA = a.goalsFor - a.goalsAgainst;
-            const goalDifferenceB = b.goalsFor - b.goalsAgainst;
-
-            return (
-                b.points - a.points ||
-                goalDifferenceB - goalDifferenceA ||
-                b.goalsFor - a.goalsFor
-            );
-        });
-
-        return sortedTeams.map((team, index) => ({
-            position: index + 1,
-            team: team.team,
-            matches: team.matches,
-            points: team.points,
-            balance: `${team.goalsFor}-${team.goalsAgainst}`
-        }));
     }
+
+    return sortedTeams.map((team, index) => ({
+        position: index + 1,
+        team: team.team,
+        matches: team.matches,
+        points: team.points,
+        balance: `${team.goalsFor}-${team.goalsAgainst}`
+    }));
+}
 
     function getDefaultOpenRoundIndex(roundDates) {
         const now = new Date();
