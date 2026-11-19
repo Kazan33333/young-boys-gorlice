@@ -21,6 +21,106 @@ document.addEventListener("DOMContentLoaded", function () {
         return new Date(year, month - 1, day, 12);
     }
 
+    const seasonTeams = {
+        "2026/27": [
+            "LKS Wójtowa",
+            "Aserek Team",
+            "Silvestria",
+            "MK Marek Kiełtyka Ubezpieczenia Gorlice",
+            "Hanmart",
+            "Young Boys",
+            "FC Górki"
+        ]
+    };
+
+    function generateStandingsFromFixtures(season) {
+        const matches = leagueFixturesData[season] || [];
+        const teams = new Map();
+
+        function addTeam(teamName) {
+            if (!teams.has(teamName)) {
+                teams.set(teamName, {
+                    team: teamName,
+                    matches: 0,
+                    wins: 0,
+                    draws: 0,
+                    losses: 0,
+                    points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0
+                });
+            }
+
+            return teams.get(teamName);
+        }
+
+        (seasonTeams[season] || []).forEach(addTeam);
+
+        matches.forEach(match => {
+            const teamsInMatch = match.team.split(/\s+-\s+/);
+
+            if (teamsInMatch.length !== 2) return;
+
+            const home = addTeam(teamsInMatch[0].trim());
+            const away = addTeam(teamsInMatch[1].trim());
+
+            const scoreText = String(match.score || "").trim();
+
+            const scoreMatch = scoreText.match(
+                /^(\d+)\s*(?:-|–|—|:)\s*(\d+)$/
+            );
+
+            if (!scoreMatch) return;
+
+            const homeGoals = Number(scoreMatch[1]);
+            const awayGoals = Number(scoreMatch[2]);
+
+            home.goalsFor += homeGoals;
+            home.goalsAgainst += awayGoals;
+
+            away.goalsFor += awayGoals;
+            away.goalsAgainst += homeGoals;
+
+            home.matches++;
+            away.matches++;
+
+            if (homeGoals > awayGoals) {
+                home.points += 3;
+                home.wins++;
+                away.losses++;
+            } else if (homeGoals < awayGoals) {
+                away.points += 3;
+                away.wins++;
+                home.losses++;
+            } else {
+                home.points++;
+                away.points++;
+
+                home.draws++;
+                away.draws++;
+            }
+        });
+
+        const sortedTeams = [...teams.values()].sort((a, b) => {
+            const goalDifferenceA = a.goalsFor - a.goalsAgainst;
+            const goalDifferenceB = b.goalsFor - b.goalsAgainst;
+
+            return (
+                b.points - a.points ||
+                goalDifferenceB - goalDifferenceA ||
+                b.goalsFor - a.goalsFor
+            );
+        });
+
+        return sortedTeams.map((team, index) => ({
+            position: index + 1,
+            team: team.team,
+            matches: team.matches,
+            points: team.points,
+            balance: `${team.goalsFor}-${team.goalsAgainst}`
+        }));
+    }
+
     function getDefaultOpenRoundIndex(roundDates) {
         const now = new Date();
         let resultIndex = -1;
@@ -184,6 +284,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function loadStandings() {
         seasonTitle.textContent = currentSeason;
+
+        const seasonStartYear = Number(currentSeason.split("/")[0]);
+
+        if (seasonStartYear >= 2026) {
+            currentTableIndex = 0;
+            removeNavigationButtons();
+
+            const generatedTable = generateStandingsFromFixtures(currentSeason);
+
+            renderSingleTable(generatedTable);
+
+            return;
+        }
+
         const seasonData = standingsData[currentSeason];
 
         if (!seasonData) {

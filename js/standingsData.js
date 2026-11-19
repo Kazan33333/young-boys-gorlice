@@ -129,8 +129,5 @@ export const standingsData = {
         { position: 5, team: "Redlions", matches: 12, points: 14, balance: "28-42" },
         { position: 6, team: "MK Ubezpieczenia Gorlice", matches: 12, points: 12, balance: "27-39" },
         { position: 7, team: "Silvestria", matches: 12, points: 5, balance: "16-31" }
-    ],
-    "2026/27": [
-        
     ]
 };
