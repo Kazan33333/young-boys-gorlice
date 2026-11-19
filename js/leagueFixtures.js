@@ -500,8 +500,6 @@ function generateStandingsFromFixtures(season) {
         if (nav) nav.remove();
     }
 
-    pdfLink.href = `pdf/league/wyniki_2025-26.pdf`;
-
     medalIcon.addEventListener("click", () => {
         new bootstrap.Modal(document.getElementById("resultsModal")).show();
         loadStandings();
