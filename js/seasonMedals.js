@@ -7,4 +7,5 @@ export const seasonMedals = {
     "2023/24": "images/pedestal-podium.svg",
     "2024/25": "images/bronze-medal-static.svg",
     "2025/26": "images/bronze-medal-static.svg",
+    "2026/27": "images/pedestal-podium.svg"
 };

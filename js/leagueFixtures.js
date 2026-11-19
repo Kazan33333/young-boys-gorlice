@@ -21,18 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return new Date(year, month - 1, day, 12);
     }
 
-    const seasonTeams = {
-        "2026/27": [
-            "LKS Wójtowa",
-            "Aserek Team",
-            "Silvestria",
-            "MK Marek Kiełtyka Ubezpieczenia Gorlice",
-            "Hanmart",
-            "Young Boys Gorlice",
-            "FC Górki"
-        ]
-    };
-
     function generateStandingsFromFixtures(season) {
         const matches = leagueFixturesData[season] || [];
         const teams = new Map();
@@ -54,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return teams.get(teamName);
         }
 
-        (seasonTeams[season] || []).forEach(addTeam);
-
         matches.forEach(match => {
             const teamsInMatch = match.team.split(/\s+-\s+/);
 
@@ -64,9 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const home = addTeam(teamsInMatch[0].trim());
             const away = addTeam(teamsInMatch[1].trim());
 
-            const scoreText = String(match.score || "").trim();
-
-            const scoreMatch = scoreText.match(
+            const scoreMatch = String(match.score || "").trim().match(
                 /^(\d+)\s*(?:-|–|—|:)\s*(\d+)$/
             );
 
