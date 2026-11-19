@@ -121,5 +121,55 @@ export const leagueFixturesData = {
         { date: "11.01.2026 16:30", team: "FC Melina - Silvestria", score: "2 - 1", scorers: "" },
         { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "? - B. Knych x2, M. Nowak, T. Dynda" },
         { date: "11.01.2026 17:30", team: "Mongoły - Silvestria", score: "4 - 2", scorers: "" }
+    ],
+    "2026/27": [
+        { date: "21.11.2026 09:00", team: "Silvestria - Young Boys", score: "", scorers: "" },
+        { date: "21.11.2026 09:30", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Hanmart", score: "", scorers: "" },
+        { date: "21.11.2026 10:00", team: "FC Górki - Silvestria", score: "", scorers: "" },
+        { date: "21.11.2026 10:30", team: "Young Boys - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "21.11.2026 11:00", team: "FC Górki - Hanmart", score: "", scorers: "" },
+        { date: "21.11.2026 11:30", team: "LKS Wójtowa - Aserek Team", score: "", scorers: "" },
+
+        { date: "28.11.2026 15:00", team: "Silvestria - LKS Wójtowa", score: "", scorers: "" },
+        { date: "28.11.2026 15:30", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - FC Górki", score: "", scorers: "" },
+        { date: "28.11.2026 16:00", team: "Aserek Team - Silvestria", score: "", scorers: "" },
+        { date: "28.11.2026 16:30", team: "LKS Wójtowa - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "28.11.2026 17:00", team: "Aserek Team - FC Górki", score: "", scorers: "" },
+        { date: "28.11.2026 17:30", team: "Hanmart - Young Boys", score: "", scorers: "" },
+
+        { date: "06.12.2026 14:00", team: "LKS Wójtowa - Young Boys", score: "", scorers: "" },
+        { date: "06.12.2026 14:30", team: "Hanmart - Aserek Team", score: "", scorers: "" },
+        { date: "06.12.2026 15:00", team: "Young Boys - FC Górki", score: "", scorers: "" },
+        { date: "06.12.2026 15:30", team: "Hanmart - LKS Wójtowa", score: "", scorers: "" },
+        { date: "06.12.2026 16:00", team: "Silvestria - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+
+        { date: "20.12.2026 14:00", team: "Young Boys - Aserek Team", score: "", scorers: "" },
+        { date: "20.12.2026 14:30", team: "Hanmart - Silvestria", score: "", scorers: "" },
+        { date: "20.12.2026 15:00", team: "Aserek Team - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "20.12.2026 15:30", team: "Young Boys - Silvestria", score: "", scorers: "" },
+        { date: "20.12.2026 16:00", team: "Hanmart - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "20.12.2026 16:30", team: "FC Górki - LKS Wójtowa", score: "", scorers: "" },
+
+        { date: "03.01.2027 10:00", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Aserek Team", score: "", scorers: "" },
+        { date: "03.01.2027 10:30", team: "Young Boys - Hanmart", score: "", scorers: "" },
+        { date: "03.01.2027 11:00", team: "Silvestria - FC Górki", score: "", scorers: "" },
+        { date: "03.01.2027 11:30", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Young Boys", score: "", scorers: "" },
+        { date: "03.01.2027 12:00", team: "Aserek Team - LKS Wójtowa", score: "", scorers: "" },
+        { date: "03.01.2027 12:30", team: "Hanmart - FC Górki", score: "", scorers: "" },
+        { date: "03.01.2027 13:00", team: "LKS Wójtowa - Silvestria", score: "", scorers: "" },
+
+        { date: "09.01.2027 12:00", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - Silvestria", score: "", scorers: "" },
+        { date: "09.01.2027 12:30", team: "FC Górki - Aserek Team", score: "", scorers: "" },
+        { date: "09.01.2027 13:00", team: "MK Marek Kiełtyka Ubezpieczenia Gorlice - LKS Wójtowa", score: "", scorers: "" },
+        { date: "09.01.2027 13:30", team: "Silvestria - Aserek Team", score: "", scorers: "" },
+        { date: "09.01.2027 14:00", team: "FC Górki - Young Boys", score: "", scorers: "" },
+        { date: "09.01.2027 14:30", team: "LKS Wójtowa - Hanmart", score: "", scorers: "" },
+
+        { date: "16.01.2027 14:00", team: "FC Górki - MK Marek Kiełtyka Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "16.01.2027 14:30", team: "Aserek Team - Young Boys", score: "", scorers: "" },
+        { date: "16.01.2027 15:00", team: "LKS Wójtowa - FC Górki", score: "", scorers: "" },
+        { date: "16.01.2027 15:30", team: "Aserek Team - Hanmart", score: "", scorers: "" },
+        { date: "16.01.2027 16:00", team: "Young Boys - LKS Wójtowa", score: "", scorers: "" },
+        { date: "16.01.2027 16:30", team: "Silvestria - Hanmart", score: "", scorers: "" }
     ]
 }

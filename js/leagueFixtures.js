@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const medalIcon = document.getElementById("medalIcon");
     const pdfLink = document.getElementById("pdfLink");
 
-    let currentSeason = "2025/26";
+    let currentSeason = "2026/27";
     let currentTableIndex = 0;
     seasonDropdownButton.textContent = currentSeason;
 
