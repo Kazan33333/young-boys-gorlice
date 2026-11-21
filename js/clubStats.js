@@ -1,9 +1,12 @@
 import { resultsData } from "./resultsData.js";
 import { tournamentResultsData } from "./tournamentsData.js";
+import { leagueFixturesData } from "./leagueFixturesData.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     renderClubStats();
 });
+
+const CLUB_NAME = "Young Boys Gorlice";
 
 function renderClubStats() {
     renderSummaryCards();
@@ -12,15 +15,112 @@ function renderClubStats() {
     renderAchievementsCard();
 }
 
-function parseScore(score) {
-    if (!score || !score.includes("-")) return null;
-    const [a, b] = score.split("-").map(s => parseInt(s.trim(), 10));
-    if (isNaN(a) || isNaN(b)) return null;
-    return { a, b };
+function getMatchTeams(team) {
+    if (!team) return [];
+
+    return team.split(/\s+-\s+/).map(name => name.trim());
+}
+
+function getClubIndex(match) {
+    if (!match || !match.team) return -1;
+
+    return getMatchTeams(match.team).findIndex(
+        team => team === CLUB_NAME
+    );
 }
 
 function isYBGHome(match) {
-    return match.team.startsWith("Young Boys Gorlice");
+    return getClubIndex(match) === 0;
+}
+
+function getClubScorers(match) {
+    if (!match || !match.scorers) return "";
+
+    const teams = getMatchTeams(match.team);
+    const clubIndex = getClubIndex(match);
+
+    if (clubIndex === -1) return "";
+
+    const scorerSides = match.scorers.split(/\s+-\s+/);
+
+    if (teams.length === 2 && scorerSides.length === 2) {
+        return scorerSides[clubIndex].trim();
+    }
+
+    return match.scorers.trim();
+}
+
+function getClubMatches() {
+    const allMatches = [];
+
+    // Starsze sezony z resultsData.
+    Object.entries(resultsData).forEach(([season, games]) => {
+
+        if (
+            Number(season.split("/")[0]) >= 2026 &&
+            leagueFixturesData[season]
+        ) {
+            return;
+        }
+
+        games.forEach(match => {
+
+            if (getClubIndex(match) === -1) return;
+
+            allMatches.push({
+                ...match,
+                clubScorers: getClubScorers(match),
+                source: season
+            });
+        });
+    });
+
+    Object.entries(leagueFixturesData).forEach(([season, games]) => {
+
+        if (Number(season.split("/")[0]) < 2026) return;
+
+        games.forEach(match => {
+
+            if (getClubIndex(match) === -1) return;
+
+            allMatches.push({
+                ...match,
+                clubScorers: getClubScorers(match),
+                source: season
+            });
+        });
+    });
+
+    Object.entries(tournamentResultsData).forEach(([tournament, games]) => {
+
+        games.forEach(match => {
+
+            if (getClubIndex(match) === -1) return;
+
+            allMatches.push({
+                ...match,
+                clubScorers: getClubScorers(match),
+                source: tournament
+            });
+        });
+    });
+
+    return allMatches;
+}
+
+function parseScore(score) {
+    if (!score) return null;
+
+    const match = score.match(
+        /^\s*(\d+)\s*[-–—:]\s*(\d+)\s*$/
+    );
+
+    if (!match) return null;
+
+    return {
+        a: Number(match[1]),
+        b: Number(match[2])
+    };
 }
 
 function calculateGlobalStats() {
@@ -35,32 +135,48 @@ function calculateGlobalStats() {
         seasonsCount: 0
     };
 
-    const allMatches = [
-        ...Object.values(resultsData).flat(),
-        ...Object.values(tournamentResultsData).flat()
-    ];
+    const allMatches = getClubMatches();
 
-    const seasons = Object.keys(resultsData);
-    stats.seasonsCount = seasons.length;
+    const seasons = new Set(Object.keys(resultsData));
+
+    Object.keys(leagueFixturesData).forEach(season => {
+        if (Number(season.split("/")[0]) >= 2026) {
+            seasons.add(season);
+        }
+    });
+
+    stats.seasonsCount = seasons.size;
 
     allMatches.forEach(match => {
         const parsed = parseScore(match.score);
+
         if (!parsed) return;
+
+        const clubIndex = getClubIndex(match);
+
+        if (clubIndex === -1) return;
 
         stats.matches++;
 
-        const home = isYBGHome(match);
+        const home = clubIndex === 0;
+
         const gf = home ? parsed.a : parsed.b;
         const ga = home ? parsed.b : parsed.a;
 
         stats.goalsFor += gf;
         stats.goalsAgainst += ga;
 
-        if (gf > ga) stats.wins++;
-        else if (gf === ga) stats.draws++;
-        else stats.losses++;
+        if (gf > ga) {
+            stats.wins++;
+        } else if (gf === ga) {
+            stats.draws++;
+        } else {
+            stats.losses++;
+        }
 
-        if (gf > stats.maxGoalsInMatch) stats.maxGoalsInMatch = gf;
+        if (gf > stats.maxGoalsInMatch) {
+            stats.maxGoalsInMatch = gf;
+        }
     });
 
     return stats;
@@ -68,6 +184,9 @@ function calculateGlobalStats() {
 
 function renderSummaryCards() {
     const container = document.getElementById("clubStatsCards");
+
+    if (!container) return;
+
     const s = calculateGlobalStats();
 
     container.innerHTML = `
@@ -75,27 +194,33 @@ function renderSummaryCards() {
             <div class="stat-value">${s.matches}</div>
             <div class="stat-label" data-i18n="matches"></div>
         </div>
+
         <div class="stat-card">
             <div class="stat-value">${s.wins}</div>
             <div class="stat-label" data-i18n="wins"></div>
         </div>
+
         <div class="stat-card">
             <div class="stat-value">${s.draws}</div>
             <div class="stat-label" data-i18n="draws"></div>
         </div>
+
         <div class="stat-card">
             <div class="stat-value">${s.losses}</div>
             <div class="stat-label" data-i18n="losses"></div>
         </div>
+
         <div class="stat-card">
             <div class="stat-value">${s.goalsFor}</div>
             <div class="stat-label" data-i18n="goalsScored"></div>
         </div>
+
         <div class="stat-card">
             <div class="stat-value">${s.goalsAgainst}</div>
             <div class="stat-label" data-i18n="goalsConceded"></div>
         </div>
     `;
+
     changeLanguage(currentLang);
 }
 
@@ -103,7 +228,9 @@ let clubStatsChartInstance = null;
 
 function renderResultsChart() {
     const s = calculateGlobalStats();
+
     const ctx = document.getElementById("clubStatsChart");
+
     if (!ctx) return;
 
     const labels = [
@@ -112,50 +239,72 @@ function renderResultsChart() {
         translations[currentLang]["losses"]
     ];
 
-    const data = [s.wins, s.draws, s.losses];
+    const data = [
+        s.wins,
+        s.draws,
+        s.losses
+    ];
 
     if (clubStatsChartInstance) {
         clubStatsChartInstance.data.labels = labels;
         clubStatsChartInstance.data.datasets[0].data = data;
+
         clubStatsChartInstance.update();
     } else {
         clubStatsChartInstance = new Chart(ctx, {
             type: "pie",
+
             data: {
                 labels: labels,
+
                 datasets: [{
                     data: data,
+
                     backgroundColor: [
                         "rgba(0,255,0,0.8)",
                         "rgba(255,215,0,0.8)",
                         "rgba(255,0,0,0.8)"
                     ],
+
                     borderColor: [
                         "rgba(0,190,0,1)",
                         "rgba(190,160,0,1)",
                         "rgba(190,0,0,1)"
                     ],
+
                     borderWidth: 3
                 }]
             },
+
             options: {
                 responsive: true,
+
                 plugins: {
                     tooltip: {
                         callbacks: {
                             label: function (context) {
                                 const data = context.dataset.data;
-                                const total = data.reduce((a, b) => a + b, 0);
+
+                                const total = data.reduce(
+                                    (a, b) => a + b,
+                                    0
+                                );
+
                                 const value = context.raw;
+
                                 const percent = total
                                     ? ((value / total) * 100).toFixed(1)
                                     : 0;
+
                                 return `${context.label}: ${value} (${percent}%)`;
                             }
                         }
                     },
+
                     legend: {
-                        labels: { color: "#fff" }
+                        labels: {
+                            color: "#fff"
+                        }
                     }
                 }
             }
@@ -165,6 +314,7 @@ function renderResultsChart() {
 
 function renderAchievementsCard() {
     const container = document.getElementById("achievementsCard");
+
     if (!container) return;
 
     container.innerHTML = `
@@ -232,20 +382,49 @@ function renderAchievementsCard() {
 
 function renderTopScorersTable() {
     const tbody = document.getElementById("clubStatsTableBody");
-    const allMatches = [
-        ...Object.values(resultsData).flat(),
-        ...Object.values(tournamentResultsData).flat()
-    ];
+
+    if (!tbody) return;
+
+    const allMatches = getClubMatches();
 
     const scorersMap = {};
 
     allMatches.forEach(match => {
-        if (!match.scorers) return;
-        const scorersList = match.scorers.split(",").map(s => s.trim());
+        if (!match.clubScorers) return;
+
+        const scorersList = match.clubScorers
+            .split(",")
+            .map(s => s.trim());
+
         scorersList.forEach(player => {
-            if (!player || player.toLowerCase() === "n/a" || player.toLowerCase() === "o.g." || player.toLowerCase() === "w/o") return;
-            const [name, mult] = player.split(" x");
-            const count = mult ? parseInt(mult, 10) : 1;
+            if (!player) return;
+
+            const lowerPlayer = player.toLowerCase();
+
+            if (
+                lowerPlayer === "n/a" ||
+                lowerPlayer === "o.g." ||
+                lowerPlayer === "w/o" ||
+                lowerPlayer.includes("o.g.")
+            ) {
+                return;
+            }
+
+            // Obsługa zapisów: Zawodnik, Zawodnik x2.
+            const parsed = player.match(
+                /^(.+?)(?:\s*x\s*(\d+))?$/i
+            );
+
+            if (!parsed) return;
+
+            const name = parsed[1].trim();
+
+            const count = parsed[2]
+                ? parseInt(parsed[2], 10)
+                : 1;
+
+            if (!name || isNaN(count)) return;
+
             scorersMap[name] = (scorersMap[name] || 0) + count;
         });
     });
