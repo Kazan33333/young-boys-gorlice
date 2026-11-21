@@ -31,8 +31,6 @@ function getClubScorers(match) {
     return index === -1 ? "" : scorers[index].trim();
 }
 
-// Sprawdza, czy mecz jest bezpośrednim spotkaniem
-// Young Boys Gorlice z wyszukiwaną drużyną.
 function isHeadToHead(matchTeam, search) {
     if (!matchTeam || !search) return false;
 
@@ -56,11 +54,8 @@ function searchMatches(teamName) {
 
     if (!search) return matches;
 
-    // Starsze sezony z resultsData.
     Object.entries(resultsData).forEach(([season, games]) => {
 
-        // Nie pobieramy ponownie sezonów generowanych
-        // bezpośrednio z leagueFixturesData.
         if (
             Number(season.split("/")[0]) >= 2026 &&
             leagueFixturesData[season]
@@ -70,7 +65,6 @@ function searchMatches(teamName) {
 
         games.forEach(g => {
 
-            // Tylko mecze Young Boys Gorlice z wyszukiwaną drużyną.
             if (!isHeadToHead(g.team, search)) return;
 
             matches.push({
@@ -83,15 +77,12 @@ function searchMatches(teamName) {
         });
     });
 
-    // Aktualne sezony z leagueFixturesData.
     Object.entries(leagueFixturesData).forEach(([season, games]) => {
 
         if (Number(season.split("/")[0]) < 2026) return;
 
         games.forEach(g => {
 
-            // Odrzucamy wszystkie mecze, w których
-            // nie występuje Young Boys Gorlice.
             if (!isHeadToHead(g.team, search)) return;
 
             matches.push({
@@ -104,13 +95,10 @@ function searchMatches(teamName) {
         });
     });
 
-    // Wyniki turniejowe.
     Object.entries(tournamentResultsData).forEach(([tournament, games]) => {
 
         games.forEach(g => {
 
-            // Również tutaj pokazujemy tylko bezpośrednie
-            // mecze Young Boys Gorlice z wyszukiwaną drużyną.
             if (!isHeadToHead(g.team, search)) return;
 
             matches.push({
@@ -369,7 +357,6 @@ function showSearchModal(teamName, results) {
         tableBody.appendChild(row);
     });
 
-    // Statystyki Young Boys Gorlice.
     function generateStats() {
         let matches = 0;
         let goalsFor = 0;
