@@ -1,4 +1,3 @@
-
 import { renderStandingsRows } from "./standingsTable.js";
 import { clubScoreColor, highlightClub } from "./matchUtils.js";
 import { resultsData } from "./resultsData.js";
@@ -25,10 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return translations[currentLang]?.[key] || key;
     }
 
-    // =========================================
-    // ROZPOZNAWANIE MECZÓW YOUNG BOYS
-    // =========================================
-
     function getTeams(match) {
         return match.team.split(/\s+-\s+/).map(team => team.trim());
     }
@@ -38,14 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getClubMatches(season) {
-        // Obecny sezon pobieramy bezpośrednio z terminarza.
         if (Number(season.split("/")[0]) >= 2026) {
             return (leagueFixturesData[season] || []).filter(match =>
                 getTeams(match).some(isClubTeam)
             );
         }
 
-        // Starsze sezony korzystają z dotychczasowych danych.
         return resultsData[season] || [];
     }
 
@@ -65,10 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return scorers[clubIndex].trim();
     }
-
-    // =========================================
-    // WYNIKI KLUBU
-    // =========================================
 
     function updateTable(season) {
         if (!tableBody) return;
@@ -132,10 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
-    // =========================================
-    // AUTOMATYCZNA TABELA LIGOWA
-    // =========================================
 
     function generateStandingsFromFixtures(season) {
         const matches = leagueFixturesData[season] || [];
@@ -334,10 +319,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }));
     }
 
-    // =========================================
-    // WYŚWIETLANIE TABELI
-    // =========================================
-
     function renderSingleTable(table) {
         renderStandingsRows(standingsTableBody, table);
     }
@@ -437,7 +418,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         removeNavigationButtons();
 
-        // Od sezonu 2026/27 tabela jest generowana z terminarza.
         if (Number(season.split("/")[0]) >= 2026) {
             const generatedTable = generateStandingsFromFixtures(season);
             renderSingleTable(generatedTable);
@@ -458,10 +438,6 @@ document.addEventListener("DOMContentLoaded", function () {
             renderSingleTable(seasonData);
         }
     }
-
-    // =========================================
-    // MEDAL I PDF
-    // =========================================
 
     function updateMedal(season) {
         if (!medalIcon) return;
