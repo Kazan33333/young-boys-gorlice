@@ -123,10 +123,10 @@ export const leagueFixturesData = {
         { date: "11.01.2026 17:30", team: "Mongoły - Silvestria", score: "4 - 2", scorers: "" }
     ],
     "2026/27": [
-        { date: "21.11.2026 09:00", team: "Silvestria - Young Boys Gorlice", score: "", scorers: "" },
+        { date: "21.11.2026 09:00", team: "Silvestria - Young Boys Gorlice", score: "1 - 5", scorers: "K. Kazanowski x2, Dawid Głowacki x2, Filip Kucharkowski" },
         { date: "21.11.2026 09:30", team: "MK Ubezpieczenia Gorlice - Hanmart", score: "", scorers: "" },
         { date: "21.11.2026 10:00", team: "FC Górki - Silvestria", score: "", scorers: "" },
-        { date: "21.11.2026 10:30", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "", scorers: "" },
+        { date: "21.11.2026 10:30", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 1", scorers: "Dawid Głowacki" },
         { date: "21.11.2026 11:00", team: "FC Górki - Hanmart", score: "", scorers: "" },
         { date: "21.11.2026 11:30", team: "LKS Wójtowa - Aserek Team", score: "", scorers: "" },
 
