@@ -1,46 +1,166 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const todayEl = document.getElementById("gc-today");
-    const weekEl  = document.getElementById("gc-week");
-    const totalEl = document.getElementById("gc-total");
-    if (!todayEl || !weekEl || !totalEl) return;
 
-    const base = "https://kazan33333.goatcounter.com/counter";
+(() => {
+    window.goatcounter = {
+        path: "/site-session"
+    };
 
-    function toISODate(d) {
-        return d.toISOString().split("T")[0];
+    const trackingScript = document.createElement("script");
+
+    trackingScript.src = "https://gc.zgo.at/count.js";
+    trackingScript.async = true;
+    trackingScript.dataset.goatcounter =
+        "https://kazan33333.goatcounter.com/count";
+
+    document.head.appendChild(trackingScript);
+
+    function initCounters() {
+
+        const todayEl = document.getElementById("gc-today");
+        const weekEl  = document.getElementById("gc-week");
+        const totalEl = document.getElementById("gc-total");
+
+        if (!todayEl || !weekEl || !totalEl) return;
+
+        const base =
+            "https://kazan33333.goatcounter.com/counter";
+
+        const counterURL = `${base}//site-session.json`;
+
+        function getWarsawDate() {
+
+            const parts = new Intl.DateTimeFormat("en-GB", {
+                timeZone: "Europe/Warsaw",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }).formatToParts(new Date());
+
+            const year =
+                parts.find(p => p.type === "year").value;
+
+            const month =
+                parts.find(p => p.type === "month").value;
+
+            const day =
+                parts.find(p => p.type === "day").value;
+
+            return `${year}-${month}-${day}`;
+        }
+
+        function addDays(dateString, days) {
+
+            const [year, month, day] =
+                dateString.split("-").map(Number);
+
+            const date = new Date(
+                Date.UTC(year, month - 1, day + days)
+            );
+
+            const y = date.getUTCFullYear();
+
+            const m = String(
+                date.getUTCMonth() + 1
+            ).padStart(2, "0");
+
+            const d = String(
+                date.getUTCDate()
+            ).padStart(2, "0");
+
+            return `${y}-${m}-${d}`;
+        }
+
+        async function loadCount(url, element) {
+
+            element.textContent = "…";
+
+            try {
+
+                const response = await fetch(url, {
+                    method: "GET",
+                    mode: "cors",
+                    credentials: "omit",
+                    cache: "no-store"
+                });
+
+                if (!response.ok) {
+                    throw new Error(
+                        `HTTP error: ${response.status}`
+                    );
+                }
+
+                const data = await response.json();
+
+                if (
+                    data.count === undefined ||
+                    data.count === null
+                ) {
+                    throw new Error(
+                        "Invalid GoatCounter response"
+                    );
+                }
+
+                element.textContent = data.count;
+
+            } catch (error) {
+
+                console.warn(
+                    "GoatCounter error:",
+                    error
+                );
+
+                element.textContent = "-";
+            }
+        }
+
+        const today = getWarsawDate();
+
+        const tomorrow = addDays(today, 1);
+
+        const [year, month, day] =
+            today.split("-").map(Number);
+
+        const weekday = new Date(
+            Date.UTC(year, month - 1, day)
+        ).getUTCDay();
+
+        const daysSinceMonday =
+            (weekday + 6) % 7;
+
+        const startWeek =
+            addDays(today, -daysSinceMonday);
+
+        const endWeek =
+            addDays(startWeek, 7);
+
+        loadCount(
+            `${counterURL}?start=${today}&end=${tomorrow}`,
+            todayEl
+        );
+
+        loadCount(
+            `${counterURL}?start=${startWeek}&end=${endWeek}`,
+            weekEl
+        );
+
+        loadCount(
+            counterURL,
+            totalEl
+        );
+
     }
 
-    const nowPL = new Date(
-        new Date().toLocaleString("en-US", { timeZone: "Europe/Warsaw" })
-    );
+    if (document.readyState === "loading") {
 
-    const startTodayPL = new Date(nowPL);
-    startTodayPL.setHours(0, 0, 0, 0);
+        document.addEventListener(
+            "DOMContentLoaded",
+            initCounters,
+            { once: true }
+        );
 
-    const endTodayPL = new Date(startTodayPL);
-    endTodayPL.setDate(endTodayPL.getDate() + 1);
+    } else {
 
-    const day = startTodayPL.getDay();
-    const diffToMonday = (day === 0 ? -6 : 1) - day;
+        initCounters();
 
-    const startWeekPL = new Date(startTodayPL);
-    startWeekPL.setDate(startWeekPL.getDate() + diffToMonday);
+    }
 
-    const endWeekPL = new Date(startWeekPL);
-    endWeekPL.setDate(endWeekPL.getDate() + 7);
-
-    fetch(`${base}/TOTAL.json?start=${toISODate(startTodayPL)}&end=${toISODate(endTodayPL)}`)
-        .then(r => r.json())
-        .then(d => todayEl.textContent = d.count)
-        .catch(() => todayEl.textContent = "-");
-
-    fetch(`${base}/TOTAL.json?start=${toISODate(startWeekPL)}&end=${toISODate(endWeekPL)}`)
-        .then(r => r.json())
-        .then(d => weekEl.textContent = d.count)
-        .catch(() => weekEl.textContent = "-");
-
-    fetch(`${base}/TOTAL.json`)
-        .then(r => r.json())
-        .then(d => totalEl.textContent = d.count)
-        .catch(() => totalEl.textContent = "-");
-});
+})();
