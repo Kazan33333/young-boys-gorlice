@@ -1,4 +1,3 @@
-
 (() => {
     window.goatcounter = {
         path: "/site-session"
@@ -24,7 +23,10 @@
         const base =
             "https://kazan33333.goatcounter.com/counter";
 
-        const counterURL = `${base}//site-session.json`;
+        const trackingPath = "/site-session";
+
+        const counterURL =
+            `${base}/${encodeURIComponent(trackingPath)}.json`;
 
         function getWarsawDate() {
 
