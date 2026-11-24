@@ -21,9 +21,20 @@
     <script defer src="js/logoAnimation.js"></script>
     <script src="js/snowfall.js" defer></script>
     <script type="module" src="js/search.js"></script>
-    <script data-goatcounter="https://kazan33333.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-    <script src="js/goatcounter.js"></script>
+<script>
+    window.goatcounter = {
+        path: "/site-session",
+        allow_local: true
+    };
+</script>
+
+<script
+    data-goatcounter="https://kazan33333.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js">
+</script>
+
+<script src="js/goatcounter.js" defer></script>
 </head>
 <body style="background-color: black; color: white;">
 
@@ -92,7 +103,7 @@
         <p data-i18n="historyDesc"></p>
     </main>
 
-    <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5"  style="padding: 5px !important; width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
+    <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5" style="padding: 5px !important; width: 100%; position: fixed; bottom: 0; width: 100%; z-index: 1000;">
         <div class="container d-flex justify-content-center align-items-center">
             <button class="button counter-button me-auto" style="scale: 0.75; position: relative; left: -8px;">
                 <svg fill="white" height="1.5em" class="svgIcon" viewBox="0 0 576 512"

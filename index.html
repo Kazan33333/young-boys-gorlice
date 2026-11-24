@@ -18,9 +18,20 @@
     <script defer src="js/logoAnimation.js"></script>
     <script src="js/snowfall.js" defer></script>
     <script type="module" src="js/search.js"></script>
-    <script data-goatcounter="https://kazan33333.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-    <script src="js/goatcounter.js"></script>
+<script>
+    window.goatcounter = {
+        path: "/site-session",
+        allow_local: true
+    };
+</script>
+
+<script
+    data-goatcounter="https://kazan33333.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js">
+</script>
+
+<script src="js/goatcounter.js" defer></script>
 </head>
 <body style="background-color: black; color: white;">
 
@@ -139,7 +150,7 @@
         </div>
     </main>
 
-    <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5"  style="padding: 5px !important;">
+    <footer class="bg-dark bg-gradient text-light text-center py-3 mt-5" style="padding: 5px !important;">
         <div class="container d-flex justify-content-center align-items-center">
             <button class="button counter-button me-auto" style="scale: 0.75; position: relative; left: -8px;">
                 <svg fill="white" height="1.5em" class="svgIcon" viewBox="0 0 576 512"
