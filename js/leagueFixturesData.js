@@ -124,10 +124,10 @@ export const leagueFixturesData = {
     ],
 
     "2026/27": [
-        { date: "21.11.2026 09:00", team: "Silvestria - Young Boys Gorlice", score: "1 - 5", scorers: "J. Hajduk – K. Kazanowski 2, D. Głowacki 2, F. Kucharkowski" },
-        { date: "21.11.2026 10:00", team: "FC Górki - Silvestria", score: "10 - 1", scorers: "M. Gliński 6, J. Gliński 4 – J. Hajduk" },
-        { date: "21.11.2026 10:30", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 1", scorers: "D. Głowacki – M. Żmigrodzki" },
-        { date: "21.11.2026 11:30", team: "LKS Wójtowa - Aserek Team", score: "6 - 1", scorers: "P. Alibożek 3, K. Chmiel, S. Buś, R. Rybczyk – D. Klimek" },
+        { date: "21.11.2026 09:00", team: "Silvestria - Young Boys Gorlice", score: "1 - 5", scorers: "J. Hajduk - K. Kazanowski 2, D. Głowacki 2, F. Kucharkowski" },
+        { date: "21.11.2026 10:00", team: "FC Górki - Silvestria", score: "10 - 1", scorers: "M. Gliński 6, J. Gliński 4 - J. Hajduk" },
+        { date: "21.11.2026 10:30", team: "Young Boys Gorlice - MK Ubezpieczenia Gorlice", score: "1 - 1", scorers: "D. Głowacki - M. Żmigrodzki" },
+        { date: "21.11.2026 11:30", team: "LKS Wójtowa - Aserek Team", score: "6 - 1", scorers: "P. Alibożek 3, K. Chmiel, S. Buś, R. Rybczyk - D. Klimek" },
 
         { date: "28.11.2026 14:30", team: "Aserek Team - FC Górki", score: "", scorers: "" },
         { date: "28.11.2026 15:00", team: "Silvestria - LKS Wójtowa", score: "", scorers: "" },
