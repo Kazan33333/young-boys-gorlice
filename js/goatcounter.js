@@ -1,6 +1,7 @@
 (() => {
     window.goatcounter = {
-        path: "/site-session"
+        path: "/site-session",
+        allow_local: true
     };
 
     const trackingScript = document.createElement("script");
@@ -15,7 +16,7 @@
     function initCounters() {
 
         const todayEl = document.getElementById("gc-today");
-        const weekEl  = document.getElementById("gc-week");
+        const weekEl = document.getElementById("gc-week");
         const totalEl = document.getElementById("gc-total");
 
         if (!todayEl || !weekEl || !totalEl) return;
@@ -37,17 +38,13 @@
                 day: "2-digit"
             }).formatToParts(new Date());
 
-            const year =
-                parts.find(p => p.type === "year").value;
-
-            const month =
-                parts.find(p => p.type === "month").value;
-
-            const day =
-                parts.find(p => p.type === "day").value;
+            const year = parts.find(p => p.type === "year").value;
+            const month = parts.find(p => p.type === "month").value;
+            const day = parts.find(p => p.type === "day").value;
 
             return `${year}-${month}-${day}`;
         }
+
 
         function addDays(dateString, days) {
 
@@ -58,18 +55,13 @@
                 Date.UTC(year, month - 1, day + days)
             );
 
-            const y = date.getUTCFullYear();
-
-            const m = String(
-                date.getUTCMonth() + 1
-            ).padStart(2, "0");
-
-            const d = String(
-                date.getUTCDate()
-            ).padStart(2, "0");
-
-            return `${y}-${m}-${d}`;
+            return [
+                date.getUTCFullYear(),
+                String(date.getUTCMonth() + 1).padStart(2, "0"),
+                String(date.getUTCDate()).padStart(2, "0")
+            ].join("-");
         }
+
 
         async function loadCount(url, element) {
 
@@ -85,32 +77,22 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error(
-                        `HTTP error: ${response.status}`
-                    );
+                    throw new Error(`HTTP ${response.status}`);
                 }
 
                 const data = await response.json();
 
-                if (
-                    data.count === undefined ||
-                    data.count === null
-                ) {
-                    throw new Error(
-                        "Invalid GoatCounter response"
-                    );
+                if (data.count === undefined || data.count === null) {
+                    throw new Error("Invalid GoatCounter response");
                 }
 
                 element.textContent = data.count;
 
             } catch (error) {
 
-                console.warn(
-                    "GoatCounter error:",
-                    error
-                );
-
+                console.warn("GoatCounter error:", error);
                 element.textContent = "-";
+
             }
         }
 
@@ -125,14 +107,11 @@
             Date.UTC(year, month - 1, day)
         ).getUTCDay();
 
-        const daysSinceMonday =
-            (weekday + 6) % 7;
+        const daysSinceMonday = (weekday + 6) % 7;
 
-        const startWeek =
-            addDays(today, -daysSinceMonday);
+        const startWeek = addDays(today, -daysSinceMonday);
 
-        const endWeek =
-            addDays(startWeek, 7);
+        const endWeek = addDays(startWeek, 7);
 
         loadCount(
             `${counterURL}?start=${today}&end=${tomorrow}`,
