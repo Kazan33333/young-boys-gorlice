@@ -11,11 +11,8 @@
         const base =
             "https://kazan33333.goatcounter.com/counter";
 
-        const counterURL =
-            `${base}/${encodeURIComponent("/site-session")}.json`;
+        const counterURL = `${base}/TOTAL.json`;
 
-
-        // Warsaw date
         function getWarsawDate() {
 
             const parts = new Intl.DateTimeFormat("en-GB", {
@@ -33,7 +30,6 @@
         }
 
 
-        // Add calendar days
         function addDays(dateString, days) {
 
             const [year, month, day] =
@@ -50,8 +46,6 @@
             ].join("-");
         }
 
-
-        // Retrieve GoatCounter statistics
         async function loadCount(url, element) {
 
             element.textContent = "…";
@@ -65,7 +59,6 @@
                     cache: "no-store"
                 });
 
-                // No recorded visits for this path/date range.
                 if (response.status === 404) {
                     element.textContent = "0";
                     return;
@@ -87,8 +80,6 @@
             }
         }
 
-
-        // Calculate dates
         const today = getWarsawDate();
         const tomorrow = addDays(today, 1);
 
@@ -104,20 +95,16 @@
         const startWeek = addDays(today, -daysSinceMonday);
         const endWeek = addDays(startWeek, 7);
 
-
-        // TODAY
         loadCount(
             `${counterURL}?start=${today}&end=${tomorrow}`,
             todayEl
         );
 
-        // THIS WEEK
         loadCount(
             `${counterURL}?start=${startWeek}&end=${endWeek}`,
             weekEl
         );
 
-        // ALL TIME
         loadCount(
             counterURL,
             totalEl
