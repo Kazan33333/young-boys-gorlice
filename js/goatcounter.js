@@ -1,17 +1,4 @@
 (() => {
-    window.goatcounter = {
-        path: "/site-session",
-        allow_local: true
-    };
-
-    const trackingScript = document.createElement("script");
-
-    trackingScript.src = "https://gc.zgo.at/count.js";
-    trackingScript.async = true;
-    trackingScript.dataset.goatcounter =
-        "https://kazan33333.goatcounter.com/count";
-
-    document.head.appendChild(trackingScript);
 
     function initCounters() {
 
@@ -24,11 +11,11 @@
         const base =
             "https://kazan33333.goatcounter.com/counter";
 
-        const trackingPath = "/site-session";
-
         const counterURL =
-            `${base}/${encodeURIComponent(trackingPath)}.json`;
+            `${base}/${encodeURIComponent("/site-session")}.json`;
 
+
+        // Warsaw date
         function getWarsawDate() {
 
             const parts = new Intl.DateTimeFormat("en-GB", {
@@ -46,6 +33,7 @@
         }
 
 
+        // Add calendar days
         function addDays(dateString, days) {
 
             const [year, month, day] =
@@ -63,6 +51,7 @@
         }
 
 
+        // Retrieve GoatCounter statistics
         async function loadCount(url, element) {
 
             element.textContent = "…";
@@ -76,28 +65,31 @@
                     cache: "no-store"
                 });
 
+                // No recorded visits for this path/date range.
+                if (response.status === 404) {
+                    element.textContent = "0";
+                    return;
+                }
+
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
 
                 const data = await response.json();
 
-                if (data.count === undefined || data.count === null) {
-                    throw new Error("Invalid GoatCounter response");
-                }
-
-                element.textContent = data.count;
+                element.textContent = data.count ?? "0";
 
             } catch (error) {
 
-                console.warn("GoatCounter error:", error);
+                console.warn("GoatCounter statistics error:", error);
                 element.textContent = "-";
 
             }
         }
 
-        const today = getWarsawDate();
 
+        // Calculate dates
+        const today = getWarsawDate();
         const tomorrow = addDays(today, 1);
 
         const [year, month, day] =
@@ -110,25 +102,29 @@
         const daysSinceMonday = (weekday + 6) % 7;
 
         const startWeek = addDays(today, -daysSinceMonday);
-
         const endWeek = addDays(startWeek, 7);
 
+
+        // TODAY
         loadCount(
             `${counterURL}?start=${today}&end=${tomorrow}`,
             todayEl
         );
 
+        // THIS WEEK
         loadCount(
             `${counterURL}?start=${startWeek}&end=${endWeek}`,
             weekEl
         );
 
+        // ALL TIME
         loadCount(
             counterURL,
             totalEl
         );
 
     }
+
 
     if (document.readyState === "loading") {
 
