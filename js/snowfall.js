@@ -16,7 +16,6 @@
 
         const ctx = canvas.getContext("2d", {
             alpha: true,
-            desynchronized: true
         });
 
         if (!ctx) {
@@ -93,8 +92,15 @@
                 1
             );
 
-            canvas.width = Math.max(1, Math.round(width * dpr));
-            canvas.height = Math.max(1, Math.round(height * dpr));
+            const newWidth = Math.max(1, Math.round(width * dpr));
+            const newHeight = Math.max(1, Math.round(height * dpr));
+
+            if (canvas.width !== newWidth || canvas.height !== newHeight) {
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
 
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
