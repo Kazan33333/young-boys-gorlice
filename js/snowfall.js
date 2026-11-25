@@ -182,12 +182,10 @@
             for (let i = 0; i < paths.length; i++) {
                 const group = paths[i];
 
-                if (!group.length) continue;
-
-                ctx.beginPath();
+                ctx.globalAlpha = opacities[i];
 
                 for (const p of group) {
-                    ctx.moveTo(p.x + p.radius, p.y);
+                    ctx.beginPath();
                     ctx.arc(
                         p.x,
                         p.y,
@@ -195,11 +193,9 @@
                         0,
                         Math.PI * 2
                     );
+                    ctx.fillStyle = "#fff";
+                    ctx.fill();
                 }
-
-                ctx.fillStyle = "#fff";
-                ctx.globalAlpha = opacities[i];
-                ctx.fill();
             }
 
             ctx.globalAlpha = 1;
