@@ -1,7 +1,7 @@
 
 /* ON / OFF */
 .snowfall {
-    display: none;
+    display: block;
     position: absolute;
     inset: 0;
     overflow: hidden;
