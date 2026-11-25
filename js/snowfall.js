@@ -96,8 +96,6 @@
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             }
 
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
             const count = clamp(
                 Math.round(width * height / 16000),
                 40,
