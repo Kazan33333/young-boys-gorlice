@@ -153,10 +153,7 @@ for (const season of Object.keys(clubScorers)) {
 
     resultsData[season] = clubMatches.map((match, index) => ({
         date: match.date.split(" ")[0],
-        // Preserve the spelling from the original results archive.
-        team: season === "2024/25" && index === 6
-            ? "Young Boys Gorlice - Przęłęcz Magurska"
-            : match.team,
+        team: match.team,
         score: match.score,
         scorers: clubScorers[season][index]
     }));
