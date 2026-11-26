@@ -102,10 +102,13 @@
                 200
             );
 
-            particles = Array.from(
-                { length: count },
-                () => createParticle()
-            );
+            while (particles.length < count) {
+                particles.push(createParticle());
+            }
+
+            while (particles.length > count) {
+                particles.pop();
+            }
         }
 
         function updateWind(dt) {
