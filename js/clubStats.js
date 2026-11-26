@@ -1,6 +1,7 @@
 import { resultsData } from "./resultsData.js";
 import { tournamentResultsData } from "./tournamentsData.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
+import { getTeamScorers } from "./scorerUtils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     renderClubStats();
@@ -33,8 +34,12 @@ function isYBGHome(match) {
     return getClubIndex(match) === 0;
 }
 
-function getClubScorers(match) {
+function getClubScorers(match, sourceType = "legacy") {
     if (!match || !match.scorers) return "";
+
+    if (sourceType === "league") {
+        return getTeamScorers(match, CLUB_NAME);
+    }
 
     const teams = getMatchTeams(match.team);
     const clubIndex = getClubIndex(match);
@@ -53,7 +58,6 @@ function getClubScorers(match) {
 function getClubMatches() {
     const allMatches = [];
 
-    // Starsze sezony z resultsData.
     Object.entries(resultsData).forEach(([season, games]) => {
 
         if (
@@ -75,6 +79,7 @@ function getClubMatches() {
         });
     });
 
+    // Nowe sezony z leagueFixturesData.
     Object.entries(leagueFixturesData).forEach(([season, games]) => {
 
         if (Number(season.split("/")[0]) < 2026) return;
@@ -85,12 +90,13 @@ function getClubMatches() {
 
             allMatches.push({
                 ...match,
-                clubScorers: getClubScorers(match),
+                clubScorers: getClubScorers(match, "league"),
                 source: season
             });
         });
     });
 
+    // Wyniki turniejów.
     Object.entries(tournamentResultsData).forEach(([tournament, games]) => {
 
         games.forEach(match => {
@@ -405,24 +411,24 @@ function renderTopScorersTable() {
                 lowerPlayer === "n/a" ||
                 lowerPlayer === "o.g." ||
                 lowerPlayer === "w/o" ||
+                lowerPlayer === "sam." ||
                 lowerPlayer.includes("o.g.")
             ) {
                 return;
             }
 
-            const parsed = player.match(
-                /^(.+?)(?:\s*\s*(\d+))?$/i
-            );
+            // Odczytujemy liczbę goli na końcu wpisu.
+            const parsed = player.match(/^(.+?)\s+(\d+)$/);
 
-            if (!parsed) return;
+            const name = parsed
+                ? parsed[1].trim()
+                : player;
 
-            const name = parsed[1].trim();
-
-            const count = parsed[2]
+            const count = parsed
                 ? parseInt(parsed[2], 10)
                 : 1;
 
-            if (!name || isNaN(count)) return;
+            if (!name || !count) return;
 
             scorersMap[name] = (scorersMap[name] || 0) + count;
         });
