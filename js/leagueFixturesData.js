@@ -20,7 +20,7 @@ export const leagueFixturesData = {
         { date: "01.12.2024 16:00", team: "JGS Gorlice - Grzmotomocni", score: "6 - 1", scorers: "M. Firlit 2, A. Juszczak, J. Kuzio, K. Sierant, R. Gucwa - R. Stach" },
         { date: "01.12.2024 16:30", team: "Silvestria - Rawian Glass", score: "2 - 1", scorers: "P. Padoł 2 - M. Hajduk" },
         { date: "01.12.2024 17:00", team: "Redlions - Przełęcz Magurska", score: "1 - 1", scorers: "J. Rutana - I. Wojna" },
-        { date: "01.12.2024 17:30", team: "Grzmotomocni - Young Boys Gorlice", score: "0 - 2", scorers: "F. Kucharkowski, K. Wójtowicz" },
+        { date: "01.12.2024 17:30", team: "Grzmotomocni - Young Boys Gorlice", score: "0 - 2", scorers: "n/a - F. Kucharkowski, K. Wójtowicz" },
         { date: "01.12.2024 18:00", team: "Przełęcz Magurska - Silvestria", score: "2 - 2", scorers: "I. Wojna, M. Hryc - M. Konieczko, R. Korba" },
         { date: "01.12.2024 18:30", team: "Young Boys Gorlice - Redlions", score: "7 - 1", scorers: "K. Kazanowski 3, K. Wójtowicz 2, P. Piecuch - M. Ślawski" },
 
@@ -48,7 +48,7 @@ export const leagueFixturesData = {
         { date: "22.12.2024 17:00", team: "Young Boys Gorlice - Przełęcz Magurska", score: "4 - 2", scorers: "K. Wójtowicz 3, M. Węgrzyn - M. Szczepanik, T. Cetnarowski" },
         { date: "22.12.2024 17:30", team: "Rawian Glass - Hanmart Gorlice", score: "3 - 4", scorers: "M. Hajduk 2, M. Dąbrowski - K. Grela 2, K. Kukla, K. Dąbrowski" },
 
-        { date: "29.12.2024 13:00", team: "JGS Gorlice - Young Boys Gorlice", score: "0 - 2", scorers: "M. Węgrzyn, P. Piecuch" },
+        { date: "29.12.2024 13:00", team: "JGS Gorlice - Young Boys Gorlice", score: "0 - 2", scorers: "n/a - M. Węgrzyn, P. Piecuch" },
         { date: "29.12.2024 13:30", team: "Sokół Staszkówka - Rawian Glass", score: "1 - 1", scorers: "D. Jantas - M. Dąbrowski" },
         { date: "29.12.2024 14:00", team: "JGS Gorlice - LKS Łużna", score: "1 - 2", scorers: "J. Kuzio - D. Koperniak, D. Rybak" },
         { date: "29.12.2024 14:30", team: "Young Boys Gorlice - Hanmart Gorlice", score: "2 - 5", scorers: "K. Wójtowicz 2 - D. Ogrodnik 2, K. Grela 2, W. Wrona" },
