@@ -3,6 +3,7 @@ import { highlightClub } from "./matchUtils.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
 import { standingsData } from "./standingsData.js";
 import { seasonMedals } from "./seasonMedals.js";
+import { formatMatchScorers } from "./scorerUtils.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const seasonDropdownButton = document.getElementById("fixturesSeasonDropdown");

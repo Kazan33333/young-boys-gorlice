@@ -1,6 +1,7 @@
 import { resultsData } from "./resultsData.js";
 import { tournamentResultsData } from "./tournamentsData.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
+import { getTeamScorers } from "./scorerUtils.js";
 
 let chartInstance = null;
 
@@ -19,16 +20,7 @@ function getClubIndex(match) {
 }
 
 function getClubScorers(match) {
-    if (!match.scorers) return "";
-
-    const teams = getMatchTeams(match.team);
-    const scorers = match.scorers.split(/\s+-\s+/);
-
-    if (teams.length !== 2 || scorers.length !== 2) return "";
-
-    const index = teams.findIndex(isClubName);
-
-    return index === -1 ? "" : scorers[index].trim();
+    return getTeamScorers(match, CLUB_NAME);
 }
 
 function isHeadToHead(matchTeam, search) {

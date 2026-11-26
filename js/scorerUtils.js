@@ -6,11 +6,15 @@ export function formatScorerList(scorers) {
     return scorers.split(",").map(scorer => {
         scorer = scorer.trim();
 
-        if (scorer === "sam." || scorer === "w/o" || scorer === "n/a") {
+        if (
+            scorer === "sam." ||
+            scorer === "w/o" ||
+            scorer === "n/a"
+        ) {
             return scorer;
         }
 
-        const match = scorer.match(/^(.*?)\s*(?:x\s*)?(\d+)?$/);
+        const match = scorer.match(/^(.*?)\s*(?:x\s*)?(\d+)?$/i);
 
         if (!match) return scorer;
 
@@ -20,7 +24,7 @@ export function formatScorerList(scorers) {
         const fullName = playerNames[shortName] || shortName;
 
         return goals > 1
-            ? `${fullName}  ${goals}`
+            ? `${fullName} ${goals}`
             : fullName;
 
     }).join(", ");
@@ -29,12 +33,15 @@ export function formatScorerList(scorers) {
 export function formatMatchScorers(scorers) {
     if (!scorers) return "";
 
-    const sides = scorers.split(/\s+-\s+/);
-
-    return sides.map(formatScorerList).join(" - ");
+    return scorers
+        .split(/\s+-\s+/)
+        .map(formatScorerList)
+        .join(" - ");
 }
 
 export function getTeamScorers(match, teamName) {
+    if (!match?.scorers || !match?.team) return "";
+
     const sides = match.scorers.split(/\s+-\s+/);
     const teams = match.team.split(/\s+-\s+/);
 

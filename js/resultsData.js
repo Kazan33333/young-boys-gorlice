@@ -1,7 +1,6 @@
 import { leagueFixturesData } from "./leagueFixturesData.js";
+import { getTeamScorers } from "./scorerUtils.js";
 
-// Historical seasons precede the detailed league-fixture archive.
-// The 2024/25 and 2025/26 records are derived below from the canonical fixtures.
 export const resultsData = {
     "2018/19": [
         { date: "25.11.2018", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "2 - 0", scorers: "n/a" },
@@ -13,8 +12,8 @@ export const resultsData = {
         { date: "05.01.2019", team: "Young Boys Gorlice - AL-KAM Gorlice", score: "1 - 11", scorers: "" },
         { date: "12.01.2019", team: "Young Boys Gorlice - LKS Kwiatonowice", score: "2 - 2", scorers: "" },
         { date: "12.01.2019", team: "Young Boys Gorlice - Haller Gorlice", score: "3 - 3", scorers: "" },
-        { date: "19.01.2019", team: "Stemik Klęczany - Young Boys Gorlice", score: "3 - 5", scorers: "Tomasz Mituś x3, Kacper Szpyrka, Kacper Wójtowicz" },
-        { date: "26.01.2019", team: "Young Boys Gorlice - Podhalanin Biecz", score: "4 - 2", scorers: "Kacper Wójtowicz x3, Jan Zawiliński" },
+        { date: "19.01.2019", team: "Stemik Klęczany - Young Boys Gorlice", score: "3 - 5", scorers: "Tomasz Mituś 3, Kacper Szpyrka, Kacper Wójtowicz" },
+        { date: "26.01.2019", team: "Young Boys Gorlice - Podhalanin Biecz", score: "4 - 2", scorers: "Kacper Wójtowicz 3, Jan Zawiliński" },
         { date: "26.01.2019", team: "LKS Nafta Kryg - Young Boys Gorlice", score: "1 - 1", scorers: "" },
         { date: "02.02.2019", team: "Young Boys Gorlice - Ogień Sękowa", score: "6 - 2", scorers: "" },
         { date: "09.02.2019", team: "AL-KAM Gorlice - Young Boys Gorlice", score: "1 - 5", scorers: "" },
@@ -27,16 +26,16 @@ export const resultsData = {
     ],
     "2019/20": [
         { date: "24.11.2019", team: "Young Boys Gorlice - Eko-Par Wiklowski", score: "1 - 3", scorers: "Kacper Wójtowicz" },
-        { date: "24.11.2019", team: "Young Boys Gorlice - LKS Łużna", score: "6 - 3", scorers: "Krzysztof Kazanowski x2, Kacper Szpyrka, Kacper Wójtowicz, Jan Zawiliński, Patryk Góratowski" },
+        { date: "24.11.2019", team: "Young Boys Gorlice - LKS Łużna", score: "6 - 3", scorers: "Krzysztof Kazanowski 2, Kacper Szpyrka, Kacper Wójtowicz, Jan Zawiliński, Patryk Góratowski" },
         { date: "30.11.2019", team: "LKS Nafta Kryg - Young Boys Gorlice", score: "0 - 2", scorers: "Kacper Wójtowicz, Sebastian Buś" },
         { date: "08.12.2019", team: "Young Boys Gorlice - Haller Gorlice", score: "4 - 2", scorers: "Jan Zawiliński, Kacper Szpyrka, Kacper Wójtowicz, Sebastian Buś" },
-        { date: "22.12.2019", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "1 - 4", scorers: "Piotr Kukuła x2, Kacper Wójtowicz, Krzysztof Kazanowski" },
-        { date: "04.01.2020", team: "Abstynenci Gorlice - Young Boys Gorlice", score: "1 - 5", scorers: "Kacper Szpyrka x2, Piotr Kukuła, Jan Zawiliński, Krzysztof Kazanowski" },
-        { date: "04.01.2019", team: "Young Boys Gorlice - Stemik Klęczany", score: "4 - 1", scorers: "Patryk Góratowski x2, Szymon Zaworski, Kacper Szpyrka" },
+        { date: "22.12.2019", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "1 - 4", scorers: "Piotr Kukuła 2, Kacper Wójtowicz, Krzysztof Kazanowski" },
+        { date: "04.01.2020", team: "Abstynenci Gorlice - Young Boys Gorlice", score: "1 - 5", scorers: "Kacper Szpyrka 2, Piotr Kukuła, Jan Zawiliński, Krzysztof Kazanowski" },
+        { date: "04.01.2019", team: "Young Boys Gorlice - Stemik Klęczany", score: "4 - 1", scorers: "Patryk Góratowski 2, Szymon Zaworski, Kacper Szpyrka" },
         { date: "18.01.2020", team: "Hanmart Gorlice - Young Boys Gorlice", score: "3 - 3" },
         { date: "26.01.2020", team: "PMOS Biecz - Young Boys Gorlice", score: "1 - 4" },
         { date: "26.01.2020", team: "Young Boys Gorlice - Gór-Bet", score: "4 - 2" },
-        { date: "02.02.2020", team: "Young Boys Gorlice - Lodownia Gorlice", score: "7 - 0", scorers: "Sebastian Buś x3, Krzysztof Kazanowski x2, Jan Zawiliński, Kacper Szpyrka" },
+        { date: "02.02.2020", team: "Young Boys Gorlice - Lodownia Gorlice", score: "7 - 0", scorers: "Sebastian Buś 3, Krzysztof Kazanowski 2, Jan Zawiliński, Kacper Szpyrka" },
         { date: "09.02.2020", team: "Silvestria - Young Boys Gorlice", score: "2 - 4", scorers: "" },
         { date: "15.02.2020", team: "Young Boys Gorlice - LKS Szymbark", score: "1 - 2", scorers: "" },
         { date: "23.02.2020", team: "LKS Zagórzany - Young Boys Gorlice", score: "0 - 5", scorers: "" },
@@ -53,29 +52,29 @@ export const resultsData = {
         { date: "27.12.2020", team: "Coco Jambo - Young Boys Gorlice", score: "8 - 1" }
     ],
     "2021/22": [
-        { date: "20.11.2021", team: "Olimpijczyk Racławice - Young Boys Gorlice", score: "1 - 2", scorers: "Kacper Wójtowicz x2" },
-        { date: "27.11.2021", team: "Haller Gorlice - Young Boys Gorlice", score: "0 - 4", scorers: "Kacper Wójtowicz x2, Krzysztof Kazanowski, Jakub Wierzba" },
-        { date: "27.11.2021", team: "Young Boys Gorlice - Panenka Gorlice", score: "3 - 0", scorers: "Kacper Wójtowicz x2, Krzysztof Kazanowski" },
+        { date: "20.11.2021", team: "Olimpijczyk Racławice - Young Boys Gorlice", score: "1 - 2", scorers: "Kacper Wójtowicz 2" },
+        { date: "27.11.2021", team: "Haller Gorlice - Young Boys Gorlice", score: "0 - 4", scorers: "Kacper Wójtowicz 2, Krzysztof Kazanowski, Jakub Wierzba" },
+        { date: "27.11.2021", team: "Young Boys Gorlice - Panenka Gorlice", score: "3 - 0", scorers: "Kacper Wójtowicz 2, Krzysztof Kazanowski" },
         { date: "04.12.2021", team: "Gór-Bet - Young Boys Gorlice", score: "1 - 0", scorers: "n/a" },
         { date: "04.12.2021", team: "Silvestria - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz, Jakub Wierzba, o.g." },
         { date: "11.12.2021", team: "LKS Szymbark - Young Boys Gorlice", score: "1 - 2", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz" },
         { date: "09.01.2022", team: "Young Boys Gorlice - Lodownia Gorlice", score: "2 - 1", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz" },
         { date: "15.01.2022", team: "Young Boys Gorlice - LKS Bystra", score: "2 - 0", scorers: "Kacper Szpyrka, o.g." },
         { date: "15.01.2022", team: "LKS Łużna - Young Boys Gorlice", score: "1 - 1", scorers: "Kacper Wójtowicz" },
-        { date: "23.01.2022", team: "Rawian Glass - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz x2, Piotr Rokosz" },
-        { date: "23.01.2022", team: "Young Boys Gorlice - Uganda Ravesen", score: "3 - 6", scorers: "Kacper Wójtowicz x2, Filip Kucharkowski" },
+        { date: "23.01.2022", team: "Rawian Glass - Young Boys Gorlice", score: "2 - 3", scorers: "Kacper Wójtowicz 2, Piotr Rokosz" },
+        { date: "23.01.2022", team: "Young Boys Gorlice - Uganda Ravesen", score: "3 - 6", scorers: "Kacper Wójtowicz 2, Filip Kucharkowski" },
         { date: "05.02.2022", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "Piotr Rokosz" },
         { date: "12.02.2022", team: "Young Boys Gorlice - Wysowa-Zdrój", score: "1 - 3", scorers: "Jakub Wierzba" },
-        { date: "20.02.2022", team: "Rawian Glass - Young Boys Gorlice", score: "1 - 3", scorers: "Krzysztof Kazanowski x2, Jakub Wierzba" },
+        { date: "20.02.2022", team: "Rawian Glass - Young Boys Gorlice", score: "1 - 3", scorers: "Krzysztof Kazanowski 2, Jakub Wierzba" },
         { date: "20.02.2022", team: "Young Boys Gorlice - Silvestria", score: "1 - 2", scorers: "Filip Kucharkowski" },
-        { date: "27.02.2022", team: "Young Boys Gorlice - Olimpijczyk Racławice", score: "8 - 0", scorers: "Kacper Szpyrka x4, Kacper Wójtowicz x3, Bartłomiej Knych" },
+        { date: "27.02.2022", team: "Young Boys Gorlice - Olimpijczyk Racławice", score: "8 - 0", scorers: "Kacper Szpyrka 4, Kacper Wójtowicz 3, Bartłomiej Knych" },
         { date: "27.02.2022", team: "Wysowa-Zdrój - Young Boys Gorlice", score: "0 - 5", scorers: "w/o" },
         { date: "05.03.2022", team: "Young Boys Gorlice - Hanmart Gorlice", score: "1 - 4", scorers: "Kacper Wójtowicz" },
         { date: "05.03.2022", team: "Uganda Ravesen - Young Boys Gorlice", score: "8 - 1", scorers: "Kacper Wójtowicz" },
     ],
     "2022/23": [
-        { date: "26.11.2022", team: "FC Czysta - Young Boys Gorlice", score: "1 - 5", scorers: "Kacper Wójtowicz x2, Krzysztof Kazanowski, Bartłomiej Knych, Tomasz Kotowicz" },
-        { date: "26.11.2022", team: "Wojnarowa - Young Boys Gorlice", score: "1 - 7", scorers: "Kacper Wójtowicz x3, Krzysztof Kazanowski, Kacper Szpyrka, Bartłomiej Knych, Tomasz Kotowicz" },
+        { date: "26.11.2022", team: "FC Czysta - Young Boys Gorlice", score: "1 - 5", scorers: "Kacper Wójtowicz 2, Krzysztof Kazanowski, Bartłomiej Knych, Tomasz Kotowicz" },
+        { date: "26.11.2022", team: "Wojnarowa - Young Boys Gorlice", score: "1 - 7", scorers: "Kacper Wójtowicz 3, Krzysztof Kazanowski, Kacper Szpyrka, Bartłomiej Knych, Tomasz Kotowicz" },
         { date: "04.12.2022", team: "Silvestria - Young Boys Gorlice", score: "1 - 1", scorers: "Kacper Wójtowicz" },
         { date: "04.12.2022", team: "Gór-Bet - Young Boys Gorlice", score: "1 - 3", scorers: "Kacper Wójtowicz, Kacper Szpyrka, Piotr Rokosz" },
         { date: "11.12.2022", team: "Young Boys Gorlice - Smakołysze", score: "3 - 6", scorers: "Kacper Wójtowicz, Kacper Szpyrka, Tomasz Kotowicz" },
@@ -83,78 +82,48 @@ export const resultsData = {
         { date: "07.01.2023", team: "Glinik Junior - Young Boys Gorlice", score: "4 - 0", scorers: "n/a" },
         { date: "14.01.2023", team: "Young Boys Gorlice - LKS Łużna", score: "2 - 1", scorers: "Kacper Szpyrka, Piotr Rokosz" },
         { date: "05.02.2023", team: "Young Boys Gorlice - Silvestria", score: "4 - 1", scorers: "Krzysztof Kazanowski, Kacper Wójtowicz, Kacper Szpyrka, Kamil Brzozowski" },
-        { date: "05.02.2023", team: "Young Boys Gorlice - Gór-Bet", score: "7 - 2", scorers: "Piotr Kukuła x4, Krzysztof Kazanowski, Kacper Wójtowicz, Dominik Czyżyk" },
-        { date: "05.02.2023", team: "Young Boys Gorlice - FC Czysta", score: "11 - 2", scorers: "Kacper Wójtowicz x3, Kacper Szpyrka x3, Bartłomiej Knych x2, Piotr Kukuła x2, Piotr Rokosz" },
+        { date: "05.02.2023", team: "Young Boys Gorlice - Gór-Bet", score: "7 - 2", scorers: "Piotr Kukuła 4, Krzysztof Kazanowski, Kacper Wójtowicz, Dominik Czyżyk" },
+        { date: "05.02.2023", team: "Young Boys Gorlice - FC Czysta", score: "11 - 2", scorers: "Kacper Wójtowicz 3, Kacper Szpyrka 3, Bartłomiej Knych 2, Piotr Kukuła 2, Piotr Rokosz" },
         { date: "12.02.2023", team: "Smakołysze - Young Boys Gorlice", score: "0 - 5", scorers: "w/o" },
-        { date: "19.02.2023", team: "Young Boys Gorlice - Glinik Junior", score: "6 - 1", scorers: "Kacper Wójtowicz x3, Kacper Szpyrka, Bartłomiej Knych, Krzysztof Kazanowski" },
-        { date: "26.02.2023", team: "Hanmart Gorlice - Young Boys Gorlice", score: "6 - 4", scorers: "Kamil Brzozowski x2, Bartłomiej Knych, Kacper Szpyrka" },
-        { date: "26.02.2023", team: "Young Boys Gorlice - LKS Łużna", score: "4 - 5", scorers: "Kacper Szpyrka x2, Bartłomiej Knych, Piotr Kukuła" },
+        { date: "19.02.2023", team: "Young Boys Gorlice - Glinik Junior", score: "6 - 1", scorers: "Kacper Wójtowicz 3, Kacper Szpyrka, Bartłomiej Knych, Krzysztof Kazanowski" },
+        { date: "26.02.2023", team: "Hanmart Gorlice - Young Boys Gorlice", score: "6 - 4", scorers: "Kamil Brzozowski 2, Bartłomiej Knych, Kacper Szpyrka" },
+        { date: "26.02.2023", team: "Young Boys Gorlice - LKS Łużna", score: "4 - 5", scorers: "Kacper Szpyrka 2, Bartłomiej Knych, Piotr Kukuła" },
     ],
     "2023/24": [
-        { date: "25.11.2023", team: "Young Boys Gorlice - Silvestria", score: "7 - 0", scorers: "Kacper Wójtowicz x4, Filip Kucharkowski x2, Tomasz Mituś" },
-        { date: "25.11.2023", team: "Young Boys Gorlice - Ogień Sękowa", score: "6 - 0", scorers: "Kacper Wójtowicz x2, Tomasz Mituś x2, Filip Kucharkowski, Hubert Czech" },
+        { date: "25.11.2023", team: "Young Boys Gorlice - Silvestria", score: "7 - 0", scorers: "Kacper Wójtowicz 4, Filip Kucharkowski 2, Tomasz Mituś" },
+        { date: "25.11.2023", team: "Young Boys Gorlice - Ogień Sękowa", score: "6 - 0", scorers: "Kacper Wójtowicz 2, Tomasz Mituś 2, Filip Kucharkowski, Hubert Czech" },
         { date: "02.12.2023", team: "Beskid Autokomis - Young Boys Gorlice", score: "0 - 3", scorers: "Krzysztof Kazanowski, Filip Kucharkowski, Tomasz Mituś" },
-        { date: "02.12.2023", team: "Young Boys Gorlice - Wysowa-Zdrój", score: "3 - 5", scorers: "Tomasz Mituś x2, Kacper Wójtowicz" },
+        { date: "02.12.2023", team: "Young Boys Gorlice - Wysowa-Zdrój", score: "3 - 5", scorers: "Tomasz Mituś 2, Kacper Wójtowicz" },
         { date: "23.12.2023", team: "Hanmart Gorlice - Young Boys Gorlice", score: "7 - 2", scorers: "Kacper Wójtowicz, Tomasz Mituś" },
         { date: "23.12.2023", team: "Grzmotomocni - Young Boys Gorlice", score: "3 - 1", scorers: "Kacper Wójtowicz" },
         { date: "23.12.2023", team: "LKS Łużna - Young Boys Gorlice", score: "11 - 0", scorers: "n/a" },
-        { date: "07.01.2024", team: "Glinik Junior - Young Boys Gorlice", score: "3 - 2", scorers: "Kacper Szpyrka x2" },
-        { date: "13.01.2024", team: "Ogień Sękowa - Young Boys Gorlice", score: "3 - 5", scorers: "Krzysztof Kazanowski x2, Tomasz Mituś x2, Piotr Kukuła" },
-        { date: "13.01.2024", team: "Young Boys Gorlice - Hanmart Gorlice", score: "4 - 12", scorers: "Tomasz Mituś x3, Filip Kucharkowski" },
-        { date: "21.01.2024", team: "Silvestria - Young Boys Gorlice", score: "4 - 3", scorers: "Jakub Paszyński x2, Tomasz Abram" },
-        { date: "21.01.2024", team: "Young Boys Gorlice - Beskid Autokomis", score: "4 - 2", scorers: "Krzysztof Kazanowski x3, Tomasz Abram" },
+        { date: "07.01.2024", team: "Glinik Junior - Young Boys Gorlice", score: "3 - 2", scorers: "Kacper Szpyrka 2" },
+        { date: "13.01.2024", team: "Ogień Sękowa - Young Boys Gorlice", score: "3 - 5", scorers: "Krzysztof Kazanowski 2, Tomasz Mituś 2, Piotr Kukuła" },
+        { date: "13.01.2024", team: "Young Boys Gorlice - Hanmart Gorlice", score: "4 - 12", scorers: "Tomasz Mituś 3, Filip Kucharkowski" },
+        { date: "21.01.2024", team: "Silvestria - Young Boys Gorlice", score: "4 - 3", scorers: "Jakub Paszyński 2, Tomasz Abram" },
+        { date: "21.01.2024", team: "Young Boys Gorlice - Beskid Autokomis", score: "4 - 2", scorers: "Krzysztof Kazanowski 3, Tomasz Abram" },
         { date: "03.02.2024", team: "Young Boys Gorlice - Grzmotomocni", score: "5 - 0", scorers: "w/o" },
         { date: "03.02.2024", team: "Young Boys Gorlice - Glinik Junior", score: "1 - 11", scorers: "Jakub Paszyński" },
-        { date: "03.02.2024", team: "Wysowa-Zdrój - Young Boys Gorlice", score: "6 - 3", scorers: "Filip Kucharkowski x2, Michał Nowak" },
+        { date: "03.02.2024", team: "Wysowa-Zdrój - Young Boys Gorlice", score: "6 - 3", scorers: "Filip Kucharkowski 2, Michał Nowak" },
         { date: "11.02.2024", team: "Young Boys Gorlice - LKS Łużna", score: "5 - 0", scorers: "w/o" }
     ],
 };
 
-// Club-only descriptions differ from the full league's abbreviated scorer lists.
-// Each array corresponds to the Young Boys fixtures in chronological order.
-const clubScorers = {
-    "2024/25": [
-        "Krzysztof Kazanowski",
-        "Krzysztof Kazanowski, Filip Kucharkowski, Przemysław Piecuch, Tomasz Abram",
-        "Filip Kucharkowski, Kacper Wójtowicz",
-        "Krzysztof Kazanowski x3, Kacper Wójtowicz x2, Przemysław Piecuch",
-        "Krzysztof Kazanowski x4, Kacper Szpyrka x2, Michał Nowak x2, Tomasz Abram",
-        "Michał Nowak x3, Mateusz Węgrzyn x2, Krzysztof Kazanowski x2, Kacper Szpyrka, Tomasz Abram",
-        "Kacper Wójtowicz x3, Mateusz Węgrzyn",
-        "Mateusz Węgrzyn, Przemysław Piecuch",
-        "Kacper Wójtowicz, Przemysław Piecuch",
-        "Krzysztof Kazanowski, Filip Kucharkowski, Kacper Wójtowicz, Bartłomiej Knych",
-        "Kacper Wójtowicz, Kacper Szpyrka"
-    ],
-    "2025/26": [
-        "Radosław Gucwa",
-        "Krzysztof Kazanowski x3",
-        "Filip Kucharkowski, Radosław Gucwa, Michał Nowak",
-        "n/a",
-        "Radosław Gucwa x4, Dawid Głowacki",
-        "n/a",
-        "Radosław Gucwa, Kacper Szpyrka, Krzysztof Kazanowski",
-        "n/a",
-        "Radosław Gucwa x4, Filip Kucharkowski, Bartłomiej Knych",
-        "Krzysztof Kazanowski",
-        "Radosław Gucwa x2",
-        "Bartłomiej Knych x2, Michał Nowak, Tomasz Dynda"
-    ]
-};
+for (const season of Object.keys(leagueFixturesData)) {
 
-for (const season of Object.keys(clubScorers)) {
     const clubMatches = leagueFixturesData[season].filter(match =>
         match.team.includes("Young Boys Gorlice")
     );
 
-    if (clubMatches.length !== clubScorers[season].length) {
-        throw new Error(`Mismatched fixture and club scorer counts in ${season}`);
-    }
+    if (clubMatches.length === 0) continue;
 
     resultsData[season] = clubMatches.map((match, index) => ({
         date: match.date.split(" ")[0],
+
         team: match.team,
+
         score: match.score,
-        scorers: clubScorers[season][index]
+
+        scorers: getTeamScorers(match, "Young Boys Gorlice")
     }));
 }

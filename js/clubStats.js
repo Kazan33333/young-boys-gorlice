@@ -410,9 +410,8 @@ function renderTopScorersTable() {
                 return;
             }
 
-            // Obsługa zapisów: Zawodnik, Zawodnik x2.
             const parsed = player.match(
-                /^(.+?)(?:\s*x\s*(\d+))?$/i
+                /^(.+?)(?:\s*\s*(\d+))?$/i
             );
 
             if (!parsed) return;
