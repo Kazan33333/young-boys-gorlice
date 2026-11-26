@@ -31,7 +31,7 @@ export const resultsData = {
         { date: "08.12.2019", team: "Young Boys Gorlice - Haller Gorlice", score: "4 - 2", scorers: "Jan Zawiliński, Kacper Szpyrka, Kacper Wójtowicz, Sebastian Buś" },
         { date: "22.12.2019", team: "LKS Kwiatonowice - Young Boys Gorlice", score: "1 - 4", scorers: "Piotr Kukuła 2, Kacper Wójtowicz, Krzysztof Kazanowski" },
         { date: "04.01.2020", team: "Abstynenci Gorlice - Young Boys Gorlice", score: "1 - 5", scorers: "Kacper Szpyrka 2, Piotr Kukuła, Jan Zawiliński, Krzysztof Kazanowski" },
-        { date: "04.01.2019", team: "Young Boys Gorlice - Stemik Klęczany", score: "4 - 1", scorers: "Patryk Góratowski 2, Szymon Zaworski, Kacper Szpyrka" },
+        { date: "04.01.2020", team: "Young Boys Gorlice - Stemik Klęczany", score: "4 - 1", scorers: "Patryk Góratowski 2, Szymon Zaworski, Kacper Szpyrka" },
         { date: "18.01.2020", team: "Hanmart Gorlice - Young Boys Gorlice", score: "3 - 3" },
         { date: "26.01.2020", team: "PMOS Biecz - Young Boys Gorlice", score: "1 - 4" },
         { date: "26.01.2020", team: "Young Boys Gorlice - Gór-Bet", score: "4 - 2" },
