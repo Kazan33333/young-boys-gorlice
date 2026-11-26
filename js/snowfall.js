@@ -53,13 +53,13 @@
                 x: random(0, width),
                 y,
 
-                radius: size < 0.12
-                    ? random(3.0, 4.0)
+                radius: size < 0.18
+                    ? random(3.5, 4.8)
                     : size < 0.5
-                        ? random(2.0, 3.0)
-                        : random(1.1, 1.8),
+                        ? random(2.2, 3.3)
+                        : random(1.2, 2.0),
 
-                speed: random(25, 34),
+                speed: random(38, 52),
 
                 sway: random(1.2, 4),
                 frequency: random(0.5, 1.3),
@@ -67,11 +67,11 @@
 
                 windFactor: random(0.65, 1.35),
 
-                opacity: size < 0.12
-                    ? 0.85
+                opacity: size < 0.18
+                    ? 1.0
                     : size < 0.5
-                        ? 0.65
-                        : 0.4
+                        ? 0.8
+                        : 0.6
             };
         }
 
@@ -97,9 +97,9 @@
             }
 
             const count = clamp(
-                Math.round(width * height / 16000),
-                40,
-                120
+                Math.round(width * height / 8000),
+                70,
+                200
             );
 
             particles = Array.from(
@@ -112,10 +112,10 @@
             if (elapsed >= nextGust) {
                 const strongGust = Math.random() < 0.18;
 
-                targetWind = random(
-                    strongGust ? -38 : -16,
-                    strongGust ? 38 : 16
-                );
+            targetWind = random(
+                strongGust ? -55 : -24,
+                strongGust ? 55 : 24
+            );
 
                 nextGust = elapsed + random(3, 7);
             }
@@ -175,7 +175,7 @@
                 paths[group].push(p);
             }
 
-            const opacities = [0.4, 0.65, 0.85];
+            const opacities = [0.6, 0.8, 1.0];
 
             for (let i = 0; i < paths.length; i++) {
                 const group = paths[i];
