@@ -13,6 +13,6 @@ export const playerNames = {
     "P. Kukuła": "Piotr Kukuła",
     "J. Paszyński": "Jakub Paszyński",
     "M. Wolniarski": "Mateusz Wolniarski",
-    "R.Gucwa": "Radosław Gucwa",
+    "R. Gucwa": "Radosław Gucwa",
     "D. Czyżyk": "Dominik Czyżyk"
 };

@@ -4,6 +4,7 @@ import { resultsData } from "./resultsData.js";
 import { standingsData } from "./standingsData.js";
 import { seasonMedals } from "./seasonMedals.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
+import { formatMatchScorers } from "./scorerUtils.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById("resultsTableBody");
@@ -81,12 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 ? getClubScorers(match)
                 : match.scorers;
 
+            const formattedScorers = formatMatchScorers(scorers);
+
             const scoreDisplay = match.score
                 ? match.score
                 : `<span data-i18n="table.toBePlayed">${t("table.toBePlayed")}</span>`;
 
-            const scorersDisplay = scorers
-                ? scorers
+            const scorersDisplay = formattedScorers
+                ? formattedScorers
                 : `<span data-i18n="table.noData">${t("table.noData")}</span>`;
 
             return `
