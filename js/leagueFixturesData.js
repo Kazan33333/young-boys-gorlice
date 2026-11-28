@@ -102,25 +102,25 @@ export const leagueFixturesData = {
         { date: "14.12.2025 16:30", team: "Hanmart Gorlice - Redlions", score: "5 - 1", scorers: "K. Grela, K. Dąbrowski, A. Juszczak, D. Rybak, S. Honkowicz - M. Ślawski" },
 
         { date: "28.12.2025 14:00", team: "MK Ubezpieczenia Gorlice - FC Melina", score: "0 - 3", scorers: "" },
-        { date: "28.12.2025 14:30", team: "Young Boys Gorlice - Silvestria", score: "0 - 0", scorers: "" },
+        { date: "28.12.2025 14:30", team: "Young Boys Gorlice - Silvestria", score: "0 - 0", scorers: "n/a" },
         { date: "28.12.2025 15:00", team: "Mongoły - Hanmart Gorlice", score: "1 - 1", scorers: "" },
         { date: "28.12.2025 15:30", team: "MK Ubezpieczenia Gorlice - Young Boys Gorlice", score: "0 - 6", scorers: "n/a - R. Gucwa 4, F. Kucharkowski, B. Knych" },
         { date: "28.12.2025 16:00", team: "Silvestria - Hanmart Gorlice", score: "0 - 1", scorers: "" },
         { date: "28.12.2025 16:30", team: "Redlions - Mongoły", score: "3 - 3", scorers: "" },
 
-        { date: "04.01.2026 14:00", team: "MK Ubezpieczenia Gorlice - Mongoły", score: "3 - 1", scorers: "" },
+        { date: "04.01.2026 14:00", team: "MK Ubezpieczenia Gorlice - Mongoły", score: "3 - 1", scorers: "M. Gąsior, D. Nosal, K. Grądalski - P. Piecuch" },
         { date: "04.01.2026 14:30", team: "Hanmart Gorlice - FC Melina", score: "5 - 0", scorers: "w/o" },
-        { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "2 - 3", scorers: "" },
+        { date: "04.01.2026 15:00", team: "MK Ubezpieczenia Gorlice - Redlions", score: "2 - 3", scorers: "D. Nosal 2 - H. Czech, D. Świątkowski, P. Alibożek" },
         { date: "04.01.2026 15:30", team: "Mongoły - FC Melina", score: "5 - 0", scorers: "w/o" },
         { date: "04.01.2026 16:00", team: "Hanmart Gorlice - Young Boys Gorlice", score: "2 - 1", scorers: "? - K. Kazanowski" },
-        { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "3 - 2", scorers: "" },
+        { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "3 - 2", scorers: "P. Alibożek, K. Czech, P. Świątkowski - J. Hajduk, P. Sekuła" },
 
-        { date: "11.01.2026 15:00", team: "Hanmart Gorlice - MK Ubezpieczenia Gorlice", score: "5 - 4", scorers: "" },
-        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "? - R. Gucwa 2" },
-        { date: "11.01.2026 16:00", team: "Redlions - Hanmart Gorlice", score: "2 - 1", scorers: "" },
-        { date: "11.01.2026 16:30", team: "FC Melina - Silvestria", score: "2 - 1", scorers: "" },
-        { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "B. Knych 2, M. Nowak, T. Dynda - ?" },
-        { date: "11.01.2026 17:30", team: "Mongoły - Silvestria", score: "4 - 2", scorers: "" }
+        { date: "11.01.2026 15:00", team: "Hanmart Gorlice - MK Ubezpieczenia Gorlice", score: "5 - 4", scorers: "M. Firlit 2, K. Dąbrowski 2, K. Grela - K. Grądalski 2, D. Nosal 2" },
+        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "K. Piotrowski 2, S. Dziuban, K. Ćwiklik - R. Gucwa 2" },
+        { date: "11.01.2026 16:00", team: "Redlions - Hanmart Gorlice", score: "2 - 1", scorers: "H. Czech, P. Alibożek - K. Dąbrowski" },
+        { date: "11.01.2026 16:30", team: "FC Melina - Silvestria", score: "2 - 1", scorers: "K. Ćwiklik 2 - R. Korba" },
+        { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "B. Knych 2, M. Nowak, T. Dynda - H. Czech, P. Alibożek" },
+        { date: "11.01.2026 17:30", team: "Mongoły - Silvestria", score: "4 - 2", scorers: "P. Padoł 3, M. Szczepanik - J. Galas, R. Korba" }
     ],
 
     "2026/27": [
