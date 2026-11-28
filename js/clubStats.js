@@ -1,7 +1,7 @@
 import { resultsData } from "./resultsData.js";
 import { tournamentResultsData } from "./tournamentsData.js";
 import { leagueFixturesData } from "./leagueFixturesData.js";
-import { getTeamScorers } from "./scorerUtils.js";
+import { formatScorerList, getTeamScorers } from "./scorerUtils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     renderClubStats();
@@ -49,10 +49,10 @@ function getClubScorers(match, sourceType = "legacy") {
     const scorerSides = match.scorers.split(/\s+-\s+/);
 
     if (teams.length === 2 && scorerSides.length === 2) {
-        return scorerSides[clubIndex].trim();
+        return formatScorerList(scorerSides[clubIndex].trim());
     }
 
-    return match.scorers.trim();
+    return formatScorerList(match.scorers.trim());
 }
 
 function getClubMatches() {
