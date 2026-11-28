@@ -116,7 +116,7 @@ export const leagueFixturesData = {
         { date: "04.01.2026 16:30", team: "Redlions - Silvestria", score: "3 - 2", scorers: "" },
 
         { date: "11.01.2026 15:00", team: "Hanmart Gorlice - MK Ubezpieczenia Gorlice", score: "5 - 4", scorers: "" },
-        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "R. Gucwa 2" },
+        { date: "11.01.2026 15:30", team: "FC Melina - Young Boys Gorlice", score: "4 - 2", scorers: "? - R. Gucwa 2" },
         { date: "11.01.2026 16:00", team: "Redlions - Hanmart Gorlice", score: "2 - 1", scorers: "" },
         { date: "11.01.2026 16:30", team: "FC Melina - Silvestria", score: "2 - 1", scorers: "" },
         { date: "11.01.2026 17:00", team: "Young Boys Gorlice - Redlions", score: "4 - 2", scorers: "B. Knych 2, M. Nowak, T. Dynda - ?" },
